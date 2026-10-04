@@ -54,5 +54,11 @@
   window.siteConfig = fetch("config.json", { cache: "no-cache" })
     .then(r => { if (!r.ok) throw new Error(`config.json: HTTP ${r.status}`); return r.json(); })
     .then(render)
-    .catch(err => { console.error("Could not load config.json:", err); return null; });
+    .catch(err => {
+      console.error("Could not load config.json:", err);
+      if (location.protocol === "file:") {  // browsers block fetch() on pages opened straight from disk
+        document.body.insertAdjacentHTML("afterbegin", '<div style="position:sticky;top:0;z-index:300;background:#7A1F17;color:#fff;font:600 14px/1.5 system-ui,sans-serif;padding:10px 16px;text-align:center">Content needs a local server to load. In this folder run <code style="background:rgba(255,255,255,.15);padding:2px 6px;border-radius:4px">python3 -m http.server 8000</code> and open <code style="background:rgba(255,255,255,.15);padding:2px 6px;border-radius:4px">http://localhost:8000</code></div>');
+      }
+      return null;
+    });
 })();
