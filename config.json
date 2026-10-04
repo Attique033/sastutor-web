@@ -6,7 +6,9 @@
     "formEndpoint": "",
     "instagram": "https://www.instagram.com/sastutors_/",
     "instagramHandle": "@sastutors_",
-    "enrolmentBanner": "Now enrolling · Term 4"
+    "enrolmentBanner": "Now enrolling · Term 4",
+    "about": "Fundamentals-first 1:1 online tutoring for Years 4–12 and international curriculums. Based in Pakistan, teaching students worldwide.",
+    "tutorFormEndpoint": ""
   },
   "currency": "$",
   "priceUnit": "/hour",
@@ -31,20 +33,16 @@
   ],
   "tutors": [
     {
-      "name": "Daniel",
-      "subject": "Maths and Physics",
-      "credentials": "BSc (Hons) Physics · 6 yrs teaching",
+      "name": "Shoaib",
+      "subject": "Physics",
+      "credentials": "Physics Lecturer · Founder of SAS Tutors",
       "photo": "assets/img/tutor-1.webp",
       "subjects": [
-        "Maths",
         "Physics"
       ],
-      "curricula": [
-        "HSC",
-        "IGCSE"
-      ],
-      "style": "Turns formulas into stories you actually remember.",
-      "bestFor": "students who get it in class but freeze in tests"
+      "curricula": [],
+      "style": "Builds every Physics topic up from first principles.",
+      "bestFor": "students aiming for top grades in Physics"
     },
     {
       "name": "Sophie",
@@ -164,7 +162,7 @@
     {
       "type": "stat",
       "value": "Yr 4–12",
-      "label": "plus IGCSE, A-Level and IB, online Australia-wide"
+      "label": "plus IGCSE, A-Level and IB, taught online worldwide"
     },
     {
       "type": "instagram",
@@ -236,47 +234,45 @@
   "footer": {
     "subjects": [
       {
-        "label": "Maths tutoring",
+        "label": "Maths",
         "href": "#"
       },
       {
-        "label": "English tutoring",
+        "label": "English",
         "href": "#"
       },
       {
-        "label": "Physics tutoring",
+        "label": "Physics",
         "href": "#"
       },
       {
-        "label": "Chemistry tutoring",
+        "label": "Chemistry",
         "href": "#"
       },
       {
-        "label": "Biology tutoring",
-        "href": "#"
-      }
-    ],
-    "locations": [
-      {
-        "label": "Sydney · NSW",
-        "href": "#"
-      },
-      {
-        "label": "Melbourne · VIC",
-        "href": "#"
-      },
-      {
-        "label": "Canberra · ACT",
-        "href": "#"
-      },
-      {
-        "label": "Dubai · UAE",
-        "href": "#"
-      },
-      {
-        "label": "United Kingdom",
+        "label": "Biology",
         "href": "#"
       }
     ]
-  }
+  },
+  "curricula": [
+    "Years 4–6",
+    "Years 7–10",
+    "NAPLAN",
+    "Selective schools",
+    "HSC",
+    "VCE",
+    "IGCSE",
+    "GCSE",
+    "A-Level",
+    "IB",
+    "University"
+  ],
+  "teachingExperience": [
+    "Less than 1 year",
+    "1–3 years",
+    "3–5 years",
+    "5–10 years",
+    "10+ years"
+  ]
 }

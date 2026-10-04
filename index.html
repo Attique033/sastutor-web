@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en-AU">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SAS Tutors · Expert 1:1 Online Tutoring · Free Trial Lesson</title>
 <meta name="description" content="Hand-picked expert tutors for Years 4–12, HSC, VCE, IGCSE and A-Level. Fundamentals first, progress every week. Book your free trial lesson.">
 <meta property="og:title" content="SAS Tutors · Master the fundamentals. The grades follow.">
@@ -32,7 +32,8 @@ try{if(sessionStorage.sasSplash)document.documentElement.classList.add("seen");s
   --accent:#8A9A5B; --accent-2:#9AAA69; --sun:#CBD69E; --blue:#5B6B32; --mint:#3F7A5E; --sky:#E6EFEA;
   --on-accent:#1E2A0F; --glow:110,125,60; --ring:180,193,127; --ruled:#D3E3DE;
 }
-*{box-sizing:border-box;margin:0}
+*{box-sizing:border-box;margin:0;scrollbar-width:none}
+*::-webkit-scrollbar{display:none}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 body{font:400 17px/1.6 var(--sans);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -189,7 +190,7 @@ section{padding:clamp(72px,9vw,120px) 0}
 .fc-in{position:relative;height:100%;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.2,.8,.2,1)}
 .fc.flipped .fc-in{transform:rotateY(180deg)}
 .face{position:absolute;inset:0;border-radius:24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--card);border:1px solid var(--line);box-shadow:0 24px 44px -22px rgba(16,33,58,.4)}
-.face-front img{width:100%;height:320px;object-fit:cover}
+.face-front img{width:100%;height:320px;object-fit:cover;object-position:50% 22%}
 .fc-body{padding:18px 20px}
 .fc-body h3{font-size:22px;display:flex;align-items:center;gap:8px}
 .fc-body h3 svg{width:18px;height:18px;color:var(--mint)}
@@ -267,18 +268,18 @@ details p{color:var(--ink-2);margin-top:12px;max-width:640px}
 
 /* footer */
 footer{padding:72px 0 120px;font-size:15px;color:var(--ink-2)}
-.foot{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:40px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px}
 .foot h4{font:600 13px/1 var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:16px}
 .foot ul{list-style:none;padding:0;display:grid;gap:10px}
 .foot a{text-decoration:none}.foot a:hover{color:var(--ink);text-decoration:underline}
 .legal{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px}
 @media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
 
-/* iOS: paint the status-bar and toolbar areas in the brand colour (Safari samples edge colours) */
-html{background:var(--ink)}
-.edge{position:fixed;left:0;right:0;z-index:70;background:var(--ink);pointer-events:none}
-.edge.t{top:0;height:env(safe-area-inset-top,0px)}
-.edge.b{bottom:0;height:env(safe-area-inset-bottom,0px)}
+/* iOS Safari tints its status bar and toolbar from the body colour: body is brand ink, content sits on paper */
+html,body{background:var(--ink)}
+main,footer{background:var(--paper)}
+.nav{background:var(--paper);transition:padding .45s cubic-bezier(.2,.8,.2,1),background-color .3s}
+.nav.scrolled{background:transparent}
 
 /* mobile sticky bar */
 .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:none;gap:10px;padding:10px;border-radius:22px;background:var(--card);box-shadow:0 10px 40px -10px rgba(16,33,58,.45);transform:translateY(130%);transition:transform .3s}
@@ -322,6 +323,8 @@ dialog[open]{animation:pop .25s ease-out}
 @keyframes step-b{from{opacity:0;transform:translateX(-28px)}}
 .fine{font-size:13px;color:var(--ink-2);margin-top:14px;text-align:center}
 .page[hidden]{display:none}
+.apply-err{color:#B3261E;font-size:14px;font-weight:600;margin:4px 0}
+#apply .chips{margin-bottom:18px}
 .done{text-align:center;padding:12px 0}
 .done .big{width:84px;height:84px;border-radius:50%;margin:0 auto 20px;display:grid;place-items:center;background:#E2F2EA;font-size:40px}
 .done ol{text-align:left;margin:24px 0;padding-left:20px;display:grid;gap:8px;color:var(--ink-2)}
@@ -373,6 +376,7 @@ dialog[open]{animation:pop .25s ease-out}
       <li><a href="#reviews">Reviews</a></li>
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
+      <li><a href="#" data-open-apply>Teach with us</a></li>
     </ul>
     <button class="btn" data-open-trial data-src="nav">Book free trial</button>
   </div>
@@ -571,16 +575,14 @@ dialog[open]{animation:pop .25s ease-out}
 <footer>
   <div class="wrap">
     <div class="foot">
-      <div><a class="logo" href="#top" aria-label="SAS Tutors home"><span class="logo-v1"><b>SAS</b>Tutors</span><svg class="lg" viewBox="0 0 859 300" aria-hidden="true"><path class="lg-hl" pathLength="1" fill="none" stroke-width="51.0" stroke-linecap="round" d="M333.4 210.0Q429.4 204.0 525.4 180.0"/><path class="lg-s" transform="translate(0.0 300.0) scale(0.4545 -0.4545)" d="M299 -14Q229 -14 176.5 2.0Q124 18 89.0 48.0Q54 78 37.5 120.5Q21 163 23 215L173 248Q175 202 192.5 173.5Q210 145 240.0 131.5Q270 118 307 118Q337 118 360.0 125.5Q383 133 396.5 146.5Q410 160 410 178Q410 202 392.0 217.5Q374 233 342.5 244.0Q311 255 271 266Q228 278 185.5 292.5Q143 307 108.0 329.0Q73 351 51.5 386.0Q30 421 30 473Q30 537 62.5 582.0Q95 627 152.5 650.5Q210 674 284 674Q362 674 423.0 647.5Q484 621 517.0 570.0Q550 519 543 445L395 421Q396 451 389.0 474.0Q382 497 367.5 513.0Q353 529 331.0 537.5Q309 546 279 546Q248 546 227.5 538.0Q207 530 196.5 516.0Q186 502 186 484Q186 463 202.0 449.0Q218 435 248.0 424.5Q278 414 319 403Q362 391 405.5 376.5Q449 362 486.0 338.5Q523 315 545.5 278.0Q568 241 568 184Q568 118 533.5 74.0Q499 30 438.5 8.0Q378 -14 299 -14Z"/><path class="lg-a" d="M282.4 300.0L411.4 0.0H447.4L576.4 300.0H499.9L429.4 136.0L358.9 300.0Z"/><path class="lg-s" transform="translate(592.9 300.0) scale(0.4545 -0.4545)" d="M299 -14Q229 -14 176.5 2.0Q124 18 89.0 48.0Q54 78 37.5 120.5Q21 163 23 215L173 248Q175 202 192.5 173.5Q210 145 240.0 131.5Q270 118 307 118Q337 118 360.0 125.5Q383 133 396.5 146.5Q410 160 410 178Q410 202 392.0 217.5Q374 233 342.5 244.0Q311 255 271 266Q228 278 185.5 292.5Q143 307 108.0 329.0Q73 351 51.5 386.0Q30 421 30 473Q30 537 62.5 582.0Q95 627 152.5 650.5Q210 674 284 674Q362 674 423.0 647.5Q484 621 517.0 570.0Q550 519 543 445L395 421Q396 451 389.0 474.0Q382 497 367.5 513.0Q353 529 331.0 537.5Q309 546 279 546Q248 546 227.5 538.0Q207 530 196.5 516.0Q186 502 186 484Q186 463 202.0 449.0Q218 435 248.0 424.5Q278 414 319 403Q362 391 405.5 376.5Q449 362 486.0 338.5Q523 315 545.5 278.0Q568 241 568 184Q568 118 533.5 74.0Q499 30 438.5 8.0Q378 -14 299 -14Z"/></svg></a><p style="margin-top:16px;max-width:320px">Fundamentals-first 1:1 tutoring for Years 4–12 and international curriculums, online across Australia and beyond.</p></div>
+      <div><a class="logo" href="#top" aria-label="SAS Tutors home"><span class="logo-v1"><b>SAS</b>Tutors</span><svg class="lg" viewBox="0 0 859 300" aria-hidden="true"><path class="lg-hl" pathLength="1" fill="none" stroke-width="51.0" stroke-linecap="round" d="M333.4 210.0Q429.4 204.0 525.4 180.0"/><path class="lg-s" transform="translate(0.0 300.0) scale(0.4545 -0.4545)" d="M299 -14Q229 -14 176.5 2.0Q124 18 89.0 48.0Q54 78 37.5 120.5Q21 163 23 215L173 248Q175 202 192.5 173.5Q210 145 240.0 131.5Q270 118 307 118Q337 118 360.0 125.5Q383 133 396.5 146.5Q410 160 410 178Q410 202 392.0 217.5Q374 233 342.5 244.0Q311 255 271 266Q228 278 185.5 292.5Q143 307 108.0 329.0Q73 351 51.5 386.0Q30 421 30 473Q30 537 62.5 582.0Q95 627 152.5 650.5Q210 674 284 674Q362 674 423.0 647.5Q484 621 517.0 570.0Q550 519 543 445L395 421Q396 451 389.0 474.0Q382 497 367.5 513.0Q353 529 331.0 537.5Q309 546 279 546Q248 546 227.5 538.0Q207 530 196.5 516.0Q186 502 186 484Q186 463 202.0 449.0Q218 435 248.0 424.5Q278 414 319 403Q362 391 405.5 376.5Q449 362 486.0 338.5Q523 315 545.5 278.0Q568 241 568 184Q568 118 533.5 74.0Q499 30 438.5 8.0Q378 -14 299 -14Z"/><path class="lg-a" d="M282.4 300.0L411.4 0.0H447.4L576.4 300.0H499.9L429.4 136.0L358.9 300.0Z"/><path class="lg-s" transform="translate(592.9 300.0) scale(0.4545 -0.4545)" d="M299 -14Q229 -14 176.5 2.0Q124 18 89.0 48.0Q54 78 37.5 120.5Q21 163 23 215L173 248Q175 202 192.5 173.5Q210 145 240.0 131.5Q270 118 307 118Q337 118 360.0 125.5Q383 133 396.5 146.5Q410 160 410 178Q410 202 392.0 217.5Q374 233 342.5 244.0Q311 255 271 266Q228 278 185.5 292.5Q143 307 108.0 329.0Q73 351 51.5 386.0Q30 421 30 473Q30 537 62.5 582.0Q95 627 152.5 650.5Q210 674 284 674Q362 674 423.0 647.5Q484 621 517.0 570.0Q550 519 543 445L395 421Q396 451 389.0 474.0Q382 497 367.5 513.0Q353 529 331.0 537.5Q309 546 279 546Q248 546 227.5 538.0Q207 530 196.5 516.0Q186 502 186 484Q186 463 202.0 449.0Q218 435 248.0 424.5Q278 414 319 403Q362 391 405.5 376.5Q449 362 486.0 338.5Q523 315 545.5 278.0Q568 241 568 184Q568 118 533.5 74.0Q499 30 438.5 8.0Q378 -14 299 -14Z"/></svg></a><p style="margin-top:16px;max-width:320px" data-cfg="business.about"></p></div>
       <div><h4>Subjects</h4><ul id="foot-subjects"></ul></div>
-      <div><h4>Locations</h4><ul id="foot-locations"></ul></div>
-      <div><h4>Company</h4><ul><li><a href="#founder">Our story</a></li><li><a href="#" data-todo="tutor page">Become a tutor</a></li><li><a href="#faq">FAQ</a></li><li><a href="#" data-wa>Contact us</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#founder">Our story</a></li><li><a href="#" data-open-apply>Become a tutor</a></li><li><a href="#faq">FAQ</a></li><li><a href="#" data-wa>Contact us</a></li></ul></div>
     </div>
-    <div class="legal"><span>© <span id="yr"></span> SAS Tutors</span><span><a href="#" data-todo="legal">Privacy</a> · <a href="#" data-todo="legal">Terms</a></span></div>
+    <div class="legal"><span>© <span id="yr"></span> SAS Tutors</span></div>
   </div>
 </footer>
 
-<div class="edge t" aria-hidden="true"></div><div class="edge b" aria-hidden="true"></div>
 <div class="mbar" id="mbar">
   <button class="btn" data-open-trial data-src="mobile-bar">Book free trial</button>
   <a class="btn wa" data-wa href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
@@ -642,6 +644,42 @@ dialog[open]{animation:pop .25s ease-out}
       <button type="submit" class="btn" id="next">Continue →</button>
     </div>
     <p class="fine" id="fine">Free · No card needed · Your details stay private</p>
+  </form>
+</dialog>
+
+<!-- BECOME A TUTOR -->
+<dialog id="apply" aria-labelledby="apply-title">
+  <form class="dlg" id="apply-form" novalidate>
+    <div class="dlg-top"><span class="eyebrow">Teach with SAS Tutors</span><button type="button" class="x" data-close aria-label="Close">×</button></div>
+    <div class="page" data-step="form">
+      <h3 id="apply-title">Apply to become a tutor</h3><p class="hint">Takes about 3 minutes. We reply to every application on WhatsApp.</p>
+      <div class="grid2">
+        <div class="field"><label for="a-name">Full name</label><input id="a-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="a-country">Country</label><input id="a-country" name="country" autocomplete="country-name" value="Pakistan" required></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="a-wa">WhatsApp number</label><input id="a-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="+92 3xx xxxxxxx" pattern="^\+?[0-9 ()-]{8,20}$" required></div>
+        <div class="field"><label for="a-email">Email</label><input id="a-email" name="email" type="email" autocomplete="email" required></div>
+      </div>
+      <div class="grid2">
+        <div class="field"><label for="a-qual">Highest qualification</label><input id="a-qual" name="qualification" placeholder="e.g. MPhil Physics" required></div>
+        <div class="field"><label for="a-exp">Teaching experience</label><select id="a-exp" name="experience" required><option value="">Choose</option></select></div>
+      </div>
+      <p class="hint" style="margin:8px 0 10px">Subjects you teach</p>
+      <div class="chips" id="apply-subjects" data-group="subjects"></div>
+      <p class="hint" style="margin:0 0 10px">Curriculums you know</p>
+      <div class="chips" id="apply-curricula" data-group="curricula"></div>
+      <div class="field"><label for="a-cv">Link to your CV (optional)</label><input id="a-cv" name="cv" type="url" placeholder="Google Drive or LinkedIn link"></div>
+      <div class="field"><label for="a-about">Why do you want to teach with us? (optional)</label><textarea id="a-about" name="about" rows="2"></textarea></div>
+      <p class="apply-err" id="apply-err" hidden>Pick at least one subject.</p>
+      <button type="submit" class="btn" style="width:100%;margin-top:8px">Send application</button>
+    </div>
+    <div class="page done" data-step="done" hidden>
+      <div class="big">🙌</div>
+      <h3>Application received</h3>
+      <p class="hint">Thank you. Our team reviews every application and will message you on WhatsApp about next steps: a short interview, then a demo lesson.</p>
+      <a class="btn wa" data-wa id="apply-wa" href="#" style="width:100%">Send your CV on WhatsApp</a>
+    </div>
   </form>
 </dialog>
 
@@ -713,6 +751,28 @@ setInterval(() => {
 }, 4200);
 layout();
 }
+
+// become-a-tutor application
+const apply = $("#apply"), aform = $("#apply-form");
+const aStep = st => $$("[data-step]", aform).forEach(p => p.hidden = p.dataset.step !== st);
+$$("[data-open-apply]").forEach(a => a.addEventListener("click", e => { e.preventDefault(); aStep("form"); apply.showModal(); track("apply_open"); }));
+$("[data-close]", apply).onclick = () => apply.close();
+apply.addEventListener("click", e => e.target === apply && apply.close());
+aform.addEventListener("submit", e => {
+  e.preventDefault();
+  let ok = true;
+  $$("[required]", aform).forEach(el => { const bad = !el.checkValidity(); el.closest(".field").classList.toggle("err", bad); if (bad && ok) { el.focus(); ok = false; } });
+  const fd = new FormData(aform), subjects = fd.getAll("subjects"), curricula = fd.getAll("curricula");
+  $("#apply-err").hidden = subjects.length > 0;
+  if (!ok || !subjects.length) return;
+  const d = { ...Object.fromEntries(fd), subjects: subjects.join(", "), curricula: curricula.join(", ") };
+  track("apply_submit", { subjects: d.subjects });
+  if (cfg?.business.tutorFormEndpoint) fetch(cfg.business.tutorFormEndpoint, { method: "POST", body: JSON.stringify(d) }).catch(() => {});
+  const msg = `Hi SAS Tutors! I'd like to apply as a tutor.\nName: ${d.name} (${d.country})\nSubjects: ${d.subjects}${d.curricula ? `\nCurriculums: ${d.curricula}` : ""}\nQualification: ${d.qualification}\nExperience: ${d.experience}\nEmail: ${d.email}${d.cv ? `\nCV: ${d.cv}` : ""}${d.about ? `\nAbout me: ${d.about}` : ""}`;
+  $("#apply-wa").href = waLink(msg);
+  aStep("done");
+  if (!cfg?.business.tutorFormEndpoint) window.open(waLink(msg), "_blank", "noopener");
+});
 
 // staggered entrances: everything that enters view together reveals in DOM order, 90ms apart
 document.documentElement.classList.add("io");

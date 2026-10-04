@@ -47,7 +47,11 @@
 
     const links = list => list.map(l => `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`).join("");
     fill("#foot-subjects", links(cfg.footer.subjects));
-    fill("#foot-locations", links(cfg.footer.locations));
+    // become-a-tutor form: subject/curriculum chips and experience options
+    const chips = (sel, name, list) => fill(sel, list.map(o => `<label><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join(""));
+    chips("#apply-subjects", "subjects", cfg.subjects.filter(x => x !== "Other"));
+    chips("#apply-curricula", "curricula", cfg.curricula);
+    document.querySelector("#a-exp")?.insertAdjacentHTML("beforeend", cfg.teachingExperience.map(o => `<option>${esc(o)}</option>`).join(""));
     return cfg;
   }
 
