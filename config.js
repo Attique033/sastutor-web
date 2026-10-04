@@ -6,6 +6,7 @@
   const fill = (sel, html) => { const el = document.querySelector(sel); if (el) el.innerHTML = html; };
   const stars = '<span class="stars">★★★★★</span>';
   const badge = '<svg viewBox="0 0 24 24" fill="currentColor" aria-label="Verified"><path d="M12 2l2.4 2.2 3.2-.4.9 3.1 2.9 1.5-1 3.1 1 3.1-2.9 1.5-.9 3.1-3.2-.4L12 22l-2.4-2.2-3.2.4-.9-3.1-2.9-1.5 1-3.1-1-3.1 2.9-1.5.9-3.1 3.2.4z"/><path d="M8 12l3 3 5-6" stroke="#fff" stroke-width="2" fill="none"/></svg>';
+  const crown = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 12H5z"/></svg>';
   const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   function render(cfg) {
@@ -22,7 +23,7 @@
 
     fill("#deck", cfg.tutors.map(t => `
       <article class="fc" aria-label="${esc(t.name)}, ${esc(t.subject)} tutor"><div class="fc-in">
-        <div class="face face-front"><img src="${esc(t.photo)}" alt="${esc(t.name)}, ${esc(t.subject)} tutor" width="600" height="720" loading="lazy" draggable="false">
+        <div class="face face-front">${t.badge ? `<span class="fc-badge">${crown}${esc(t.badge)}</span>` : ""}<img src="${esc(t.photo)}" alt="${esc(t.name)}, ${esc(t.subject)} tutor" width="600" height="720" loading="lazy" draggable="false">
           <div class="fc-body"><h3>${esc(t.name)} ${badge}</h3><p class="sub">${esc(t.credentials)}</p>
             <div class="tags">${t.subjects.map(x => `<span>${esc(x)}</span>`).join("")}${t.curricula.map(x => `<span class="c">${esc(x)}</span>`).join("")}</div></div></div>
         <div class="face face-back"><span class="eyebrow">How ${esc(t.name)} teaches</span><p class="style">${esc(t.style)}</p>

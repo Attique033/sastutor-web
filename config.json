@@ -19,6 +19,7 @@
     "Chemistry",
     "Biology",
     "Science (general)",
+    "Statistics",
     "Economics",
     "Computer Science",
     "Other"
@@ -35,14 +36,18 @@
     {
       "name": "Shoaib",
       "subject": "Physics",
-      "credentials": "Physics Lecturer · Founder of SAS Tutors",
+      "credentials": "Physics Lecturer · 7 yrs teaching",
       "photo": "assets/img/tutor-1.webp",
       "subjects": [
-        "Physics"
+        "Maths",
+        "Physics",
+        "Chemistry",
+        "Statistics"
       ],
       "curricula": [],
       "style": "Builds every Physics topic up from first principles.",
-      "bestFor": "students aiming for top grades in Physics"
+      "bestFor": "students aiming for top grades in Physics",
+      "badge": "Top selected"
     },
     {
       "name": "Sophie",
