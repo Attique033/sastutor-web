@@ -162,7 +162,8 @@ def svg(els, w, h, title, css=""):
 def main():
     os.makedirs(OUT, exist_ok=True)
     B, F = Text(font("brico")), Text(font("fig"))
-    parts = {"stacked": stacked(B, F), "horizontal": horizontal(B), "compact": compact(B), "mark": mark(B)}
+    mono, mw = monogram(B, 0, 300, 300)
+    parts = {"stacked": stacked(B, F), "horizontal": horizontal(B), "compact": compact(B), "monogram": (mono, mw, 300), "mark": mark(B)}
     for v, p in PALETTES.items():
         sfx = "" if v == "v1" else "-v2"
         for name, (els, w, h) in parts.items():
