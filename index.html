@@ -2,7 +2,7 @@
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SAS Tutors · Expert 1:1 Online Tutoring · Free Trial Lesson</title>
 <meta name="description" content="Hand-picked expert tutors for Years 4–12, HSC, VCE, IGCSE and A-Level. Fundamentals first, progress every week. Book your free trial lesson.">
 <meta property="og:title" content="SAS Tutors · Master the fundamentals. The grades follow.">
@@ -273,6 +273,12 @@ footer{padding:72px 0 120px;font-size:15px;color:var(--ink-2)}
 .foot a{text-decoration:none}.foot a:hover{color:var(--ink);text-decoration:underline}
 .legal{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px}
 @media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+
+/* iOS: paint the status-bar and toolbar areas in the brand colour (Safari samples edge colours) */
+html{background:var(--ink)}
+.edge{position:fixed;left:0;right:0;z-index:70;background:var(--ink);pointer-events:none}
+.edge.t{top:0;height:env(safe-area-inset-top,0px)}
+.edge.b{bottom:0;height:env(safe-area-inset-bottom,0px)}
 
 /* mobile sticky bar */
 .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:none;gap:10px;padding:10px;border-radius:22px;background:var(--card);box-shadow:0 10px 40px -10px rgba(16,33,58,.45);transform:translateY(130%);transition:transform .3s}
@@ -574,6 +580,7 @@ dialog[open]{animation:pop .25s ease-out}
   </div>
 </footer>
 
+<div class="edge t" aria-hidden="true"></div><div class="edge b" aria-hidden="true"></div>
 <div class="mbar" id="mbar">
   <button class="btn" data-open-trial data-src="mobile-bar">Book free trial</button>
   <a class="btn wa" data-wa href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
