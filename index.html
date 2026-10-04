@@ -57,8 +57,7 @@ section{padding:clamp(72px,9vw,120px) 0}
 .nav ul{display:flex;gap:26px;list-style:none;padding:0;margin-left:auto;font-weight:500;font-size:15px}
 .nav ul a{text-decoration:none;color:var(--ink-2)}.nav ul a:hover{color:var(--ink)}
 .nav .btn{min-height:48px;padding:0 22px;font-size:15px}
-.nav .login{font-weight:600;font-size:15px;text-decoration:none}
-@media (max-width:960px){.nav ul,.nav .login{display:none}.nav .btn{margin-left:auto}}
+@media (max-width:960px){.nav ul{display:none}.nav .btn{margin-left:auto}}
 
 /* hero */
 .hero{padding:48px 0 72px;position:relative;isolation:isolate}
@@ -339,7 +338,6 @@ dialog[open]{animation:pop .25s ease-out}
       <li><a href="#pricing">Pricing</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a class="login" href="#" data-todo="portal login">Log in</a>
     <button class="btn" data-open-trial data-src="nav">Book free trial</button>
   </div>
 </header>
