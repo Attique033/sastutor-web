@@ -8,7 +8,8 @@
 <meta property="og:title" content="SAS Tutors · Master the fundamentals. The grades follow.">
 <meta property="og:description" content="Expert 1:1 online tutoring. Your first lesson is free.">
 <meta property="og:image" content="assets/img/hero.webp">
-<script>try{if(sessionStorage.sasSplash)document.documentElement.classList.add("seen");sessionStorage.sasSplash=1}catch(e){}</script>
+<script>if(new URLSearchParams(location.search).get("v")==="2")document.documentElement.dataset.v="2";
+try{if(sessionStorage.sasSplash)document.documentElement.classList.add("seen");sessionStorage.sasSplash=1}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,8 +19,15 @@
   /* layout: graph-paper notebook, ink-blue type, highlighter-yellow actions */
   --ink:#10213A; --ink-2:#4A576C; --paper:#F5F7FB; --card:#fff; --line:#E1E6EF; --grid:#E6EBF3;
   --accent:#FFD23F; --accent-2:#FFC21A; --sun:#FFD23F; --blue:#2D5BE3; --mint:#2E8B6A; --sky:#EAF1FB;
+  --on-accent:#10213A; --glow:230,170,0; --ring:255,210,63; --ruled:#DCE5F5;
   --r:20px; --shadow:0 1px 2px rgba(16,33,58,.06),0 12px 32px -12px rgba(16,33,58,.18);
   --serif:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif; --sans:"Figtree",system-ui,-apple-system,sans-serif;
+}
+/* ?v=2 — reference-logo palette: deep teal type, olive actions, cream paper, sage lines */
+:root[data-v="2"]{
+  --ink:#0F3D3E; --ink-2:#4E5F5C; --paper:#FAF6EE; --card:#FFFDF8; --line:#E5DFD0; --grid:#ECE6D8;
+  --accent:#8A9A5B; --accent-2:#9AAA69; --sun:#CBD69E; --blue:#5B6B32; --mint:#3F7A5E; --sky:#E6EFEA;
+  --on-accent:#1E2A0F; --glow:110,125,60; --ring:180,193,127; --ruled:#D3E3DE;
 }
 *{box-sizing:border-box;margin:0}
 [hidden]{display:none!important}
@@ -38,8 +46,8 @@ section{padding:clamp(72px,9vw,120px) 0}
 .center{text-align:center}.center .lead{margin-inline:auto}
 
 /* buttons */
-.btn{--bg:var(--accent);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;background:var(--bg);color:var(--ink);font:700 16px/1 var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 8px 20px -8px rgba(230,170,0,.75)}
-.btn:hover{transform:translateY(-2px);background:var(--accent-2);box-shadow:0 14px 28px -10px rgba(230,170,0,.85)}
+.btn{--bg:var(--accent);display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;background:var(--bg);color:var(--on-accent);font:700 16px/1 var(--sans);text-decoration:none;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;box-shadow:0 8px 20px -8px rgba(var(--glow),.75)}
+.btn:hover{transform:translateY(-2px);background:var(--accent-2);box-shadow:0 14px 28px -10px rgba(var(--glow),.85)}
 .btn:focus-visible,.field:focus-within,a:focus-visible,summary:focus-visible,button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .btn.ghost{--bg:transparent;box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn.ghost:hover{background:var(--ink);color:#fff}
@@ -118,7 +126,7 @@ section{padding:clamp(72px,9vw,120px) 0}
 .player{position:relative;border-radius:28px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/9;background:var(--ink);cursor:pointer}
 .player img,.player video{width:100%;height:100%;object-fit:cover}
 .player .play{position:absolute;inset:0;display:grid;place-items:center;background:linear-gradient(180deg,rgba(16,33,58,0) 40%,rgba(16,33,58,.65));border:0;cursor:pointer;color:#fff}
-.player .play i{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 12px rgba(255,210,63,.3);transition:transform .2s}
+.player .play i{display:grid;place-items:center;width:84px;height:84px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 12px rgba(var(--ring),.3);transition:transform .2s}
 .player:hover .play i{transform:scale(1.08)}
 .player .play i::after{content:"";border-left:24px solid var(--ink);border-block:15px solid transparent;margin-left:6px}
 .player .tag{position:absolute;left:20px;bottom:18px;color:#fff;font-weight:600;font-size:15px;text-align:left}
@@ -171,7 +179,7 @@ section{padding:clamp(72px,9vw,120px) 0}
 .fc-body h3{font-size:22px;display:flex;align-items:center;gap:8px}
 .fc-body h3 svg{width:18px;height:18px;color:var(--mint)}
 .fc-body .sub{color:var(--ink-2);font-size:14px;margin:4px 0 12px}
-.face-back{transform:rotateY(180deg);display:flex;flex-direction:column;gap:8px;padding:30px 26px 24px 58px;background:repeating-linear-gradient(transparent 0 31px,#DCE5F5 31px 32px) 0 14px,var(--card)}
+.face-back{transform:rotateY(180deg);display:flex;flex-direction:column;gap:8px;padding:30px 26px 24px 58px;background:repeating-linear-gradient(transparent 0 31px,var(--ruled) 31px 32px) 0 14px,var(--card)}
 .face-back::before{content:"";position:absolute;left:40px;top:0;bottom:0;width:2px;background:#F3BDB4}
 .face-back .style{font:700 22px/32px var(--serif)}
 .face-back .best{font-size:15px;line-height:32px;color:var(--ink-2)}
@@ -250,6 +258,16 @@ footer{padding:72px 0 120px;font-size:15px;color:var(--ink-2)}
 .foot a{text-decoration:none}.foot a:hover{color:var(--ink);text-decoration:underline}
 .legal{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:14px}
 @media (max-width:860px){.foot{grid-template-columns:1fr 1fr}}
+
+/* theme toggle: split swatch shows the palette you would switch to */
+:root{--fab-a:#0F3D3E;--fab-b:#8A9A5B}
+:root[data-v="2"]{--fab-a:#10213A;--fab-b:#FFD23F}
+.theme-fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:61;width:56px;height:56px;padding:0;border-radius:50%;border:3px solid var(--card);cursor:pointer;background:conic-gradient(from 45deg,var(--fab-a) 0 50%,var(--fab-b) 50% 100%);box-shadow:0 12px 30px -10px rgba(16,33,58,.5);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.theme-fab:hover{transform:scale(1.08) rotate(25deg)}
+.theme-fab::after{content:attr(data-label);position:absolute;right:66px;top:50%;translate:0 -50%;white-space:nowrap;background:var(--ink);color:#fff;font:600 13px/1 var(--sans);padding:9px 12px;border-radius:10px;opacity:0;pointer-events:none;transition:opacity .2s}
+.theme-fab:hover::after,.theme-fab:focus-visible::after{opacity:1}
+html.theming *,html.theming *::before{transition:background-color .45s,color .45s,border-color .45s,box-shadow .45s!important}
+@media (max-width:760px){.theme-fab{bottom:calc(88px + env(safe-area-inset-bottom,0px));right:16px;width:48px;height:48px}}
 
 /* mobile sticky bar */
 .mbar{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:none;gap:10px;padding:10px;border-radius:22px;background:var(--card);box-shadow:0 10px 40px -10px rgba(16,33,58,.45);transform:translateY(130%);transition:transform .3s}
@@ -544,6 +562,7 @@ dialog[open]{animation:pop .25s ease-out}
   </div>
 </footer>
 
+<button type="button" class="theme-fab" id="theme-fab"></button>
 <div class="mbar" id="mbar">
   <button class="btn" data-open-trial data-src="mobile-bar">Book free trial</button>
   <a class="btn wa" data-wa href="#" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
@@ -619,6 +638,18 @@ const track = (event, data = {}) => (window.dataLayer = window.dataLayer || []).
 const waLink = text => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
 $("#yr").textContent = new Date().getFullYear();
 $$("[data-wa]").forEach(a => { a.href = waLink(cfg?.business.whatsappGreeting || "Hi, I'd like to know more about tutoring."); a.target = "_blank"; a.rel = "noopener"; a.addEventListener("click", () => track("whatsapp_click")); });
+
+// theme toggle: swaps between the original palette and the logo palette (?v=2)
+const root = document.documentElement, fab = $("#theme-fab");
+const label = () => { fab.dataset.label = root.dataset.v === "2" ? "Switch to original colours" : "Switch to logo colours"; fab.setAttribute("aria-label", fab.dataset.label); };
+fab.onclick = () => {
+  const v2 = root.dataset.v !== "2";
+  root.classList.add("theming"); setTimeout(() => root.classList.remove("theming"), 500);
+  if (v2) root.dataset.v = "2"; else delete root.dataset.v;
+  try { const u = new URL(location.href); v2 ? u.searchParams.set("v", "2") : u.searchParams.delete("v"); history.replaceState(null, "", u); } catch {}
+  label(); track("theme_toggle", { v: v2 ? 2 : 1 });
+};
+label();
 
 // nav border + mobile bar after the hero
 const nav = $("#nav"), mbar = $("#mbar");
