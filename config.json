@@ -261,16 +261,19 @@
     ]
   },
   "curricula": [
-    "Years 4–6",
-    "Years 7–10",
-    "NAPLAN",
-    "Selective schools",
-    "HSC",
-    "VCE",
+    "Matric (SSC)",
+    "Intermediate (HSSC): FSc, ICS, ICom",
+    "Federal Board (FBISE)",
+    "Punjab Boards (BISE)",
+    "Sindh Boards",
+    "KPK Boards",
+    "Aga Khan Board (AKU-EB)",
+    "O Level",
+    "A Level",
     "IGCSE",
-    "GCSE",
-    "A-Level",
     "IB",
+    "MDCAT",
+    "ECAT / NUST NET",
     "University"
   ],
   "teachingExperience": [
