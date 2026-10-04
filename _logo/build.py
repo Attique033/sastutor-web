@@ -121,6 +121,17 @@ def horizontal(B):
     return els, mw + gap + tw, cap
 
 
+def compact(B):
+    """Nav/footer lockup: monogram with "Tutors" (sentence case) centred underneath."""
+    cap = 300
+    mono, mw = monogram(B, 0, cap, cap)
+    tr = 30
+    ts = 0.62 * mw / B.width("Tutors", tr)  # word spans ~62% of the monogram
+    tw = B.width("Tutors", tr) * ts
+    tb = cap + 0.16 * cap + 660 * ts
+    return mono + B.paths("Tutors", (mw - tw) / 2, tb, ts, tr), mw, tb + 0.02 * cap
+
+
 def mark(B):
     """Favicon / app icon: the A on an ink tile."""
     S = 512
@@ -151,7 +162,7 @@ def svg(els, w, h, title, css=""):
 def main():
     os.makedirs(OUT, exist_ok=True)
     B, F = Text(font("brico")), Text(font("fig"))
-    parts = {"stacked": stacked(B, F), "horizontal": horizontal(B), "mark": mark(B)}
+    parts = {"stacked": stacked(B, F), "horizontal": horizontal(B), "compact": compact(B), "mark": mark(B)}
     for v, p in PALETTES.items():
         sfx = "" if v == "v1" else "-v2"
         for name, (els, w, h) in parts.items():
