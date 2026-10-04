@@ -300,7 +300,19 @@
         "ETEA",
         "SAT",
         "Other test"
+      ],
+      "goals": [
+        "First attempt",
+        "Improve my score (retake)",
+        "Full prep course",
+        "Last-minute crash course"
       ]
     }
-  }
+  },
+  "goals": [
+    "Catch up on gaps",
+    "Improve grades",
+    "Exam preparation",
+    "Get ahead"
+  ]
 }

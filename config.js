@@ -23,6 +23,9 @@
       ph.dataset.orig ??= ph.textContent; ph.textContent = set?.placeholder || ph.dataset.orig;
       sel.length = 1;
       sel.insertAdjacentHTML("beforeend", options(set?.options || cfg.levels));
+      const goals = sel.form?.querySelector(".goal-chips");  // goal chips follow the subject too
+      if (goals) goals.innerHTML = (set?.goals || cfg.goals).map((g, i) =>
+        `<label><input type="radio" name="goal" value="${esc(g)}"${i ? "" : " checked"}><span>${esc(g)}</span></label>`).join("");
     };
     document.querySelectorAll('select[name="level"]').forEach(sel => setLevels(sel, ""));
     document.querySelectorAll('select[name="subject"]').forEach(sel => sel.addEventListener("change", () => {
