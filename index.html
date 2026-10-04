@@ -822,7 +822,8 @@ function show(n) {
 
 function openTrial(src, prefill = {}) {
   form.elements.source.value = src;
-  Object.entries(prefill).forEach(([k, v]) => v && (form.elements[k].value = v));
+  // subject first: its change event swaps the level list before the level is set
+  Object.entries(prefill).forEach(([k, v]) => { if (!v) return; const el = form.elements[k]; el.value = v; el.dispatchEvent(new Event("change")); });
   dlg.showModal();
   show(prefill.subject && prefill.level ? 2 : 1);
   track("trial_open", { src });

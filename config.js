@@ -14,9 +14,21 @@
     document.querySelectorAll("[data-cfg]").forEach(el => { el.textContent = get(cfg, el.dataset.cfg) ?? ""; });
 
     // subject and level dropdowns in all three forms (the placeholder option stays in the HTML)
-    for (const [name, list] of [["subject", cfg.subjects], ["level", cfg.levels]]) {
-      document.querySelectorAll(`select[name="${name}"]`).forEach(sel => sel.insertAdjacentHTML("beforeend", list.map(o => `<option>${esc(o)}</option>`).join("")));
-    }
+    const options = list => list.map(o => `<option>${esc(o)}</option>`).join("");
+    document.querySelectorAll('select[name="subject"]').forEach(sel => sel.insertAdjacentHTML("beforeend", options(cfg.subjects)));
+    // some subjects (e.g. Entry test) swap the level dropdown for their own list and label
+    const setLevels = (sel, subject) => {
+      const set = cfg.levelsBySubject?.[subject], label = sel.closest(".field")?.querySelector("label"), ph = sel.options[0];
+      if (label) { label.dataset.orig ??= label.textContent; label.textContent = set?.label || label.dataset.orig; }
+      ph.dataset.orig ??= ph.textContent; ph.textContent = set?.placeholder || ph.dataset.orig;
+      sel.length = 1;
+      sel.insertAdjacentHTML("beforeend", options(set?.options || cfg.levels));
+    };
+    document.querySelectorAll('select[name="level"]').forEach(sel => setLevels(sel, ""));
+    document.querySelectorAll('select[name="subject"]').forEach(sel => sel.addEventListener("change", () => {
+      const level = sel.form?.elements.level;
+      if (level) setLevels(level, sel.value);
+    }));
 
     fill("#roster", cfg.tutors.map((t, i) =>
       `<button type="button" role="tab" data-jump="${i}" aria-label="Show ${esc(t.name)}"><img src="${esc(t.photo)}" alt="" width="52" height="52" loading="lazy"></button>`).join(""));

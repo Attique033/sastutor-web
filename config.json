@@ -22,6 +22,7 @@
     "Statistics",
     "Economics",
     "Computer Science",
+    "Entry test",
     "Other"
   ],
   "levels": [
@@ -282,5 +283,24 @@
     "3–5 years",
     "5–10 years",
     "10+ years"
-  ]
+  ],
+  "levelsBySubject": {
+    "Entry test": {
+      "label": "Which test",
+      "placeholder": "Choose a test",
+      "options": [
+        "MDCAT (medical)",
+        "ECAT (engineering, UET)",
+        "NUST NET",
+        "FAST NU",
+        "GIKI",
+        "PIEAS",
+        "LUMS",
+        "NTS / NAT",
+        "ETEA",
+        "SAT",
+        "Other test"
+      ]
+    }
+  }
 }
