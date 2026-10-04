@@ -735,7 +735,8 @@ function show(n) {
   back.tabIndex = hasBack ? 0 : -1; back.setAttribute("aria-hidden", !hasBack);
   $("#dlg-actions").hidden = $("#fine").hidden = n === 4;
   $("#next").textContent = n === 3 ? "Book my free trial" : "Continue →";
-  $(`.page[data-page="${n}"] select, .page[data-page="${n}"] input:not([type=hidden]):not([type=radio]):not([type=checkbox])`, form)?.focus();
+  // focus the first field for mouse/keyboard users only; on touch screens focus opens the picker or keyboard
+  if (matchMedia("(pointer: fine)").matches) $(`.page[data-page="${n}"] select, .page[data-page="${n}"] input:not([type=hidden]):not([type=radio]):not([type=checkbox])`, form)?.focus();
 }
 
 function openTrial(src, prefill = {}) {
