@@ -6,7 +6,7 @@
     "formEndpoint": "",
     "instagram": "https://www.instagram.com/sastutors_/",
     "instagramHandle": "@sastutors_",
-    "enrolmentBanner": "Now enrolling · Term 4",
+    "enrolmentBanner": "Now enrolling",
     "about": "Fundamentals-first 1:1 online tutoring for Years 4–12 and international curriculums. Based in Pakistan, teaching students worldwide.",
     "tutorFormEndpoint": ""
   },
@@ -26,11 +26,15 @@
     "Other"
   ],
   "levels": [
-    "Years 4–6",
-    "Years 7–10",
-    "Years 11–12 (HSC / VCE / ACT)",
+    "Class 1–8",
+    "Matric (Class 9–10)",
+    "Intermediate (FSc / ICS / ICom)",
+    "O Level",
+    "A Level",
     "IGCSE / GCSE",
-    "A-Level / IB",
+    "IB",
+    "Years 4–10 (Australia)",
+    "Years 11–12 (HSC / VCE)",
     "University"
   ],
   "tutors": [
@@ -51,7 +55,7 @@
       "badge": "Top selected"
     },
     {
-      "name": "Sophie",
+      "name": "Ayesha",
       "subject": "English",
       "credentials": "BA English, MTeach · 8 yrs teaching",
       "photo": "assets/img/tutor-2.webp",
@@ -59,14 +63,14 @@
         "English"
       ],
       "curricula": [
-        "VCE",
-        "NAPLAN"
+        "FSc",
+        "Matric"
       ],
       "style": "Structure first, then voice. Every paragraph earns its place.",
       "bestFor": "building confident essay writers"
     },
     {
-      "name": "Marco",
+      "name": "Hamza",
       "subject": "Chemistry",
       "credentials": "MSc Chemistry · 5 yrs teaching",
       "photo": "assets/img/tutor-3.webp",
@@ -74,14 +78,14 @@
         "Chemistry"
       ],
       "curricula": [
-        "A-Level",
-        "HSC"
+        "A Level",
+        "FSc"
       ],
       "style": "Draws every reaction before anyone balances it.",
       "bestFor": "visual learners"
     },
     {
-      "name": "Priya",
+      "name": "Fatima",
       "subject": "Maths",
       "credentials": "BEng · Selective school coach",
       "photo": "assets/img/tutor-4.webp",
@@ -89,14 +93,14 @@
         "Maths"
       ],
       "curricula": [
-        "Years 7–10",
-        "Selective"
+        "O Level",
+        "A Level"
       ],
       "style": "Short daily drills that make speed feel easy.",
       "bestFor": "selective and scholarship exams"
     },
     {
-      "name": "Josh",
+      "name": "Usman",
       "subject": "Computer Science",
       "credentials": "BCompSc · 4 yrs teaching",
       "photo": "assets/img/tutor-5.webp",
@@ -105,13 +109,13 @@
       ],
       "curricula": [
         "IB",
-        "VCE"
+        "FSc"
       ],
       "style": "You build a small program from lesson one.",
       "bestFor": "beginners through to IB HL"
     },
     {
-      "name": "Elena",
+      "name": "Zainab",
       "subject": "Biology",
       "credentials": "BBiomedSc · 5 yrs teaching",
       "photo": "assets/img/tutor-6.webp",
@@ -119,7 +123,7 @@
         "Biology"
       ],
       "curricula": [
-        "HSC",
+        "FSc",
         "IGCSE"
       ],
       "style": "Links every topic to how the body really works.",
@@ -167,8 +171,8 @@
     },
     {
       "type": "stat",
-      "value": "Yr 4–12",
-      "label": "plus IGCSE, A-Level and IB, taught online worldwide"
+      "value": "Matric → A Level",
+      "label": "plus IGCSE, IB, Australian Years 4–12 and entry tests like MDCAT and ECAT"
     },
     {
       "type": "instagram",
@@ -214,19 +218,27 @@
   "faq": [
     {
       "q": "Is the trial lesson really free?",
-      "a": "Yes. Your first lesson is free, with no card details and no obligation. If it isn't the right fit, you simply walk away."
-    },
-    {
-      "q": "How do you choose my child's tutor?",
-      "a": "We don't leave it to chance or a search filter. Our team matches a tutor to the subject, the curriculum, your child's year and learning style, and your preferred times. If the fit isn't right, we'll switch tutors for free."
-    },
-    {
-      "q": "How do online lessons work?",
-      "a": "Lessons run live, one-to-one, by video call with a shared whiteboard. All you need is a laptop or tablet with a camera. Lessons are scheduled in your own timezone."
+      "a": "Yes. Your first lesson is free, with no payment details and no obligation. If it isn't the right fit, you simply walk away."
     },
     {
       "q": "Which subjects and curriculums do you cover?",
-      "a": "Maths, English and the sciences from Years 4–12, including NAPLAN, selective school preparation, HSC, VCE and ACT, plus IGCSE, GCSE, A-Level and IB."
+      "a": "Maths, Physics, Chemistry, Biology, Statistics, English, Economics and Computer Science. We teach Matric and Intermediate (FSc, ICS, ICom) for every Pakistani board, O Level, A Level, IGCSE, GCSE and IB, Australian Years 4–12 (NAPLAN, HSC, VCE) and university courses."
+    },
+    {
+      "q": "Do you prepare students for entry tests?",
+      "a": "Yes. We prepare students for MDCAT, ECAT, NUST NET, FAST, GIKI, PIEAS, LUMS, NTS / NAT, ETEA and SAT, from full prep courses to last-minute crash courses, with timed practice papers and score tracking."
+    },
+    {
+      "q": "How do you choose my child's tutor?",
+      "a": "We don't leave it to chance or a search filter. Our team matches a tutor to the subject, curriculum or test, your child's level and learning style, and your preferred times. If the fit isn't right, we'll switch tutors for free."
+    },
+    {
+      "q": "Where are your tutors based?",
+      "a": "Our team is based in Pakistan and teaches students in Pakistan and abroad, including the UK, Australia, Canada and the Gulf. Lessons are always scheduled in your own timezone."
+    },
+    {
+      "q": "How do online lessons work?",
+      "a": "Lessons run live, one-to-one, by video call with a shared whiteboard. All you need is a laptop or tablet with a camera and a stable internet connection."
     },
     {
       "q": "Can we cancel or reschedule a lesson?",
@@ -234,7 +246,11 @@
     },
     {
       "q": "How will I know it's working?",
-      "a": "You'll get notes after every lesson and a written progress report every month showing strengths, gaps and the plan ahead."
+      "a": "You'll get notes after every lesson and a written progress report every month showing strengths, gaps and the plan ahead. For entry tests, we also share your practice-test scores."
+    },
+    {
+      "q": "Can I teach with SAS Tutors?",
+      "a": "Yes. Tap \"Teach with us\" at the top of the page to apply. We review every application, then hold a short interview and a demo lesson."
     }
   ],
   "footer": {
@@ -257,6 +273,10 @@
       },
       {
         "label": "Biology",
+        "href": "#"
+      },
+      {
+        "label": "Entry test",
         "href": "#"
       }
     ]

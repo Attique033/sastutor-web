@@ -61,8 +61,8 @@
 
     fill("#faq-list", cfg.faq.map((f, i) => `<details${i ? "" : " open"}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(""));
 
-    const links = list => list.map(l => `<li><a href="${esc(l.href)}">${esc(l.label)}</a></li>`).join("");
-    fill("#foot-subjects", links(cfg.footer.subjects));
+    // footer subjects open the trial form with that subject picked
+    fill("#foot-subjects", cfg.footer.subjects.map(l => `<li><a href="#" data-trial-subject="${esc(l.label)}">${esc(l.label)}</a></li>`).join(""));
     // become-a-tutor form: subject/curriculum chips and experience options
     const chips = (sel, name, list) => fill(sel, list.map(o => `<label><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join(""));
     chips("#apply-subjects", "subjects", cfg.subjects.filter(x => x !== "Other"));
