@@ -108,7 +108,7 @@ def main():
         fade = f"fade=t=in:st=0:d=0.35,fade=t=out:st={dur - 0.35:.2f}:d=0.35"
         if img is None:
             png = f"{tmp}/card{i}.png"
-            card_png(cap, None if i == 0 else "Book a free trial at sastutors.com.au", png)
+            card_png(cap, None if i == 0 else "Book a free trial at sastutors.online", png)
             run("-loop", "1", "-i", png, "-i", aiff, "-t", f"{dur:.2f}", "-vf", f"format=yuv420p,{fade}",
                 "-af", "apad", "-r", str(FPS), "-c:v", "libx264", "-c:a", "aac", "-shortest", clip)
         else:
