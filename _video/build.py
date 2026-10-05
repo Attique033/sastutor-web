@@ -13,7 +13,7 @@ OUT = os.path.join(HERE, "..", "assets", "video")
 FF = imageio_ffmpeg.get_ffmpeg_exe()
 VOICE, RATE = "Karen", 172  # ponytail: system TTS voice, swap for the founder's own recording
 W, H, FPS = 1280, 720, 30
-INK, PAPER, ACCENT = (16, 33, 58), (251, 248, 243), (255, 210, 63)
+INK, PAPER, ACCENT = (15, 61, 62), (250, 246, 238), (203, 214, 158)  # logo palette: teal, cream, pale olive
 
 # (image or None for a title card, narration line, on-screen caption or None to reuse the line)
 SCENES = [
@@ -60,7 +60,7 @@ def caption_png(text, path):
     grad = Image.new("L", (1, H))
     for y in range(H):
         grad.putpixel((0, y), int(max(0, (y - H * 0.45) / (H * 0.55)) * 200))
-    im.paste((10, 18, 32, 255), (0, 0, W, H), grad.resize((W, H)))
+    im.paste((8, 40, 41, 255), (0, 0, W, H), grad.resize((W, H)))
     d = ImageDraw.Draw(im)
     f = font(40, "Demi Bold")
     lines = wrap(d, text, f, W - 200)
@@ -85,7 +85,7 @@ def card_png(title, sub, path):
         y += 92
     y += 30
     for ln in subs:
-        d.text((100, y), ln, font=fs, fill=(190, 200, 215))
+        d.text((100, y), ln, font=fs, fill=(191, 216, 210))
         y += 46
     im.save(path)
 
