@@ -462,7 +462,9 @@
         "Al Ain"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Gulf Standard Time (GST)"
+      "timezone": "Gulf Standard Time (GST)",
+      "code": "ae",
+      "arabic": true
     },
     {
       "label": "Saudi Arabia",
@@ -477,7 +479,9 @@
         "Medina"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Arabia Standard Time (AST)"
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "sa",
+      "arabic": true
     },
     {
       "label": "Qatar",
@@ -490,7 +494,9 @@
         "Al Rayyan"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Arabia Standard Time (AST)"
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "qa",
+      "arabic": true
     },
     {
       "label": "Kuwait",
@@ -503,7 +509,9 @@
         "Jahra"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Arabia Standard Time (AST)"
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "kw",
+      "arabic": true
     },
     {
       "label": "Bahrain",
@@ -516,7 +524,9 @@
         "Isa Town"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Arabia Standard Time (AST)"
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "bh",
+      "arabic": true
     },
     {
       "label": "Oman",
@@ -529,7 +539,9 @@
         "Nizwa"
       ],
       "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
-      "timezone": "Gulf Standard Time (GST)"
+      "timezone": "Gulf Standard Time (GST)",
+      "code": "om",
+      "arabic": true
     },
     {
       "label": "Egypt",
@@ -543,7 +555,9 @@
         "Sheikh Zayed"
       ],
       "curricula": "British (IGCSE, O and A Level), the American Diploma (including AP and SAT) and IB",
-      "timezone": "Egypt time (EET)"
+      "timezone": "Egypt time (EET)",
+      "code": "eg",
+      "arabic": true
     },
     {
       "label": "UK",
@@ -557,7 +571,9 @@
         "Glasgow"
       ],
       "curricula": "GCSE and A Level (AQA, Edexcel, OCR and Cambridge), IGCSE and IB",
-      "timezone": "UK time (GMT/BST)"
+      "timezone": "UK time (GMT/BST)",
+      "code": "gb",
+      "arabic": false
     },
     {
       "label": "Australia",
@@ -571,7 +587,9 @@
         "Adelaide"
       ],
       "curricula": "Australian Years 4–12 (NAPLAN, HSC and VCE) and IB",
-      "timezone": "your local Australian time"
+      "timezone": "your local Australian time",
+      "code": "au",
+      "arabic": false
     },
     {
       "label": "New Zealand",
@@ -584,7 +602,9 @@
         "Hamilton"
       ],
       "curricula": "Cambridge IGCSE and A Level, IB and university courses",
-      "timezone": "New Zealand time (NZST)"
+      "timezone": "New Zealand time (NZST)",
+      "code": "nz",
+      "arabic": false
     },
     {
       "label": "USA",
@@ -598,7 +618,9 @@
         "Dallas"
       ],
       "curricula": "the American curriculum (including AP), IB and SAT prep",
-      "timezone": "your US time zone"
+      "timezone": "your US time zone",
+      "code": "us",
+      "arabic": false
     },
     {
       "label": "Canada",
@@ -612,7 +634,9 @@
         "Ottawa"
       ],
       "curricula": "the American curriculum (including AP), IB and university courses",
-      "timezone": "your Canadian time zone"
+      "timezone": "your Canadian time zone",
+      "code": "ca",
+      "arabic": false
     }
   ]
 }

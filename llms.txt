@@ -8,6 +8,7 @@
 - Subjects: Maths, Physics, Chemistry, Biology, Statistics, English, Economics, Computer Science.
 - Curriculums: American (including AP), British (IGCSE, GCSE, O Level, A Level; AQA, Edexcel, OCR, Cambridge), IB, Indian (CBSE, ISC), Australian Years 4–12 (NAPLAN, HSC, VCE), university courses.
 - Entry tests: SAT, IMAT, BMAT, UCAT.
+- Languages: pages in English, and in Arabic for the Gulf and Egypt.
 - Contact: WhatsApp +923025006025 · Instagram @sastutors_ · https://sastutors.online/
 
 ## Prices (US dollars, converted to local currency at checkout)
@@ -28,18 +29,18 @@
 
 ## Pages
 - [Home](https://sastutors.online/): overview, tutors, prices and FAQ
-- [Online tutors in UAE](https://sastutors.online/online-tutors-uae/)
-- [Online tutors in Saudi Arabia](https://sastutors.online/online-tutors-saudi-arabia/)
-- [Online tutors in Qatar](https://sastutors.online/online-tutors-qatar/)
-- [Online tutors in Kuwait](https://sastutors.online/online-tutors-kuwait/)
-- [Online tutors in Bahrain](https://sastutors.online/online-tutors-bahrain/)
-- [Online tutors in Oman](https://sastutors.online/online-tutors-oman/)
-- [Online tutors in Egypt](https://sastutors.online/online-tutors-egypt/)
-- [Online tutors in UK](https://sastutors.online/online-tutors-uk/)
-- [Online tutors in Australia](https://sastutors.online/online-tutors-australia/)
-- [Online tutors in New Zealand](https://sastutors.online/online-tutors-new-zealand/)
-- [Online tutors in USA](https://sastutors.online/online-tutors-usa/)
-- [Online tutors in Canada](https://sastutors.online/online-tutors-canada/)
+- [Online tutors in UAE](https://sastutors.online/ae-en) · [بالعربية](https://sastutors.online/ae-ar)
+- [Online tutors in Saudi Arabia](https://sastutors.online/sa-en) · [بالعربية](https://sastutors.online/sa-ar)
+- [Online tutors in Qatar](https://sastutors.online/qa-en) · [بالعربية](https://sastutors.online/qa-ar)
+- [Online tutors in Kuwait](https://sastutors.online/kw-en) · [بالعربية](https://sastutors.online/kw-ar)
+- [Online tutors in Bahrain](https://sastutors.online/bh-en) · [بالعربية](https://sastutors.online/bh-ar)
+- [Online tutors in Oman](https://sastutors.online/om-en) · [بالعربية](https://sastutors.online/om-ar)
+- [Online tutors in Egypt](https://sastutors.online/eg-en) · [بالعربية](https://sastutors.online/eg-ar)
+- [Online tutors in UK](https://sastutors.online/gb-en)
+- [Online tutors in Australia](https://sastutors.online/au-en)
+- [Online tutors in New Zealand](https://sastutors.online/nz-en)
+- [Online tutors in USA](https://sastutors.online/us-en)
+- [Online tutors in Canada](https://sastutors.online/ca-en)
 
 ## FAQ
 ### Is the trial lesson really free?

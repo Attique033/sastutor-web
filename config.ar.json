@@ -1,0 +1,652 @@
+{
+  "business": {
+    "name": "SAS Tutors",
+    "whatsapp": "923025006025",
+    "whatsappGreeting": "مرحباً SAS Tutors، أودّ معرفة المزيد عن الدروس الخصوصية.",
+    "formEndpoint": "",
+    "instagram": "https://www.instagram.com/sastutors_/",
+    "instagramHandle": "@sastutors_",
+    "enrolmentBanner": "التسجيل مفتوح",
+    "about": "دروس خصوصية فردية أونلاين تبدأ من الأساسيات، للمناهج الأمريكية والبريطانية وIB والهندية والأسترالية. مقرّنا في الإمارات وندرّس طلاباً حول العالم.",
+    "tutorFormEndpoint": ""
+  },
+  "currency": "$",
+  "priceUnit": "/ساعة",
+  "subjects": [
+    "الرياضيات",
+    "اللغة الإنجليزية",
+    "الفيزياء",
+    "الكيمياء",
+    "الأحياء",
+    "العلوم (عام)",
+    "الإحصاء",
+    "الاقتصاد",
+    "علوم الحاسوب",
+    "اختبار قبول",
+    "أخرى"
+  ],
+  "levels": [
+    "الصفوف 1–6 (ابتدائي)",
+    "الصفوف 7–9",
+    "IGCSE / GCSE",
+    "O Level",
+    "A Level",
+    "IB",
+    "المنهج الأمريكي (مع AP)",
+    "CBSE / ISC",
+    "المنهج الأسترالي للصفوف 4–10",
+    "الصفان 11–12 (HSC / VCE)",
+    "الجامعة"
+  ],
+  "tutors": [
+    {
+      "name": "شعيب أكرم",
+      "subject": "الفيزياء",
+      "credentials": "ماجستير وماجستير فلسفة في الفيزياء · محاضر جامعي · المدير التنفيذي ومعلّم، أكثر من 15 عاماً في التدريس والإدارة",
+      "photo": "assets/img/tutor-shoaib.jpg",
+      "subjects": [
+        "الفيزياء",
+        "الرياضيات"
+      ],
+      "curricula": [],
+      "style": "محاضر جامعي يبني كل موضوع في الفيزياء من المبادئ الأولى.",
+      "bestFor": "الطلاب الساعين لأعلى الدرجات في الفيزياء",
+      "badge": "المدير التنفيذي ومعلّم"
+    },
+    {
+      "name": "ميرسي شيلا",
+      "subject": "اللغة الإنجليزية",
+      "credentials": "ماجستير الأدب الإنجليزي · معلّمة أدب ولغة إنجليزية · 10 سنوات وأكثر من 1,000 ساعة تدريس",
+      "photo": "assets/img/tutor-mercy.jpg",
+      "subjects": [
+        "اللغة الإنجليزية"
+      ],
+      "curricula": [],
+      "style": "الأدب واللغة معاً: قراءة متأنية، وبنية واضحة، وكتابة واثقة.",
+      "bestFor": "اللغة والأدب الإنجليزي في كل المستويات"
+    },
+    {
+      "name": "رانا مبشّر",
+      "subject": "الكيمياء",
+      "credentials": "ماجستير الهندسة الكيميائية · 10 سنوات وأكثر من 1,500 ساعة تدريس",
+      "photo": "assets/img/tutor-rana.jpg",
+      "subjects": [
+        "الأحياء",
+        "الكيمياء",
+        "الفيزياء"
+      ],
+      "curricula": [],
+      "style": "نظرة مهندس إلى ترابط العلوم، من التفاعلات إلى الأنظمة الحقيقية.",
+      "bestFor": "الطلاب الذين يدرسون مادتين أو ثلاثاً من العلوم"
+    },
+    {
+      "name": "سويرا نديم",
+      "subject": "الفيزياء",
+      "credentials": "ماجستير في الفيزياء · أكثر من 5 سنوات خبرة",
+      "photo": "assets/img/tutor-sawera.jpg",
+      "subjects": [
+        "الفيزياء",
+        "الرياضيات"
+      ],
+      "curricula": [],
+      "style": "الفيزياء والرياضيات جنباً إلى جنب، لتصبح للمعادلات معنى دائماً.",
+      "bestFor": "الطلاب الذين يجدون الفيزياء ثقيلة بالرياضيات"
+    },
+    {
+      "name": "حفصة نديم",
+      "subject": "الأحياء",
+      "credentials": "ماجستير في الأحياء · 4 سنوات خبرة",
+      "photo": "assets/img/tutor-hifza.jpg",
+      "subjects": [
+        "الأحياء",
+        "الكيمياء"
+      ],
+      "curricula": [],
+      "style": "الأحياء والكيمياء من خلال فهم كيف تعمل الكائنات الحية فعلاً.",
+      "bestFor": "الحفظ بفهم بدلاً من الحشو"
+    },
+    {
+      "name": "فاطمة",
+      "subject": "الرياضيات",
+      "credentials": "بكالوريوس هندسة · مدرّبة لاختبارات المدارس الانتقائية",
+      "photo": "assets/img/tutor-4.webp",
+      "subjects": [
+        "الرياضيات"
+      ],
+      "curricula": [
+        "O Level",
+        "A Level"
+      ],
+      "style": "تمارين يومية قصيرة تجعل السرعة سهلة.",
+      "bestFor": "اختبارات المدارس الانتقائية والمنح"
+    },
+    {
+      "name": "عثمان",
+      "subject": "علوم الحاسوب",
+      "credentials": "بكالوريوس علوم الحاسوب · 4 سنوات تدريس",
+      "photo": "assets/img/tutor-5.webp",
+      "subjects": [
+        "الحوسبة"
+      ],
+      "curricula": [
+        "IB",
+        "A Level"
+      ],
+      "style": "تبني برنامجاً صغيراً من الحصة الأولى.",
+      "bestFor": "من المبتدئين حتى IB HL"
+    },
+    {
+      "name": "عائشة",
+      "subject": "اللغة الإنجليزية",
+      "credentials": "بكالوريوس لغة إنجليزية وماجستير تدريس · 8 سنوات تدريس",
+      "photo": "assets/img/tutor-2.webp",
+      "subjects": [
+        "اللغة الإنجليزية"
+      ],
+      "curricula": [
+        "IGCSE",
+        "GCSE"
+      ],
+      "style": "البنية أولاً ثم الأسلوب. كل فقرة تستحق مكانها.",
+      "bestFor": "بناء كتّاب مقالات واثقين"
+    }
+  ],
+  "wall": [
+    {
+      "type": "review",
+      "quote": "He utilises a wide range of useful and creative online tools to maximise teaching effectiveness, and makes sure there's enough revision material to practise between lessons. A real find. Would highly recommend to anyone needing a maths tutor.",
+      "name": "Adrian",
+      "role": "وليّ أمر · مع SAS منذ عام ونصف",
+      "featured": true
+    },
+    {
+      "type": "stat",
+      "value": "500+",
+      "label": "ساعة دروس فردية في عام واحد"
+    },
+    {
+      "type": "review",
+      "quote": "Tailored his teaching approach to suit my son's individual learning style and needs. Whether it's daily assignments or upcoming tests, he's always thorough, patient, and reliable.",
+      "name": "Kalpana P.",
+      "role": "وليّ أمر",
+      "featured": false
+    },
+    {
+      "type": "review",
+      "quote": "Informative yet engaging. Friendly, very flexible, and lessons are always well-structured and straightforward. If you're in Year 11 or 12, I'd highly recommend.",
+      "name": "Daffa",
+      "role": "طالب في الصف 12",
+      "featured": false
+    },
+    {
+      "type": "stat",
+      "value": "5.0★",
+      "label": "تقييم ممتاز من أولياء الأمور والطلاب"
+    },
+    {
+      "type": "review",
+      "quote": "A very good tutor. Definitely recommend to anyone looking for tutoring.",
+      "name": "Riaz A.",
+      "role": "وليّ أمر",
+      "featured": false
+    },
+    {
+      "type": "stat",
+      "value": "من الصف 4 إلى الجامعة",
+      "label": "المناهج الأمريكية والبريطانية وIB وCBSE/ISC والأسترالية، إضافةً إلى SAT وIMAT وBMAT وUCAT"
+    },
+    {
+      "type": "instagram",
+      "text": "تابع نصائح المذاكرة وإنجازات الطلاب على إنستغرام"
+    }
+  ],
+  "plans": [
+    {
+      "name": "باقة البداية",
+      "hours": 20,
+      "perHour": 20,
+      "total": "$400",
+      "label": ""
+    },
+    {
+      "name": "50 ساعة",
+      "hours": 50,
+      "perHour": 15,
+      "total": "$750",
+      "label": "الأكثر طلباً",
+      "popular": true
+    },
+    {
+      "name": "100 ساعة",
+      "hours": 100,
+      "perHour": 10,
+      "total": "$1,000",
+      "label": "الأفضل قيمة"
+    }
+  ],
+  "faq": [
+    {
+      "q": "هل الحصة التجريبية مجانية فعلاً؟",
+      "a": "نعم. حصتك الأولى مجانية، دون بيانات دفع ودون أي التزام. إن لم تكن مناسبة، يمكنك ببساطة التوقف."
+    },
+    {
+      "q": "ما المواد والمناهج التي تدرّسونها؟",
+      "a": "الرياضيات والفيزياء والكيمياء والأحياء والإحصاء واللغة الإنجليزية والاقتصاد وعلوم الحاسوب. ندرّس المنهج الأمريكي (مع AP)، والمنهج الهندي CBSE وISC، والبريطاني IGCSE وGCSE وO Level وA Level، وIB، والمنهج الأسترالي للصفوف 4–12 (NAPLAN وHSC وVCE)، والمقررات الجامعية."
+    },
+    {
+      "q": "هل تحضّرون الطلاب لاختبارات القبول؟",
+      "a": "نعم. نحضّر الطلاب لاختبارات SAT وIMAT وBMAT وUCAT، من دورات تحضير كاملة إلى دورات مكثّفة في اللحظات الأخيرة، مع اختبارات تدريبية محدّدة الوقت ومتابعة للدرجات. يُرجى التحقق من متطلبات الجامعة المستهدفة، فبعضها لم يعد يقبل كل الاختبارات."
+    },
+    {
+      "q": "كيف تختارون معلّم طفلي؟",
+      "a": "لا نترك الأمر للصدفة أو لفلتر بحث. يختار فريقنا معلّماً يناسب المادة أو المنهج أو الاختبار، ومستوى طفلك وأسلوب تعلّمه، والأوقات التي تفضّلها. وإن لم يكن المعلّم مناسباً، نغيّره مجاناً."
+    },
+    {
+      "q": "أين مقرّكم، ومن تدرّسون؟",
+      "a": "مقرّنا في الإمارات وندرّس طلاباً حول العالم. معظم طلابنا في الخليج (الإمارات والسعودية وقطر والكويت والبحرين وعُمان)، والمملكة المتحدة وأستراليا ونيوزيلندا والولايات المتحدة وكندا. تُجدول الحصص دائماً حسب منطقتك الزمنية."
+    },
+    {
+      "q": "كيف تتم الحصص أونلاين؟",
+      "a": "الحصص مباشرة وفردية عبر مكالمة فيديو مع سبورة مشتركة. كل ما تحتاجه حاسوب أو جهاز لوحي بكاميرا واتصال إنترنت مستقر."
+    },
+    {
+      "q": "هل يمكننا إلغاء حصة أو تغيير موعدها؟",
+      "a": "نعم. غيّر موعد أي حصة أو ألغِها قبل 24 ساعة على الأقل، وتبقى الساعة في رصيدك."
+    },
+    {
+      "q": "كيف أعرف أن الدروس تؤتي ثمارها؟",
+      "a": "ستحصل على ملاحظات بعد كل حصة وتقرير تقدّم مكتوب كل شهر يوضّح نقاط القوة والفجوات والخطة القادمة. ولاختبارات القبول، نشاركك أيضاً درجات الاختبارات التدريبية."
+    },
+    {
+      "q": "هل يمكنني التدريس مع SAS Tutors؟",
+      "a": "نعم. اضغط على «درّس معنا» في القائمة لتقديم طلبك. نراجع كل طلب، ثم نجري مقابلة قصيرة وحصة تجريبية."
+    },
+    {
+      "q": "كم ساعة درّستم؟",
+      "a": "أكثر من 5,000 ساعة من الحصص الفردية حتى الآن."
+    },
+    {
+      "q": "هل تدرّسون طلاباً في دبي وأبوظبي والشارقة وبقية الإمارات؟",
+      "a": "نعم. كل الحصص أونلاين، فلا يهم في أيّ إمارة تقيم."
+    },
+    {
+      "q": "هل تدرّسون طلاباً في السعودية وقطر والكويت والبحرين وعُمان؟",
+      "a": "نعم. ندرّس طلاباً في كل هذه الدول، مع حصص مجدولة في أوقات تناسب يومك الدراسي."
+    },
+    {
+      "q": "هل تدرّسون طلاباً في المملكة المتحدة وأستراليا ونيوزيلندا والولايات المتحدة وكندا؟",
+      "a": "نعم. الحصص أونلاين ومجدولة حسب منطقتك الزمنية، لتتعلّم من أي مكان في العالم."
+    },
+    {
+      "q": "ما المناهج التي تدرّسونها؟",
+      "a": "الأمريكي، والبريطاني (IGCSE وGCSE وO Level وA Level)، وIB، والهندي (CBSE وISC)، والأسترالي. أينما يُقدَّم البرنامج الدولي لمدرستك، يمكننا تدريسه."
+    },
+    {
+      "q": "كم تكلفة الحصص؟",
+      "a": "تكلفة الساعة 20 دولاراً في باقة 20 ساعة، و15 دولاراً في باقة 50 ساعة، و10 دولارات في باقة 100 ساعة. وحصتك الأولى مجانية."
+    },
+    {
+      "q": "هل الباقة مرتبطة بمادة أو معلّم أو منهج؟",
+      "a": "لا. ساعاتك تصلح لأي مادة، ولأي معلّم في فريقنا، ولأي مدرسة أو جامعة أو منهج. يمكنك التنويع كما تشاء."
+    },
+    {
+      "q": "هل تنتهي صلاحية ساعاتي؟",
+      "a": "لا. الساعات التي تشتريها لا تنتهي صلاحيتها."
+    },
+    {
+      "q": "هل يمكنني مشاركة الساعات مع إخوتي أو عائلتي؟",
+      "a": "نعم. يمكنك تحويل الساعات إلى الإخوة أو أفراد العائلة الآخرين مجاناً."
+    },
+    {
+      "q": "هل يمكنني استرداد قيمة الساعات غير المستخدمة؟",
+      "a": "نعم. إذا مرّ عام أو أكثر على شراء ساعاتك ولم تستخدمها، يمكنك طلب استرداد قيمة الساعات غير المستخدمة."
+    },
+    {
+      "q": "هل يمكنني الدفع بالتقسيط؟",
+      "a": "تُدفع الباقات كاملة. إن لم تناسب الباقة الأكبر ميزانيتك، يمكنك البدء بباقة أصغر، مع سعر أعلى قليلاً للساعة."
+    },
+    {
+      "q": "ما طرق الدفع والعملات التي تقبلونها؟",
+      "a": "نقبل المدفوعات من جميع المناطق. أسعارنا بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع."
+    },
+    {
+      "q": "ماذا لو أردت بضع حصص فقط قبل الالتزام بباقة؟",
+      "a": "لدينا خيارات مرنة لذلك. راسل فريقنا الإداري على واتساب وسيرتّب لك الأمر."
+    }
+  ],
+  "footer": {
+    "subjects": [
+      {
+        "label": "الرياضيات",
+        "href": "#"
+      },
+      {
+        "label": "الفيزياء",
+        "href": "#"
+      },
+      {
+        "label": "الكيمياء",
+        "href": "#"
+      },
+      {
+        "label": "الأحياء",
+        "href": "#"
+      },
+      {
+        "label": "الإحصاء",
+        "href": "#"
+      },
+      {
+        "label": "اللغة الإنجليزية",
+        "href": "#"
+      },
+      {
+        "label": "الاقتصاد",
+        "href": "#"
+      },
+      {
+        "label": "علوم الحاسوب",
+        "href": "#"
+      }
+    ],
+    "curricula": [
+      "الأمريكي",
+      "CBSE",
+      "ISC",
+      "IGCSE",
+      "GCSE",
+      "AQA",
+      "EDEXCEL",
+      "Cambridge",
+      "OCR",
+      "O Level",
+      "A Level",
+      "IB",
+      "الأسترالي (HSC وVCE)",
+      "الجامعة"
+    ],
+    "tests": [
+      "SAT",
+      "IMAT",
+      "BMAT",
+      "UCAT"
+    ]
+  },
+  "curricula": [
+    "American",
+    "AP",
+    "CBSE",
+    "ISC",
+    "AQA",
+    "EDEXCEL",
+    "Cambridge",
+    "OCR",
+    "IGCSE",
+    "GCSE",
+    "O Level",
+    "A Level",
+    "IB",
+    "Australian",
+    "SAT",
+    "IMAT",
+    "BMAT",
+    "UCAT"
+  ],
+  "teachingExperience": [
+    "أقل من سنة",
+    "1–3 سنوات",
+    "3–5 سنوات",
+    "5–10 سنوات",
+    "أكثر من 10 سنوات"
+  ],
+  "levelsBySubject": {
+    "اختبار قبول": {
+      "label": "أيّ اختبار",
+      "placeholder": "اختر الاختبار",
+      "options": [
+        "SAT",
+        "IMAT",
+        "BMAT",
+        "UCAT",
+        "اختبار آخر"
+      ],
+      "goals": [
+        "المحاولة الأولى",
+        "تحسين درجتي (إعادة)",
+        "دورة تحضير كاملة",
+        "دورة مكثّفة في اللحظات الأخيرة"
+      ]
+    }
+  },
+  "goals": [
+    "سدّ الفجوات",
+    "تحسين الدرجات",
+    "التحضير للامتحان",
+    "التقدّم على المنهج"
+  ],
+  "planFeatures": [
+    "معلّم فردي مختار بعناية",
+    "أي مادة أو منهج أو مدرسة أو جامعة",
+    "ملاحظات بعد كل حصة وتقرير تقدّم شهري",
+    "الساعات لا تنتهي صلاحيتها ويمكن مشاركتها مع العائلة"
+  ],
+  "planNote": "الأسعار بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع.",
+  "countries": [
+    "الإمارات العربية المتحدة",
+    "السعودية",
+    "قطر",
+    "الكويت",
+    "البحرين",
+    "عُمان",
+    "المملكة المتحدة",
+    "أستراليا",
+    "نيوزيلندا",
+    "الولايات المتحدة",
+    "كندا",
+    "الهند",
+    "الفلبين",
+    "جنوب أفريقيا",
+    "أخرى"
+  ],
+  "regions": [
+    {
+      "label": "الإمارات",
+      "slug": "uae",
+      "full": "the UAE",
+      "cities": [
+        "Dubai",
+        "Abu Dhabi",
+        "Sharjah",
+        "Ajman",
+        "Ras Al Khaimah",
+        "Al Ain"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Gulf Standard Time (GST)",
+      "code": "ae",
+      "arabic": true
+    },
+    {
+      "label": "السعودية",
+      "slug": "saudi-arabia",
+      "full": "Saudi Arabia",
+      "cities": [
+        "Riyadh",
+        "Jeddah",
+        "Dammam",
+        "Khobar",
+        "Mecca",
+        "Medina"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "sa",
+      "arabic": true
+    },
+    {
+      "label": "قطر",
+      "slug": "qatar",
+      "full": "Qatar",
+      "cities": [
+        "Doha",
+        "Al Wakrah",
+        "Lusail",
+        "Al Rayyan"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "qa",
+      "arabic": true
+    },
+    {
+      "label": "الكويت",
+      "slug": "kuwait",
+      "full": "Kuwait",
+      "cities": [
+        "Kuwait City",
+        "Salmiya",
+        "Hawalli",
+        "Jahra"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "kw",
+      "arabic": true
+    },
+    {
+      "label": "البحرين",
+      "slug": "bahrain",
+      "full": "Bahrain",
+      "cities": [
+        "Manama",
+        "Riffa",
+        "Muharraq",
+        "Isa Town"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)",
+      "code": "bh",
+      "arabic": true
+    },
+    {
+      "label": "عُمان",
+      "slug": "oman",
+      "full": "Oman",
+      "cities": [
+        "Muscat",
+        "Salalah",
+        "Sohar",
+        "Nizwa"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Gulf Standard Time (GST)",
+      "code": "om",
+      "arabic": true
+    },
+    {
+      "label": "مصر",
+      "slug": "egypt",
+      "full": "Egypt",
+      "cities": [
+        "Cairo",
+        "Giza",
+        "Alexandria",
+        "New Cairo",
+        "Sheikh Zayed"
+      ],
+      "curricula": "British (IGCSE, O and A Level), the American Diploma (including AP and SAT) and IB",
+      "timezone": "Egypt time (EET)",
+      "code": "eg",
+      "arabic": true
+    },
+    {
+      "label": "المملكة المتحدة",
+      "slug": "uk",
+      "full": "the UK",
+      "cities": [
+        "London",
+        "Manchester",
+        "Birmingham",
+        "Leeds",
+        "Glasgow"
+      ],
+      "curricula": "GCSE and A Level (AQA, Edexcel, OCR and Cambridge), IGCSE and IB",
+      "timezone": "UK time (GMT/BST)",
+      "code": "gb",
+      "arabic": false
+    },
+    {
+      "label": "أستراليا",
+      "slug": "australia",
+      "full": "Australia",
+      "cities": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Perth",
+        "Adelaide"
+      ],
+      "curricula": "Australian Years 4–12 (NAPLAN, HSC and VCE) and IB",
+      "timezone": "your local Australian time",
+      "code": "au",
+      "arabic": false
+    },
+    {
+      "label": "نيوزيلندا",
+      "slug": "new-zealand",
+      "full": "New Zealand",
+      "cities": [
+        "Auckland",
+        "Wellington",
+        "Christchurch",
+        "Hamilton"
+      ],
+      "curricula": "Cambridge IGCSE and A Level, IB and university courses",
+      "timezone": "New Zealand time (NZST)",
+      "code": "nz",
+      "arabic": false
+    },
+    {
+      "label": "الولايات المتحدة",
+      "slug": "usa",
+      "full": "the USA",
+      "cities": [
+        "New York",
+        "Houston",
+        "Los Angeles",
+        "Chicago",
+        "Dallas"
+      ],
+      "curricula": "the American curriculum (including AP), IB and SAT prep",
+      "timezone": "your US time zone",
+      "code": "us",
+      "arabic": false
+    },
+    {
+      "label": "كندا",
+      "slug": "canada",
+      "full": "Canada",
+      "cities": [
+        "Toronto",
+        "Vancouver",
+        "Calgary",
+        "Montreal",
+        "Ottawa"
+      ],
+      "curricula": "the American curriculum (including AP), IB and university courses",
+      "timezone": "your Canadian time zone",
+      "code": "ca",
+      "arabic": false
+    }
+  ],
+  "ui": {
+    "teaches": "كيف يدرّس {name}",
+    "bestFor": "الأنسب لـ",
+    "flipBack": "اضغط للعودة",
+    "start": "ابدأ الحصة المجانية",
+    "hoursTotal": "{hours} ساعة · {total} إجمالاً",
+    "tutor": "معلّم {subject}",
+    "show": "اعرض {name}",
+    "worldwide": "حول العالم"
+  }
+}

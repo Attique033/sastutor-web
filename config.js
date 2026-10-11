@@ -9,6 +9,12 @@
   const crown = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7l4.5 4L12 4l4.5 7L21 7l-2 12H5z"/></svg>';
   const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
+  // Arabic pages (lang="ar") load config.ar.json; ui holds the few labels the templates below write.
+  const AR = document.documentElement.lang.startsWith("ar");
+  const UI = { teaches: "How {name} teaches", bestFor: "Best for", flipBack: "Tap to flip back", start: "Start free trial",
+               hoursTotal: "{hours} hours · {total} in total", tutor: "{subject} tutor", show: "Show {name}" };
+  const t$ = (key, cfg, vars = {}) => (cfg.ui?.[key] ?? UI[key]).replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
+
   function render(cfg) {
     // single values: <span data-cfg="business.enrolmentBanner"></span>
     document.querySelectorAll("[data-cfg]").forEach(el => { el.textContent = get(cfg, el.dataset.cfg) ?? ""; });
@@ -34,15 +40,15 @@
     }));
 
     fill("#roster", cfg.tutors.map((t, i) =>
-      `<button type="button" role="tab" data-jump="${i}" aria-label="Show ${esc(t.name)}"><img src="${esc(t.photo)}" alt="" width="52" height="52" loading="lazy"></button>`).join(""));
+      `<button type="button" role="tab" data-jump="${i}" aria-label="${esc(t$("show", cfg, t))}"><img src="${esc(t.photo)}" alt="" width="52" height="52" loading="lazy"></button>`).join(""));
 
     fill("#deck", cfg.tutors.map(t => `
-      <article class="fc" aria-label="${esc(t.name)}, ${esc(t.subject)} tutor"><div class="fc-in">
-        <div class="face face-front">${t.badge ? `<span class="fc-badge">${crown}${esc(t.badge)}</span>` : ""}<img src="${esc(t.photo)}" alt="${esc(t.name)}, ${esc(t.subject)} tutor" width="600" height="720" loading="lazy" draggable="false">
+      <article class="fc" aria-label="${esc(t.name)}, ${esc(t$("tutor", cfg, t))}"><div class="fc-in">
+        <div class="face face-front">${t.badge ? `<span class="fc-badge">${crown}${esc(t.badge)}</span>` : ""}<img src="${esc(t.photo)}" alt="${esc(t.name)}, ${esc(t$("tutor", cfg, t))}" width="600" height="720" loading="lazy" draggable="false">
           <div class="fc-body"><h3>${esc(t.name)} ${badge}</h3><p class="sub">${esc(t.credentials)}</p>
             <div class="tags">${t.subjects.map(x => `<span>${esc(x)}</span>`).join("")}${t.curricula.map(x => `<span class="c">${esc(x)}</span>`).join("")}</div></div></div>
-        <div class="face face-back"><span class="eyebrow">How ${esc(t.name)} teaches</span><p class="style">${esc(t.style)}</p>
-          <p class="best"><b>Best for</b> ${esc(t.bestFor)}</p><span class="flip-hint">Tap to flip back</span></div>
+        <div class="face face-back"><span class="eyebrow">${esc(t$("teaches", cfg, t))}</span><p class="style">${esc(t.style)}</p>
+          <p class="best"><b>${esc(t$("bestFor", cfg))}</b> ${esc(t.bestFor)}</p><span class="flip-hint">${esc(t$("flipBack", cfg))}</span></div>
       </div></article>`).join(""));
 
     const b = cfg.business;
@@ -55,10 +61,10 @@
 
     // hour bundles: the more hours, the less per hour; the same promises under every plan
     fill("#plans", cfg.plans.map(p => `
-      <div class="plan${p.popular ? " pop" : ""} rv">${p.label ? `<span class="badge">${esc(p.label)}</span>` : ""}<h3>${esc(p.name)}</h3><p class="per">${esc(p.hours)} hours · ${esc(p.total)} in total</p>
+      <div class="plan${p.popular ? " pop" : ""} rv">${p.label ? `<span class="badge">${esc(p.label)}</span>` : ""}<h3>${esc(p.name)}</h3><p class="per">${esc(t$("hoursTotal", cfg, p))}</p>
         <div class="price">${esc(cfg.currency)}${esc(p.perHour)}<small> ${esc(cfg.priceUnit)}</small></div>
         <ul>${cfg.planFeatures.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
-        <button class="btn" data-open-trial data-src="plan-${slug(p.name)}">Start free trial</button></div>`).join(""));
+        <button class="btn" data-open-trial data-src="plan-${slug(p.name)}">${esc(t$("start", cfg))}</button></div>`).join(""));
     fill("#plan-note", esc(cfg.planNote));
 
     fill("#faq-list", cfg.faq.map((f, i) => `<details${i ? "" : " open"}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(""));
@@ -68,7 +74,7 @@
     const items = list => list.map(x => `<li>${esc(x)}</li>`).join("");
     fill("#foot-curricula", items(cfg.footer.curricula));
     fill("#foot-tests", items(cfg.footer.tests));
-    fill("#foot-regions", cfg.regions.map(r => `<li><a href="online-tutors-${esc(r.slug)}/">${esc(r.label)}</a></li>`).join("") + "<li>Worldwide</li>");
+    fill("#foot-regions", cfg.regions.map(r => `<li><a href="${esc(r.code)}-${AR && r.arabic ? "ar" : "en"}">${esc(r.label)}</a></li>`).join("") + `<li>${esc(cfg.ui?.worldwide ?? "Worldwide")}</li>`);
     fill("#a-country", cfg.countries.map((x, i) => `<option${i ? "" : " selected"}>${esc(x)}</option>`).join(""));
     // become-a-tutor form: subject/curriculum chips and experience options
     const chips = (sel, name, list) => fill(sel, list.map(o => `<label><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join(""));
@@ -78,7 +84,7 @@
     return cfg;
   }
 
-  window.siteConfig = fetch("config.json", { cache: "no-cache" })
+  window.siteConfig = fetch(AR ? "config.ar.json" : "config.json", { cache: "no-cache" })
     .then(r => { if (!r.ok) throw new Error(`config.json: HTTP ${r.status}`); return r.json(); })
     .then(render)
     .catch(err => {
