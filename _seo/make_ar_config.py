@@ -89,7 +89,7 @@ ar["planFeatures"] = ["معلّم فردي مختار بعناية", "أي ما�
 ar["planNote"] = "الأسعار بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع."
 ar["faq"] = [{"q": q, "a": a} for q, a in FAQ]
 ar["footer"]["subjects"] = [{"label": SUBJ.get(x["label"], x["label"]), "href": "#"} for x in c["footer"]["subjects"]]
-ar["footer"]["curricula"] = [x.replace("Australian (HSC, VCE)", "الأسترالي (HSC وVCE)").replace("American", "الأمريكي").replace("University", "الجامعة") for x in c["footer"]["curricula"]]
+ar["footer"]["curricula"] = [x.replace("Australian (HSC, VCE)", "الأسترالي HSC وVCE").replace("American", "الأمريكي").replace("University", "الجامعة") for x in c["footer"]["curricula"]]
 ar["teachingExperience"] = ["أقل من سنة", "1–3 سنوات", "3–5 سنوات", "5–10 سنوات", "أكثر من 10 سنوات"]
 et = ar["levelsBySubject"].pop("Entry test")
 et.update(label="أيّ اختبار", placeholder="اختر الاختبار", options=["SAT", "IMAT", "BMAT", "UCAT", "اختبار آخر"],
