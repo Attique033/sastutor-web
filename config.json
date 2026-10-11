@@ -104,6 +104,51 @@
       "curricula": [],
       "style": "Biology and Chemistry explained through how living things actually work.",
       "bestFor": "remembering without cramming"
+    },
+    {
+      "name": "Fatima",
+      "subject": "Maths",
+      "credentials": "BEng · Selective school coach",
+      "photo": "assets/img/tutor-4.webp",
+      "subjects": [
+        "Maths"
+      ],
+      "curricula": [
+        "O Level",
+        "A Level"
+      ],
+      "style": "Short daily drills that make speed feel easy.",
+      "bestFor": "selective and scholarship exams"
+    },
+    {
+      "name": "Usman",
+      "subject": "Computer Science",
+      "credentials": "BCompSc · 4 yrs teaching",
+      "photo": "assets/img/tutor-5.webp",
+      "subjects": [
+        "Computing"
+      ],
+      "curricula": [
+        "IB",
+        "A Level"
+      ],
+      "style": "You build a small program from lesson one.",
+      "bestFor": "beginners through to IB HL"
+    },
+    {
+      "name": "Ayesha",
+      "subject": "English",
+      "credentials": "BA English, MTeach · 8 yrs teaching",
+      "photo": "assets/img/tutor-2.webp",
+      "subjects": [
+        "English"
+      ],
+      "curricula": [
+        "IGCSE",
+        "GCSE"
+      ],
+      "style": "Structure first, then voice. Every paragraph earns its place.",
+      "bestFor": "building confident essay writers"
     }
   ],
   "wall": [
