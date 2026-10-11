@@ -4,11 +4,37 @@
     "whatsapp": "923025006025",
     "whatsappGreeting": "مرحباً SAS Tutors، أودّ معرفة المزيد عن الدروس الخصوصية.",
     "formEndpoint": "",
-    "instagram": "https://www.instagram.com/sastutors_/",
-    "instagramHandle": "@sastutors_",
+    "instagram": "https://www.instagram.com/sas_tutors/",
+    "instagramHandle": "@sas_tutors",
     "enrolmentBanner": "التسجيل مفتوح",
     "about": "دروس خصوصية فردية أونلاين تبدأ من الأساسيات، للمناهج الأمريكية والبريطانية وIB والهندية والأسترالية. مقرّنا في الإمارات وندرّس طلاباً حول العالم.",
-    "tutorFormEndpoint": ""
+    "tutorFormEndpoint": "",
+    "socials": [
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/sas_tutors/"
+      },
+      {
+        "name": "TikTok",
+        "url": "https://www.tiktok.com/@sas_tutors"
+      },
+      {
+        "name": "YouTube",
+        "url": "https://www.youtube.com/@SAS_tutor"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=61559141738218"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/sas-tutors"
+      },
+      {
+        "name": "Threads",
+        "url": "https://www.threads.com/@sas_tutor"
+      }
+    ]
   },
   "currency": "$",
   "priceUnit": "/ساعة",

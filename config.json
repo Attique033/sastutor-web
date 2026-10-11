@@ -4,11 +4,37 @@
     "whatsapp": "923025006025",
     "whatsappGreeting": "Hi SAS Tutors, I'd like to know more about tutoring.",
     "formEndpoint": "",
-    "instagram": "https://www.instagram.com/sastutors_/",
-    "instagramHandle": "@sastutors_",
+    "instagram": "https://www.instagram.com/sas_tutors/",
+    "instagramHandle": "@sas_tutors",
     "enrolmentBanner": "Now enrolling",
     "about": "Fundamentals-first 1:1 online tutoring for American, British, IB, Indian and Australian curriculums. Based in the UAE, teaching students worldwide.",
-    "tutorFormEndpoint": ""
+    "tutorFormEndpoint": "",
+    "socials": [
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/sas_tutors/"
+      },
+      {
+        "name": "TikTok",
+        "url": "https://www.tiktok.com/@sas_tutors"
+      },
+      {
+        "name": "YouTube",
+        "url": "https://www.youtube.com/@SAS_tutor"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=61559141738218"
+      },
+      {
+        "name": "LinkedIn",
+        "url": "https://www.linkedin.com/company/sas-tutors"
+      },
+      {
+        "name": "Threads",
+        "url": "https://www.threads.com/@sas_tutor"
+      }
+    ]
   },
   "currency": "$",
   "priceUnit": "/hour",

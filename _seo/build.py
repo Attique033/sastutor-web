@@ -48,7 +48,7 @@ def org():
     return {
         "@type": "EducationalOrganization", "@id": SITE + "/#org", "name": B["name"], "url": SITE + "/",
         "logo": SITE + "/assets/logo/icon-512.png", "image": SITE + "/assets/img/hero.webp",
-        "description": B["about"], "sameAs": [B["instagram"]],
+        "description": B["about"], "sameAs": [x["url"] for x in B["socials"]],
         "address": {"@type": "PostalAddress", "addressCountry": "AE"},
         "areaServed": [{"@type": "Country", "name": r["label"]} for r in REGIONS],
         "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+" + B["whatsapp"], "availableLanguage": ["English"]},
@@ -98,6 +98,7 @@ def static_blocks(page, c, lang):
         f'<div class="plan"><h3>{e(p["name"])}</h3><div class="price">${p["perHour"]}<small> {e(c["priceUnit"])}</small></div>'
         f'<ul>' + "".join(f"<li>{e(x)}</li>" for x in c["planFeatures"]) + "</ul></div>" for p in c["plans"]))
     page = between(page, "tutors", "".join(f'<article class="fc"><h3>{e(t["name"])}</h3><p>{e(t["subject"])} · {e(t["credentials"])}</p></article>' for t in c["tutors"]))
+    page = between(page, "socials", "".join(f'<a href="{e(x["url"])}" target="_blank" rel="noopener me">{e(x["name"])}</a>' for x in c["business"]["socials"]))
     page = between(page, "regions", "".join(
         f'<li><a href="{r["code"]}-{"ar" if lang == "ar" and r["arabic"] else "en"}">{e(r["label"])}</a></li>' for r in c["regions"])
         + f'<li>{e(c.get("ui", {}).get("worldwide", "Worldwide"))}</li>')
@@ -241,6 +242,7 @@ urls = [SITE + "/"] + pages
               ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User", "PerplexityBot",
                "Perplexity-User", "Google-Extended", "Applebot-Extended", "Bingbot"])
     + f"Sitemap: {SITE}/sitemap.xml\n")
+SOCIAL = " · ".join(f"{x['name']} {x['url']}" for x in B["socials"])
 plans_md = "\n".join(f"- {p['hours']} hours: ${p['perHour']}/hour (${p['hours'] * p['perHour']:,} total){' · ' + p['label'] if p['label'] else ''}" for p in cfg["plans"])
 (ROOT / "llms.txt").write_text(f"""# {B['name']}
 
@@ -253,7 +255,8 @@ plans_md = "\n".join(f"- {p['hours']} hours: ${p['perHour']}/hour (${p['hours'] 
 - Curriculums: American (including AP), British (IGCSE, GCSE, O Level, A Level; AQA, Edexcel, OCR, Cambridge), IB, Indian (CBSE, ISC), Australian Years 4–12 (NAPLAN, HSC, VCE), university courses.
 - Entry tests: SAT, IMAT, BMAT, UCAT.
 - Languages: pages in English, and in Arabic for the Gulf and Egypt.
-- Contact: WhatsApp +{B['whatsapp']} · Instagram {B['instagramHandle']} · {SITE}/
+- Contact: WhatsApp +{B['whatsapp']} · {SITE}/
+- Social: {SOCIAL}
 
 ## Prices (US dollars, converted to local currency at checkout)
 {plans_md}
