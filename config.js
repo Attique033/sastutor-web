@@ -72,7 +72,8 @@
     // footer subjects open the trial form with that subject picked
     fill("#foot-subjects", cfg.footer.subjects.map(l => `<li><a href="#" data-trial-subject="${esc(l.label)}">${esc(l.label)}</a></li>`).join(""));
     const items = list => list.map(x => `<li>${esc(x)}</li>`).join("");
-    fill("#socials", cfg.business.socials.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener me">${esc(x.name)}</a>`).join(""));
+    // icon markup comes from config.json (ours, not user input), so it isn't escaped
+    fill("#socials", cfg.business.socials.map(x => `<a href="${esc(x.url)}" target="_blank" rel="noopener me" aria-label="${esc(x.name)}" title="${esc(x.name)}"><svg viewBox="0 0 24 24" aria-hidden="true">${x.icon}</svg></a>`).join(""));
     fill("#foot-curricula", items(cfg.footer.curricula));
     fill("#foot-tests", items(cfg.footer.tests));
     fill("#foot-regions", cfg.regions.map(r => `<li><a href="${esc(r.code)}-${AR && r.arabic ? "ar" : "en"}">${esc(r.label)}</a></li>`).join("") + `<li>${esc(cfg.ui?.worldwide ?? "Worldwide")}</li>`);

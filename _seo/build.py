@@ -98,7 +98,7 @@ def static_blocks(page, c, lang):
         f'<div class="plan"><h3>{e(p["name"])}</h3><div class="price">${p["perHour"]}<small> {e(c["priceUnit"])}</small></div>'
         f'<ul>' + "".join(f"<li>{e(x)}</li>" for x in c["planFeatures"]) + "</ul></div>" for p in c["plans"]))
     page = between(page, "tutors", "".join(f'<article class="fc"><h3>{e(t["name"])}</h3><p>{e(t["subject"])} · {e(t["credentials"])}</p></article>' for t in c["tutors"]))
-    page = between(page, "socials", "".join(f'<a href="{e(x["url"])}" target="_blank" rel="noopener me">{e(x["name"])}</a>' for x in c["business"]["socials"]))
+    page = between(page, "socials", "".join(f'<a href="{e(x["url"])}" target="_blank" rel="noopener me" aria-label="{e(x["name"])}" title="{e(x["name"])}"><svg viewBox="0 0 24 24" aria-hidden="true">{x["icon"]}</svg></a>' for x in c["business"]["socials"]))
     page = between(page, "regions", "".join(
         f'<li><a href="{r["code"]}-{"ar" if lang == "ar" and r["arabic"] else "en"}">{e(r["label"])}</a></li>' for r in c["regions"])
         + f'<li>{e(c.get("ui", {}).get("worldwide", "Worldwide"))}</li>')
