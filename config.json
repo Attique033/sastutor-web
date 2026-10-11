@@ -7,7 +7,7 @@
     "instagram": "https://www.instagram.com/sastutors_/",
     "instagramHandle": "@sastutors_",
     "enrolmentBanner": "Now enrolling",
-    "about": "Fundamentals-first 1:1 online tutoring for Years 4–12 and international curriculums. Based in Pakistan, teaching students worldwide.",
+    "about": "Fundamentals-first 1:1 online tutoring for American, British, IB, Indian and Australian curriculums. Based in the UAE, teaching students worldwide.",
     "tutorFormEndpoint": ""
   },
   "currency": "$",
@@ -26,107 +26,83 @@
     "Other"
   ],
   "levels": [
-    "Class 1–8",
-    "Matric (Class 9–10)",
-    "Intermediate (FSc / ICS / ICom)",
+    "Years 1–6 (Primary)",
+    "Years 7–9",
+    "IGCSE / GCSE",
     "O Level",
     "A Level",
-    "IGCSE / GCSE",
     "IB",
-    "Years 4–10 (Australia)",
+    "American (incl. AP)",
+    "CBSE / ISC",
+    "Australian Years 4–10",
     "Years 11–12 (HSC / VCE)",
     "University"
   ],
   "tutors": [
     {
-      "name": "Shoaib",
+      "name": "Shoaib Akram",
       "subject": "Physics",
-      "credentials": "Physics Lecturer · 7 yrs teaching",
-      "photo": "assets/img/tutor-1.webp",
+      "credentials": "MSc and MPhil Physics · University lecturer · CEO & Tutor, 15+ years of tutoring and management",
+      "photo": "assets/img/tutor-shoaib.jpg",
       "subjects": [
-        "Maths",
         "Physics",
-        "Chemistry",
-        "Statistics"
+        "Maths"
       ],
       "curricula": [],
-      "style": "Builds every Physics topic up from first principles.",
+      "style": "A university lecturer who builds every Physics topic up from first principles.",
       "bestFor": "students aiming for top grades in Physics",
-      "badge": "Top selected"
+      "badge": "CEO & Tutor"
     },
     {
-      "name": "Ayesha",
+      "name": "Mercy Sheilla",
       "subject": "English",
-      "credentials": "BA English, MTeach · 8 yrs teaching",
-      "photo": "assets/img/tutor-2.webp",
+      "credentials": "MA English Literature · English Literature & Language Educator · 10 years, 1,000+ hours taught",
+      "photo": "assets/img/tutor-mercy.jpg",
       "subjects": [
         "English"
       ],
-      "curricula": [
-        "FSc",
-        "Matric"
-      ],
-      "style": "Structure first, then voice. Every paragraph earns its place.",
-      "bestFor": "building confident essay writers"
+      "curricula": [],
+      "style": "Literature and language together: close reading, clear structure and confident writing.",
+      "bestFor": "English Language and Literature at every level"
     },
     {
-      "name": "Hamza",
+      "name": "Rana Mubasher",
       "subject": "Chemistry",
-      "credentials": "MSc Chemistry · 5 yrs teaching",
-      "photo": "assets/img/tutor-3.webp",
+      "credentials": "MSc Chemical Engineering · 10 years, 1,500+ hours tutoring",
+      "photo": "assets/img/tutor-rana.jpg",
       "subjects": [
-        "Chemistry"
+        "Biology",
+        "Chemistry",
+        "Physics"
       ],
-      "curricula": [
-        "A Level",
-        "FSc"
-      ],
-      "style": "Draws every reaction before anyone balances it.",
-      "bestFor": "visual learners"
+      "curricula": [],
+      "style": "An engineer's eye for how the sciences connect, from reactions to real systems.",
+      "bestFor": "students taking two or three sciences"
     },
     {
-      "name": "Fatima",
-      "subject": "Maths",
-      "credentials": "BEng · Selective school coach",
-      "photo": "assets/img/tutor-4.webp",
+      "name": "Sawera Nadeem",
+      "subject": "Physics",
+      "credentials": "Masters in Physics · 5+ years of experience",
+      "photo": "assets/img/tutor-sawera.jpg",
       "subjects": [
+        "Physics",
         "Maths"
       ],
-      "curricula": [
-        "O Level",
-        "A Level"
-      ],
-      "style": "Short daily drills that make speed feel easy.",
-      "bestFor": "selective and scholarship exams"
+      "curricula": [],
+      "style": "Physics and Maths taught side by side, so the equations always mean something.",
+      "bestFor": "students who find Physics maths-heavy"
     },
     {
-      "name": "Usman",
-      "subject": "Computer Science",
-      "credentials": "BCompSc · 4 yrs teaching",
-      "photo": "assets/img/tutor-5.webp",
-      "subjects": [
-        "Computing"
-      ],
-      "curricula": [
-        "IB",
-        "FSc"
-      ],
-      "style": "You build a small program from lesson one.",
-      "bestFor": "beginners through to IB HL"
-    },
-    {
-      "name": "Zainab",
+      "name": "Hifza Nadeem",
       "subject": "Biology",
-      "credentials": "BBiomedSc · 5 yrs teaching",
-      "photo": "assets/img/tutor-6.webp",
+      "credentials": "Masters in Biology · 4 years of experience",
+      "photo": "assets/img/tutor-hifza.jpg",
       "subjects": [
-        "Biology"
+        "Biology",
+        "Chemistry"
       ],
-      "curricula": [
-        "FSc",
-        "IGCSE"
-      ],
-      "style": "Links every topic to how the body really works.",
+      "curricula": [],
+      "style": "Biology and Chemistry explained through how living things actually work.",
       "bestFor": "remembering without cramming"
     }
   ],
@@ -171,8 +147,8 @@
     },
     {
       "type": "stat",
-      "value": "Matric → A Level",
-      "label": "plus IGCSE, IB, Australian Years 4–12 and entry tests like MDCAT and ECAT"
+      "value": "Years 4 → University",
+      "label": "American, British, IB, CBSE/ISC and Australian curriculums, plus SAT, IMAT, BMAT and UCAT"
     },
     {
       "type": "instagram",
@@ -181,38 +157,26 @@
   ],
   "plans": [
     {
-      "name": "Catch-up",
-      "cadence": "1 lesson a week · 4 per month",
-      "price": 65,
-      "popular": false,
-      "features": [
-        "Expert 1:1 tutor",
-        "Notes after every lesson",
-        "Monthly progress report"
-      ]
+      "name": "Starter",
+      "hours": 20,
+      "perHour": 20,
+      "total": "$400",
+      "label": ""
     },
     {
-      "name": "Steady progress",
-      "cadence": "2 lessons a week · 8 per month",
-      "price": 60,
-      "popular": true,
-      "features": [
-        "Everything in Catch-up",
-        "Personal plan built around the exam",
-        "Message support between lessons",
-        "Priority scheduling"
-      ]
+      "name": "50 hours",
+      "hours": 50,
+      "perHour": 15,
+      "total": "$750",
+      "label": "Most popular",
+      "popular": true
     },
     {
-      "name": "Exam ready",
-      "cadence": "3 lessons a week · 12 per month",
-      "price": 55,
-      "popular": false,
-      "features": [
-        "Everything in Steady progress",
-        "Past-paper practice and marking",
-        "Exam technique coaching"
-      ]
+      "name": "100 hours",
+      "hours": 100,
+      "perHour": 10,
+      "total": "$1,000",
+      "label": "Best value"
     }
   ],
   "faq": [
@@ -222,19 +186,19 @@
     },
     {
       "q": "Which subjects and curriculums do you cover?",
-      "a": "Maths, Physics, Chemistry, Biology, Statistics, English, Economics and Computer Science. We teach Matric and Intermediate (FSc, ICS, ICom) for every Pakistani board, O Level, A Level, IGCSE, GCSE and IB, Australian Years 4–12 (NAPLAN, HSC, VCE) and university courses."
+      "a": "Maths, Physics, Chemistry, Biology, Statistics, English, Economics and Computer Science. We teach the American curriculum (including AP), Indian CBSE and ISC, British IGCSE, GCSE, O Level and A Level, IB, Australian Years 4–12 (NAPLAN, HSC, VCE) and university courses."
     },
     {
       "q": "Do you prepare students for entry tests?",
-      "a": "Yes. We prepare students for MDCAT, ECAT, NUST NET, FAST, GIKI, PIEAS, LUMS, NTS / NAT, ETEA and SAT, from full prep courses to last-minute crash courses, with timed practice papers and score tracking."
+      "a": "Yes. We prepare students for the SAT, IMAT, BMAT and UCAT, from full prep courses to last-minute crash courses, with timed practice papers and score tracking. Please check your target university's current requirements, as some no longer accept every test."
     },
     {
       "q": "How do you choose my child's tutor?",
       "a": "We don't leave it to chance or a search filter. Our team matches a tutor to the subject, curriculum or test, your child's level and learning style, and your preferred times. If the fit isn't right, we'll switch tutors for free."
     },
     {
-      "q": "Where are your tutors based?",
-      "a": "Our team is based in Pakistan and teaches students in Pakistan and abroad, including the UK, Australia, Canada and the Gulf. Lessons are always scheduled in your own timezone."
+      "q": "Where are you based, and who do you teach?",
+      "a": "We're based in the UAE and teach students all over the world. Most of our students are in the Gulf (UAE, Saudi Arabia, Qatar, Kuwait, Bahrain and Oman), the UK, Australia, New Zealand, the USA and Canada. Lessons are always scheduled in your own timezone."
     },
     {
       "q": "How do online lessons work?",
@@ -242,7 +206,7 @@
     },
     {
       "q": "Can we cancel or reschedule a lesson?",
-      "a": "Yes. Reschedule or cancel with at least 24 hours' notice. There are no lock-in contracts."
+      "a": "Yes. Reschedule or cancel any lesson with at least 24 hours' notice, and the hour stays in your balance."
     },
     {
       "q": "How will I know it's working?",
@@ -250,17 +214,65 @@
     },
     {
       "q": "Can I teach with SAS Tutors?",
-      "a": "Yes. Tap \"Teach with us\" at the top of the page to apply. We review every application, then hold a short interview and a demo lesson."
+      "a": "Yes. Tap \"Teach with us\" in the menu to apply. We review every application, then hold a short interview and a demo lesson."
+    },
+    {
+      "q": "How many hours have you taught?",
+      "a": "More than 5,000 hours of one-to-one lessons so far."
+    },
+    {
+      "q": "Do you teach students in Dubai, Abu Dhabi, Sharjah and the rest of the UAE?",
+      "a": "Yes. Every lesson is online, so it doesn't matter which emirate you're in."
+    },
+    {
+      "q": "Do you teach students in Saudi Arabia, Qatar, Kuwait, Bahrain and Oman?",
+      "a": "Yes. We teach students in all of these countries, with lessons scheduled at times that suit your school day."
+    },
+    {
+      "q": "Do you teach students in the UK, Australia, New Zealand, the USA and Canada?",
+      "a": "Yes. Lessons are online and scheduled in your own timezone, so you can learn from anywhere in the world."
+    },
+    {
+      "q": "Which curriculums do you teach?",
+      "a": "American, British (IGCSE, GCSE, O and A Level), IB, Indian (CBSE and ISC) and Australian. Wherever your school's international programme is offered, we can teach it."
+    },
+    {
+      "q": "How much do lessons cost?",
+      "a": "Lessons cost $20 an hour on the 20-hour plan, $15 an hour on the 50-hour plan and $10 an hour on the 100-hour plan. Your first lesson is free."
+    },
+    {
+      "q": "Is the plan tied to a subject, tutor or curriculum?",
+      "a": "No. Your hours work for any subject, any tutor on our team, and any school, university, curriculum or board. You can mix and match as you go."
+    },
+    {
+      "q": "Do my hours expire?",
+      "a": "No. Hours you buy never expire."
+    },
+    {
+      "q": "Can I share hours with my siblings or family?",
+      "a": "Yes. You can transfer hours to siblings or other family members, free of charge."
+    },
+    {
+      "q": "Can I get a refund on unused hours?",
+      "a": "Yes. If a year or more has passed since you bought your hours and you haven't used them, you can request a refund for the unused hours."
+    },
+    {
+      "q": "Can I pay in instalments?",
+      "a": "Bundles are paid in full. If a larger plan doesn't suit your budget, you can start with a smaller plan, though the hourly rate will be a little higher."
+    },
+    {
+      "q": "Which payment methods and currencies do you accept?",
+      "a": "We accept payments from all regions. Our rates are in US dollars and are converted to your local currency at checkout."
+    },
+    {
+      "q": "What if I only want a few lessons before committing to a bundle?",
+      "a": "We have flexible options for that. Message our admin team on WhatsApp and they'll arrange it for you."
     }
   ],
   "footer": {
     "subjects": [
       {
         "label": "Maths",
-        "href": "#"
-      },
-      {
-        "label": "English",
         "href": "#"
       },
       {
@@ -276,26 +288,78 @@
         "href": "#"
       },
       {
-        "label": "Entry test",
+        "label": "Statistics",
+        "href": "#"
+      },
+      {
+        "label": "English",
+        "href": "#"
+      },
+      {
+        "label": "Economics",
+        "href": "#"
+      },
+      {
+        "label": "Computer Science",
         "href": "#"
       }
+    ],
+    "curricula": [
+      "American",
+      "CBSE",
+      "ISC",
+      "IGCSE",
+      "GCSE",
+      "AQA",
+      "EDEXCEL",
+      "Cambridge",
+      "OCR",
+      "O Level",
+      "A Level",
+      "IB",
+      "Australian (HSC, VCE)",
+      "University"
+    ],
+    "tests": [
+      "SAT",
+      "IMAT",
+      "BMAT",
+      "UCAT"
+    ],
+    "regions": [
+      "UAE",
+      "Saudi Arabia",
+      "Qatar",
+      "Kuwait",
+      "Bahrain",
+      "Oman",
+      "UK",
+      "Australia",
+      "New Zealand",
+      "USA",
+      "Canada",
+      "Worldwide"
     ]
   },
   "curricula": [
-    "Matric (SSC)",
-    "Intermediate (HSSC): FSc, ICS, ICom",
-    "Federal Board (FBISE)",
-    "Punjab Boards (BISE)",
-    "Sindh Boards",
-    "KPK Boards",
-    "Aga Khan Board (AKU-EB)",
+    "American",
+    "AP",
+    "CBSE",
+    "ISC",
+    "AQA",
+    "EDEXCEL",
+    "Cambridge",
+    "OCR",
+    "IGCSE",
+    "GCSE",
     "O Level",
     "A Level",
-    "IGCSE",
     "IB",
-    "MDCAT",
-    "ECAT / NUST NET",
-    "University"
+    "Australian",
+    "SAT",
+    "IMAT",
+    "BMAT",
+    "UCAT"
   ],
   "teachingExperience": [
     "Less than 1 year",
@@ -309,16 +373,10 @@
       "label": "Which test",
       "placeholder": "Choose a test",
       "options": [
-        "MDCAT (medical)",
-        "ECAT (engineering, UET)",
-        "NUST NET",
-        "FAST NU",
-        "GIKI",
-        "PIEAS",
-        "LUMS",
-        "NTS / NAT",
-        "ETEA",
         "SAT",
+        "IMAT",
+        "BMAT",
+        "UCAT",
         "Other test"
       ],
       "goals": [
@@ -334,5 +392,29 @@
     "Improve grades",
     "Exam preparation",
     "Get ahead"
+  ],
+  "planFeatures": [
+    "Hand-picked one-to-one tutor",
+    "Any subject, curriculum, school or university",
+    "Notes after every lesson and a monthly progress report",
+    "Hours never expire and can be shared with family"
+  ],
+  "planNote": "Prices are in US dollars and are converted to your local currency at checkout.",
+  "countries": [
+    "United Arab Emirates",
+    "Saudi Arabia",
+    "Qatar",
+    "Kuwait",
+    "Bahrain",
+    "Oman",
+    "United Kingdom",
+    "Australia",
+    "New Zealand",
+    "United States",
+    "Canada",
+    "India",
+    "Philippines",
+    "South Africa",
+    "Other"
   ]
 }

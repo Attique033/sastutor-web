@@ -53,16 +53,23 @@
         <figcaption class="who"><b>${esc(w.name[0])}</b><div><strong>${esc(w.name)}</strong><small>${esc(w.role)}</small></div></figcaption></figure>`;
     }).join(""));
 
+    // hour bundles: the more hours, the less per hour; the same promises under every plan
     fill("#plans", cfg.plans.map(p => `
-      <div class="plan${p.popular ? " pop" : ""} rv">${p.popular ? '<span class="badge">Most popular</span>' : ""}<h3>${esc(p.name)}</h3><p class="per">${esc(p.cadence)}</p>
-        <div class="price">${esc(cfg.currency)}${esc(p.price)}<small> ${esc(cfg.priceUnit)}</small></div>
-        <ul>${p.features.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
+      <div class="plan${p.popular ? " pop" : ""} rv">${p.label ? `<span class="badge">${esc(p.label)}</span>` : ""}<h3>${esc(p.name)}</h3><p class="per">${esc(p.hours)} hours · ${esc(p.total)} in total</p>
+        <div class="price">${esc(cfg.currency)}${esc(p.perHour)}<small> ${esc(cfg.priceUnit)}</small></div>
+        <ul>${cfg.planFeatures.map(f => `<li>${esc(f)}</li>`).join("")}</ul>
         <button class="btn" data-open-trial data-src="plan-${slug(p.name)}">Start free trial</button></div>`).join(""));
+    fill("#plan-note", esc(cfg.planNote));
 
     fill("#faq-list", cfg.faq.map((f, i) => `<details${i ? "" : " open"}><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join(""));
 
     // footer subjects open the trial form with that subject picked
     fill("#foot-subjects", cfg.footer.subjects.map(l => `<li><a href="#" data-trial-subject="${esc(l.label)}">${esc(l.label)}</a></li>`).join(""));
+    const items = list => list.map(x => `<li>${esc(x)}</li>`).join("");
+    fill("#foot-curricula", items(cfg.footer.curricula));
+    fill("#foot-tests", items(cfg.footer.tests));
+    fill("#foot-regions", items(cfg.footer.regions));
+    fill("#a-country", cfg.countries.map((x, i) => `<option${i ? "" : " selected"}>${esc(x)}</option>`).join(""));
     // become-a-tutor form: subject/curriculum chips and experience options
     const chips = (sel, name, list) => fill(sel, list.map(o => `<label><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join(""));
     chips("#apply-subjects", "subjects", cfg.subjects.filter(x => x !== "Other"));
