@@ -68,7 +68,7 @@
     const items = list => list.map(x => `<li>${esc(x)}</li>`).join("");
     fill("#foot-curricula", items(cfg.footer.curricula));
     fill("#foot-tests", items(cfg.footer.tests));
-    fill("#foot-regions", items(cfg.footer.regions));
+    fill("#foot-regions", cfg.regions.map(r => `<li><a href="online-tutors-${esc(r.slug)}/">${esc(r.label)}</a></li>`).join("") + "<li>Worldwide</li>");
     fill("#a-country", cfg.countries.map((x, i) => `<option${i ? "" : " selected"}>${esc(x)}</option>`).join(""));
     // become-a-tutor form: subject/curriculum chips and experience options
     const chips = (sel, name, list) => fill(sel, list.map(o => `<label><input type="checkbox" name="${name}" value="${esc(o)}"><span>${esc(o)}</span></label>`).join(""));

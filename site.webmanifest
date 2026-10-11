@@ -1,0 +1,13 @@
+{
+  "name": "SAS Tutors",
+  "short_name": "SAS Tutors",
+  "description": "Expert 1:1 online tutoring worldwide. First lesson free.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F6F3E6",
+  "theme_color": "#0F3D3E",
+  "icons": [
+    { "src": "assets/logo/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/logo/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

@@ -325,20 +325,6 @@
       "IMAT",
       "BMAT",
       "UCAT"
-    ],
-    "regions": [
-      "UAE",
-      "Saudi Arabia",
-      "Qatar",
-      "Kuwait",
-      "Bahrain",
-      "Oman",
-      "UK",
-      "Australia",
-      "New Zealand",
-      "USA",
-      "Canada",
-      "Worldwide"
     ]
   },
   "curricula": [
@@ -416,5 +402,172 @@
     "Philippines",
     "South Africa",
     "Other"
+  ],
+  "regions": [
+    {
+      "label": "UAE",
+      "slug": "uae",
+      "full": "the UAE",
+      "cities": [
+        "Dubai",
+        "Abu Dhabi",
+        "Sharjah",
+        "Ajman",
+        "Ras Al Khaimah",
+        "Al Ain"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Gulf Standard Time (GST)"
+    },
+    {
+      "label": "Saudi Arabia",
+      "slug": "saudi-arabia",
+      "full": "Saudi Arabia",
+      "cities": [
+        "Riyadh",
+        "Jeddah",
+        "Dammam",
+        "Khobar",
+        "Mecca",
+        "Medina"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)"
+    },
+    {
+      "label": "Qatar",
+      "slug": "qatar",
+      "full": "Qatar",
+      "cities": [
+        "Doha",
+        "Al Wakrah",
+        "Lusail",
+        "Al Rayyan"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)"
+    },
+    {
+      "label": "Kuwait",
+      "slug": "kuwait",
+      "full": "Kuwait",
+      "cities": [
+        "Kuwait City",
+        "Salmiya",
+        "Hawalli",
+        "Jahra"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)"
+    },
+    {
+      "label": "Bahrain",
+      "slug": "bahrain",
+      "full": "Bahrain",
+      "cities": [
+        "Manama",
+        "Riffa",
+        "Muharraq",
+        "Isa Town"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Arabia Standard Time (AST)"
+    },
+    {
+      "label": "Oman",
+      "slug": "oman",
+      "full": "Oman",
+      "cities": [
+        "Muscat",
+        "Salalah",
+        "Sohar",
+        "Nizwa"
+      ],
+      "curricula": "British (IGCSE, GCSE, O and A Level), American (including AP), IB and Indian CBSE and ISC",
+      "timezone": "Gulf Standard Time (GST)"
+    },
+    {
+      "label": "Egypt",
+      "slug": "egypt",
+      "full": "Egypt",
+      "cities": [
+        "Cairo",
+        "Giza",
+        "Alexandria",
+        "New Cairo",
+        "Sheikh Zayed"
+      ],
+      "curricula": "British (IGCSE, O and A Level), the American Diploma (including AP and SAT) and IB",
+      "timezone": "Egypt time (EET)"
+    },
+    {
+      "label": "UK",
+      "slug": "uk",
+      "full": "the UK",
+      "cities": [
+        "London",
+        "Manchester",
+        "Birmingham",
+        "Leeds",
+        "Glasgow"
+      ],
+      "curricula": "GCSE and A Level (AQA, Edexcel, OCR and Cambridge), IGCSE and IB",
+      "timezone": "UK time (GMT/BST)"
+    },
+    {
+      "label": "Australia",
+      "slug": "australia",
+      "full": "Australia",
+      "cities": [
+        "Sydney",
+        "Melbourne",
+        "Brisbane",
+        "Perth",
+        "Adelaide"
+      ],
+      "curricula": "Australian Years 4–12 (NAPLAN, HSC and VCE) and IB",
+      "timezone": "your local Australian time"
+    },
+    {
+      "label": "New Zealand",
+      "slug": "new-zealand",
+      "full": "New Zealand",
+      "cities": [
+        "Auckland",
+        "Wellington",
+        "Christchurch",
+        "Hamilton"
+      ],
+      "curricula": "Cambridge IGCSE and A Level, IB and university courses",
+      "timezone": "New Zealand time (NZST)"
+    },
+    {
+      "label": "USA",
+      "slug": "usa",
+      "full": "the USA",
+      "cities": [
+        "New York",
+        "Houston",
+        "Los Angeles",
+        "Chicago",
+        "Dallas"
+      ],
+      "curricula": "the American curriculum (including AP), IB and SAT prep",
+      "timezone": "your US time zone"
+    },
+    {
+      "label": "Canada",
+      "slug": "canada",
+      "full": "Canada",
+      "cities": [
+        "Toronto",
+        "Vancouver",
+        "Calgary",
+        "Montreal",
+        "Ottawa"
+      ],
+      "curricula": "the American curriculum (including AP), IB and university courses",
+      "timezone": "your Canadian time zone"
+    }
   ]
 }
