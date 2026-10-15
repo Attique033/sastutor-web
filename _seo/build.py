@@ -23,6 +23,7 @@ SUBJECTS = ["Maths", "Physics", "Chemistry", "Biology", "Statistics", "English",
 TESTS = ["SAT", "IMAT", "BMAT", "UCAT"]
 REGIONS = cfg["regions"]
 url_of = lambda r, lang: f"{SITE}/{r['code']}-{lang}"
+slug = lambda city: city.lower().replace(" ", "-")
 
 # Arabic copy for region sections (country names, cities, curriculums, time zones)
 AR_REGION = {
@@ -81,7 +82,10 @@ def swap(src, old, new):
     return src.replace(old, new, 1)
 
 
-def alternates():
+def alternates(r=None, i=None):
+    if r:  # a city page: only its own English and Arabic versions
+        return "".join(f'<link rel="alternate" hreflang="{l}-{r["code"].upper()}" href="{url_of(r, l)}-{slug(r["cities"][i])}">'
+                       for l in (["en", "ar"] if r["arabic"] else ["en"]))
     links = [f'<link rel="alternate" hreflang="x-default" href="{SITE}/">', f'<link rel="alternate" hreflang="en" href="{SITE}/">']
     for r in REGIONS:
         links.append(f'<link rel="alternate" hreflang="en-{r["code"].upper()}" href="{url_of(r, "en")}">')
@@ -158,7 +162,7 @@ def region_copy(r, lang):
             lead=f"Expert 1:1 online tutoring for students in {cities}. We teach {r['curricula']}, plus entry tests like SAT, IMAT, BMAT and UCAT. A hand-picked tutor, a plan built around your exam, and progress you can see after every lesson.",
             h2=f"The best online tutors for students in {r['full']}",
             intro=f"Every lesson is live and one-to-one by video, so it doesn't matter where in {r['full']} you live. Lessons are scheduled in {r['timezone']}.",
-            facts=[("Curriculums", r["curricula"]), ("Lesson times", r["timezone"].capitalize() if r["timezone"].startswith("your") else r["timezone"]), ("Cities", cities)],
+            facts=[("Curriculums", r["curricula"]), ("Lesson times", r["timezone"].capitalize() if r["timezone"].startswith("your") else r["timezone"]), ("Cities", list(range(len(r["cities"]))))],
             faq=[(f"Do you teach students in {r['full']}?", f"Yes. Every lesson is live and online, so students anywhere in {r['full']}, including {cities}, learn with the same hand-picked tutors."),
                  (f"Which curriculums do you teach in {r['full']}?", f"We teach {r['curricula']}. We also prepare students for the SAT, IMAT, BMAT and UCAT."),
                  ("What time are lessons?", f"Lessons are scheduled in {r['timezone']}, at times that suit your school day."),
@@ -177,7 +181,7 @@ def region_copy(r, lang):
         lead=f"دروس خصوصية فردية أونلاين لطلاب {cities}. ندرّس {cur}، إضافةً إلى اختبارات القبول مثل SAT وIMAT وBMAT وUCAT. معلّم مختار بعناية، وخطة مبنية حول امتحانك، وتقدّم تراه بعد كل حصة.",
         h2=f"أفضل المدرسين الخصوصيين أونلاين لطلاب {full}",
         intro=f"كل حصة مباشرة وفردية عبر الفيديو، فلا يهم أين تقيم في {full}. تُجدول الحصص حسب {tz}.",
-        facts=[("المناهج", cur), ("مواعيد الحصص", tz), ("المدن", cities)],
+        facts=[("المناهج", cur), ("مواعيد الحصص", tz), ("المدن", list(range(len(cities_ar))))],
         faq=[(f"هل تدرّسون طلاباً في {full}؟", f"نعم. كل الحصص مباشرة وأونلاين، فيتعلّم الطلاب في أي مكان في {full}، ومنها {cities}، مع معلّمينا المختارين بعناية."),
              (f"ما المناهج التي تدرّسونها في {full}؟", f"ندرّس {cur}. ونحضّر الطلاب أيضاً لاختبارات SAT وIMAT وBMAT وUCAT."),
              ("ما مواعيد الحصص؟", f"تُجدول الحصص حسب {tz}، في أوقات تناسب يومك الدراسي."),
@@ -185,15 +189,55 @@ def region_copy(r, lang):
         label="دروس خصوصية في " + name)
 
 
+def city_copy(r, lang, i):
+    """The region copy narrowed to one city, for searches like "best tutors in Sharjah"."""
+    t = region_copy(r, lang)
+    others = [j for j in range(len(r["cities"])) if j != i]
+    if lang == "en":
+        city = r["cities"][i]
+        t.update(
+            title=f"Best Tutors in {city} · Online 1:1 Tutoring, First Lesson Free · SAS Tutors",
+            desc=f"Find the best tutors in {city}, {r['label']}: hand-picked online 1:1 tutors for {r['curricula']}, plus SAT, IMAT, BMAT and UCAT prep. From $10 an hour. First lesson free.",
+            keywords=", ".join(f"{k} {city}" for k in ["best tutors in", "best online tutors in", "online tutors in", "private tutor in", "home tutor in",
+                                                        "IGCSE tutor in", "A Level tutor in", "IB tutor in", "maths tutor in"])
+                     + f", best tutors in {r['label']}, online tutors, best tutors, best online tutors",
+            eyebrow=f"Online tutoring in {city}",
+            lead=t["lead"].replace(join_list(r["cities"], "and"), city),
+            h2=f"The best online tutors for students in {city}",
+            intro=f"Every lesson is live and one-to-one by video, so students in {city} learn from home with the same hand-picked tutors as the rest of {r['full']}. Lessons are scheduled in {r['timezone']}.",
+            facts=t["facts"][:2] + [("Also teaching in", others)],
+            faq=[(f"Do you have tutors for students in {city}?", f"Yes. Every lesson is live and online, so students in {city} learn from home with the same hand-picked tutors as the rest of {r['full']}."),
+                 (f"Do you offer home tutors in {city}?", f"Our tutors teach by live video with a shared whiteboard, so lessons happen at home in {city} with no travel, at times that suit your school day.")] + t["faq"][1:],
+            label="Tutoring in " + city)
+        return t
+    name, full, cities_ar, tz = AR_REGION[r["code"]]
+    city = cities_ar[i]
+    t.update(
+        title=f"أفضل مدرس خصوصي في {city} · دروس خصوصية أونلاين والحصة الأولى مجانية · SAS Tutors",
+        desc=f"أفضل مدرس خصوصي أونلاين لطلاب {city}، {name}: معلّمون مختارون بعناية في {AR_CURRICULA.get(r['code'], AR_CURRICULA_GULF)}، والتحضير لاختبارات SAT وIMAT وBMAT وUCAT. من 10 دولارات للساعة. الحصة الأولى مجانية.",
+        keywords="، ".join(f"{k} {city}" for k in ["أفضل مدرس خصوصي في", "مدرس خصوصي في", "مدرس خصوصي أونلاين في", "معلم خصوصي في",
+                                                    "دروس خصوصية في", "مدرس رياضيات في", "مدرس IGCSE في"])
+                 + f"، أفضل مدرس خصوصي في {name}، مدرس خصوصي أونلاين، أفضل مدرس خصوصي",
+        eyebrow=f"دروس خصوصية أونلاين في {city}",
+        lead=t["lead"].replace(join_list(cities_ar, "و"), city),
+        h2=f"أفضل المدرسين الخصوصيين أونلاين لطلاب {city}",
+        intro=f"كل حصة مباشرة وفردية عبر الفيديو، فيتعلّم الطلاب في {city} من البيت مع معلّمينا المختارين بعناية. تُجدول الحصص حسب {tz}.",
+        facts=t["facts"][:2] + [("ندرّس أيضاً في", others)],
+        faq=[(f"هل لديكم معلّمون لطلاب {city}؟", f"نعم. كل الحصص مباشرة وأونلاين، فيتعلّم الطلاب في {city} من البيت مع معلّمينا المختارين بعناية."),
+             (f"هل يوجد مدرس خصوصي في البيت في {city}؟", f"يدرّس معلّمونا عبر الفيديو المباشر مع سبورة مشتركة، فتكون الحصة في بيتك في {city} دون أي تنقّل، وفي أوقات تناسب يومك الدراسي.")] + t["faq"][1:],
+        label="دروس خصوصية في " + city)
+    return t
+
+
 AR_HEAD = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">'
            '<style>:root{--serif:"IBM Plex Sans Arabic","Bricolage Grotesque",system-ui,sans-serif;--sans:"IBM Plex Sans Arabic","Figtree",system-ui,sans-serif}'
            'html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3{letter-spacing:0}.marquee{direction:ltr}</style>')
 
 
-def region_page(r, lang):
+def region_page(r, lang, i=None):
     c = CFG[lang]
-    t = region_copy(r, lang)
-    url = url_of(r, lang)
+    t = region_copy(r, lang) if i is None else city_copy(r, lang, i)
+    url = url_of(r, lang) + ("" if i is None else "-" + slug(r["cities"][i]))
     page, faqs = static_blocks(TEMPLATE, c, lang)
     page = swap(page, f"<title>{e(cfg_title)}</title>", f"<title>{e(t['title'])}</title>")
     page = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{e(t["desc"])}">', page, 1)
@@ -202,15 +246,18 @@ def region_page(r, lang):
     page = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{e(t["title"])}">', page, 1)
     page = swap(page, f'<meta property="og:url" content="{SITE}/">', f'<meta property="og:url" content="{url}">')
     page = swap(page, f'<link rel="canonical" href="{SITE}/">', f'<link rel="canonical" href="{url}">')
-    page = between(page, "alternates", alternates())
+    page = between(page, "alternates", alternates(r, i) if i is not None else alternates())
     graph = [org(), service(r, "1:1 online tutoring in " + r["label"]), faq_ld(t["faq"] + faqs),
              {"@type": "BreadcrumbList", "itemListElement": [
                  {"@type": "ListItem", "position": 1, "name": B["name"], "item": SITE + "/"},
-                 {"@type": "ListItem", "position": 2, "name": t["label"], "item": url}]}]
+                 {"@type": "ListItem", "position": 2, "name": region_copy(r, lang)["label"], "item": url_of(r, lang)}]
+                 + ([{"@type": "ListItem", "position": 3, "name": t["label"], "item": url}] if i is not None else [])}]
     page = between(page, "jsonld", ld({"@context": "https://schema.org", "@graph": graph}))
     page = swap(page, EYEBROW, f"<span>{e(t['eyebrow'])}</span>")
     page = swap(page, HERO_LEAD, f'<p class="lead">{e(t["lead"])}</p>')
-    facts = "".join(f"<li><b>{e(k)}</b>{e(v)}</li>" for k, v in t["facts"])
+    names = AR_REGION[r["code"]][2] if lang == "ar" else r["cities"]
+    link = lambda j: f'<a href="{r["code"]}-{lang}-{slug(r["cities"][j])}">{e(names[j])}</a>'
+    facts = "".join(f"<li><b>{e(k)}</b>{' · '.join(map(link, v)) if isinstance(v, list) else e(v)}</li>" for k, v in t["facts"])
     qa = "".join(f"<details{'' if i else ' open'}><summary>{e(q)}</summary><p>{e(a)}</p></details>" for i, (q, a) in enumerate(t["faq"]))
     page = between(page, "region", f'<section id="region" style="padding-top:0"><div class="wrap faq-wrap"><div><span class="eyebrow">{e(t["label"])}</span>'
                    f'<h2 class="rv" style="margin-top:14px">{e(t["h2"])}</h2><p class="lead" style="margin-top:16px">{e(t["intro"])}</p>'
@@ -230,6 +277,9 @@ for r in REGIONS:
     for lang in (["en", "ar"] if r["arabic"] else ["en"]):
         (ROOT / f"{r['code']}-{lang}.html").write_text(region_page(r, lang))
         pages.append(url_of(r, lang))
+        for i, city in enumerate(r["cities"]):
+            (ROOT / f"{r['code']}-{lang}-{slug(city)}.html").write_text(region_page(r, lang, i))
+            pages.append(f"{url_of(r, lang)}-{slug(city)}")
     # the first region links (/online-tutors-<slug>/) were live for a day: send them on
     old = ROOT / f"online-tutors-{r['slug']}"
     old.mkdir(exist_ok=True)
