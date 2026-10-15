@@ -149,11 +149,14 @@ def region_copy(r, lang):
     if lang == "en":
         cities = join_list(r["cities"], "and")
         return dict(
-            title=f"Online Tutors in {r['label']} · Expert 1:1 Tutoring, First Lesson Free · SAS Tutors",
-            desc=f"Hand-picked 1:1 online tutors for students in {r['full']} ({', '.join(r['cities'][:3])}). {r['curricula'][0].upper() + r['curricula'][1:]}, plus SAT, IMAT, BMAT and UCAT prep. From $10 an hour. First lesson free.",
+            title=f"Best Online Tutors in {r['label']} · {', '.join(r['cities'][:3])} · First Lesson Free · SAS Tutors",
+            desc=f"Find the best online tutors in {r['full']} ({', '.join(r['cities'][:3])}). Hand-picked 1:1 tutors for {r['curricula']}, plus SAT, IMAT, BMAT and UCAT prep. From $10 an hour. First lesson free.",
+            keywords=", ".join([f"online tutors in {r['label']}", f"best online tutors {r['label']}", f"best tutors in {r['label']}",
+                                f"online tutoring {r['label']}", f"private tutor {r['label']}"] + [f"best tutors in {c}" for c in r["cities"]]
+                               + ["online tutors", "best tutors", "best online tutors", "IGCSE tutor", "A Level tutor", "IB tutor", "SAT tutor"]),
             eyebrow=f"Online tutoring in {r['label']}",
             lead=f"Expert 1:1 online tutoring for students in {cities}. We teach {r['curricula']}, plus entry tests like SAT, IMAT, BMAT and UCAT. A hand-picked tutor, a plan built around your exam, and progress you can see after every lesson.",
-            h2=f"Online tutoring for students in {r['full']}",
+            h2=f"The best online tutors for students in {r['full']}",
             intro=f"Every lesson is live and one-to-one by video, so it doesn't matter where in {r['full']} you live. Lessons are scheduled in {r['timezone']}.",
             facts=[("Curriculums", r["curricula"]), ("Lesson times", r["timezone"].capitalize() if r["timezone"].startswith("your") else r["timezone"]), ("Cities", cities)],
             faq=[(f"Do you teach students in {r['full']}?", f"Yes. Every lesson is live and online, so students anywhere in {r['full']}, including {cities}, learn with the same hand-picked tutors."),
@@ -165,11 +168,14 @@ def region_copy(r, lang):
     cur = AR_CURRICULA.get(r["code"], AR_CURRICULA_GULF)
     cities = join_list(cities_ar, "و")
     return dict(
-        title=f"معلّمون أونلاين في {name} · دروس خصوصية فردية والحصة الأولى مجانية · SAS Tutors",
-        desc=f"معلّمون خصوصيون مختارون بعناية لطلاب {full} ({'، '.join(cities_ar[:3])}): {cur}، والتحضير لاختبارات SAT وIMAT وBMAT وUCAT. من 10 دولارات للساعة. الحصة الأولى مجانية.",
+        title=f"أفضل المدرسين الخصوصيين أونلاين في {name} · {'، '.join(cities_ar[:3])} · الحصة الأولى مجانية · SAS Tutors",
+        desc=f"أفضل مدرس خصوصي أونلاين لطلاب {full} ({'، '.join(cities_ar[:3])}): معلّمون مختارون بعناية في {cur}، والتحضير لاختبارات SAT وIMAT وBMAT وUCAT. من 10 دولارات للساعة. الحصة الأولى مجانية.",
+        keywords="، ".join([f"مدرس خصوصي في {name}", f"أفضل مدرس خصوصي في {name}", f"معلم خصوصي أونلاين في {name}", f"دروس خصوصية أونلاين في {name}",
+                            f"أفضل المدرسين في {name}"] + [f"أفضل مدرس خصوصي في {c}" for c in cities_ar]
+                           + ["مدرس خصوصي أونلاين", "أفضل مدرس خصوصي", "دروس خصوصية أونلاين", "مدرس IGCSE", "مدرس رياضيات", "مدرس فيزياء"]),
         eyebrow=f"دروس خصوصية أونلاين في {name}",
         lead=f"دروس خصوصية فردية أونلاين لطلاب {cities}. ندرّس {cur}، إضافةً إلى اختبارات القبول مثل SAT وIMAT وBMAT وUCAT. معلّم مختار بعناية، وخطة مبنية حول امتحانك، وتقدّم تراه بعد كل حصة.",
-        h2=f"دروس خصوصية أونلاين لطلاب {full}",
+        h2=f"أفضل المدرسين الخصوصيين أونلاين لطلاب {full}",
         intro=f"كل حصة مباشرة وفردية عبر الفيديو، فلا يهم أين تقيم في {full}. تُجدول الحصص حسب {tz}.",
         facts=[("المناهج", cur), ("مواعيد الحصص", tz), ("المدن", cities)],
         faq=[(f"هل تدرّسون طلاباً في {full}؟", f"نعم. كل الحصص مباشرة وأونلاين، فيتعلّم الطلاب في أي مكان في {full}، ومنها {cities}، مع معلّمينا المختارين بعناية."),
@@ -191,6 +197,7 @@ def region_page(r, lang):
     page, faqs = static_blocks(TEMPLATE, c, lang)
     page = swap(page, f"<title>{e(cfg_title)}</title>", f"<title>{e(t['title'])}</title>")
     page = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{e(t["desc"])}">', page, 1)
+    page = re.sub(r'<meta name="keywords" content="[^"]*">', f'<meta name="keywords" content="{e(t["keywords"])}">', page, 1)
     page = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{e(t["desc"])}">', page, 1)
     page = re.sub(r'<meta property="og:title" content="[^"]*">', f'<meta property="og:title" content="{e(t["title"])}">', page, 1)
     page = swap(page, f'<meta property="og:url" content="{SITE}/">', f'<meta property="og:url" content="{url}">')
