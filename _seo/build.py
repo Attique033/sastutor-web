@@ -38,6 +38,19 @@ AR_REGION = {
 AR_CURRICULA = {
     "eg": "المنهج البريطاني (IGCSE وO Level وA Level)، والدبلومة الأمريكية (مع AP وSAT)، وIB",
 }
+# Gulf currencies are pegged to the dollar (the dinar to a basket), so a fixed rate stays close enough for "about"
+CURRENCY = {"ae": ("AED", "درهم", 3.6725), "sa": ("SAR", "ريال سعودي", 3.75), "qa": ("QAR", "ريال قطري", 3.64),
+            "kw": ("KWD", "دينار كويتي", 0.307), "bh": ("BHD", "دينار بحريني", 0.376), "om": ("OMR", "ريال عماني", 0.3845)}
+
+
+def local(r, usd, lang):
+    if r["code"] not in CURRENCY:
+        return ""
+    code, name, rate = CURRENCY[r["code"]]
+    v = f"{usd * rate:.0f}" if rate > 1 else f"{usd * rate:.1f}"
+    return f" (about {code} {v})" if lang == "en" else f" (نحو {v} {name})"
+
+
 AR_CURRICULA_GULF = "المنهج البريطاني (IGCSE وGCSE وO Level وA Level)، والأمريكي (مع AP)، وIB، والهندي CBSE وISC"
 
 
@@ -97,6 +110,7 @@ def alternates(r=None, i=None):
 def static_blocks(page, c, lang):
     """The JS-rendered lists, written into the page for crawlers (config.js re-renders them)."""
     faqs = [(f["q"], f["a"]) for f in c["faq"]]
+    page = re.sub(r"<a [^>]*data-wa[^>]*>", lambda m: m.group(0).replace('href="#"', f'href="https://wa.me/{B["whatsapp"]}"'), page)
     page = between(page, "faq", "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faqs))
     page = between(page, "plans", "".join(
         f'<div class="plan"><h3>{e(p["name"])}</h3><div class="price">${p["perHour"]}<small> {e(c["priceUnit"])}</small></div>'
@@ -132,6 +146,8 @@ def translate(page):
 TEMPLATE = (ROOT / "index.html").read_text()
 HERO_LEAD = re.search(r'<p class="lead">Expert 1:1 online tutoring for American.*?</p>', TEMPLATE).group(0)
 EYEBROW = '<span data-cfg="business.enrolmentBanner"></span>'
+H1 = re.search(r"<h1>.*?</h1>", TEMPLATE).group(0)
+NAV_CTA = '<button class="btn" data-open-trial data-src="nav">Book free trial</button>'
 
 # ---- home ----------------------------------------------------------------------------------
 home, faqs = static_blocks(TEMPLATE, cfg, "en")
@@ -158,7 +174,7 @@ def region_copy(r, lang):
             keywords=", ".join([f"online tutors in {r['label']}", f"best online tutors {r['label']}", f"best tutors in {r['label']}",
                                 f"online tutoring {r['label']}", f"private tutor {r['label']}"] + [f"best tutors in {c}" for c in r["cities"]]
                                + ["online tutors", "best tutors", "best online tutors", "IGCSE tutor", "A Level tutor", "IB tutor", "SAT tutor"]),
-            eyebrow=f"Online tutoring in {r['label']}",
+            h1=("The best online tutors in", r["full"]),
             lead=f"Expert 1:1 online tutoring for students in {cities}. We teach {r['curricula']}, plus entry tests like SAT, IMAT, BMAT and UCAT. A hand-picked tutor, a plan built around your exam, and progress you can see after every lesson.",
             h2=f"The best online tutors for students in {r['full']}",
             intro=f"Every lesson is live and one-to-one by video, so it doesn't matter where in {r['full']} you live. Lessons are scheduled in {r['timezone']}.",
@@ -166,7 +182,7 @@ def region_copy(r, lang):
             faq=[(f"Do you teach students in {r['full']}?", f"Yes. Every lesson is live and online, so students anywhere in {r['full']}, including {cities}, learn with the same hand-picked tutors."),
                  (f"Which curriculums do you teach in {r['full']}?", f"We teach {r['curricula']}. We also prepare students for the SAT, IMAT, BMAT and UCAT."),
                  ("What time are lessons?", f"Lessons are scheduled in {r['timezone']}, at times that suit your school day."),
-                 ("How much does online tutoring cost?", "Lessons cost $20 an hour on the 20-hour plan, $15 an hour on the 50-hour plan and $10 an hour on the 100-hour plan, in US dollars converted to your local currency at checkout. Your first lesson is free.")],
+                 ("How much does online tutoring cost?", f"Lessons cost $20 an hour{local(r, 20, 'en')} on the 20-hour plan, $15 an hour{local(r, 15, 'en')} on the 50-hour plan and $10 an hour{local(r, 10, 'en')} on the 100-hour plan, in US dollars converted to your local currency at checkout. Your first lesson is free.")],
             label="Tutoring in " + r["label"])
     name, full, cities_ar, tz = AR_REGION[r["code"]]
     cur = AR_CURRICULA.get(r["code"], AR_CURRICULA_GULF)
@@ -177,7 +193,7 @@ def region_copy(r, lang):
         keywords="، ".join([f"مدرس خصوصي في {name}", f"أفضل مدرس خصوصي في {name}", f"معلم خصوصي أونلاين في {name}", f"دروس خصوصية أونلاين في {name}",
                             f"أفضل المدرسين في {name}"] + [f"أفضل مدرس خصوصي في {c}" for c in cities_ar]
                            + ["مدرس خصوصي أونلاين", "أفضل مدرس خصوصي", "دروس خصوصية أونلاين", "مدرس IGCSE", "مدرس رياضيات", "مدرس فيزياء"]),
-        eyebrow=f"دروس خصوصية أونلاين في {name}",
+        h1=("أفضل المدرسين الخصوصيين أونلاين في", full),
         lead=f"دروس خصوصية فردية أونلاين لطلاب {cities}. ندرّس {cur}، إضافةً إلى اختبارات القبول مثل SAT وIMAT وBMAT وUCAT. معلّم مختار بعناية، وخطة مبنية حول امتحانك، وتقدّم تراه بعد كل حصة.",
         h2=f"أفضل المدرسين الخصوصيين أونلاين لطلاب {full}",
         intro=f"كل حصة مباشرة وفردية عبر الفيديو، فلا يهم أين تقيم في {full}. تُجدول الحصص حسب {tz}.",
@@ -185,7 +201,7 @@ def region_copy(r, lang):
         faq=[(f"هل تدرّسون طلاباً في {full}؟", f"نعم. كل الحصص مباشرة وأونلاين، فيتعلّم الطلاب في أي مكان في {full}، ومنها {cities}، مع معلّمينا المختارين بعناية."),
              (f"ما المناهج التي تدرّسونها في {full}؟", f"ندرّس {cur}. ونحضّر الطلاب أيضاً لاختبارات SAT وIMAT وBMAT وUCAT."),
              ("ما مواعيد الحصص؟", f"تُجدول الحصص حسب {tz}، في أوقات تناسب يومك الدراسي."),
-             ("كم تكلفة الدروس الخصوصية أونلاين؟", "تكلفة الساعة 20 دولاراً في باقة 20 ساعة، و15 دولاراً في باقة 50 ساعة، و10 دولارات في باقة 100 ساعة، بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع. وحصتك الأولى مجانية.")],
+             ("كم تكلفة الدروس الخصوصية أونلاين؟", f"تكلفة الساعة 20 دولاراً{local(r, 20, 'ar')} في باقة 20 ساعة، و15 دولاراً{local(r, 15, 'ar')} في باقة 50 ساعة، و10 دولارات{local(r, 10, 'ar')} في باقة 100 ساعة، بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع. وحصتك الأولى مجانية.")],
         label="دروس خصوصية في " + name)
 
 
@@ -201,7 +217,7 @@ def city_copy(r, lang, i):
             keywords=", ".join(f"{k} {city}" for k in ["best tutors in", "best online tutors in", "online tutors in", "private tutor in", "home tutor in",
                                                         "IGCSE tutor in", "A Level tutor in", "IB tutor in", "maths tutor in"])
                      + f", best tutors in {r['label']}, online tutors, best tutors, best online tutors",
-            eyebrow=f"Online tutoring in {city}",
+            h1=("The best online tutors in", city),
             lead=t["lead"].replace(join_list(r["cities"], "and"), city),
             h2=f"The best online tutors for students in {city}",
             intro=f"Every lesson is live and one-to-one by video, so students in {city} learn from home with the same hand-picked tutors as the rest of {r['full']}. Lessons are scheduled in {r['timezone']}.",
@@ -218,7 +234,7 @@ def city_copy(r, lang, i):
         keywords="، ".join(f"{k} {city}" for k in ["أفضل مدرس خصوصي في", "مدرس خصوصي في", "مدرس خصوصي أونلاين في", "معلم خصوصي في",
                                                     "دروس خصوصية في", "مدرس رياضيات في", "مدرس IGCSE في"])
                  + f"، أفضل مدرس خصوصي في {name}، مدرس خصوصي أونلاين، أفضل مدرس خصوصي",
-        eyebrow=f"دروس خصوصية أونلاين في {city}",
+        h1=("أفضل المدرسين الخصوصيين أونلاين في", city),
         lead=t["lead"].replace(join_list(cities_ar, "و"), city),
         h2=f"أفضل المدرسين الخصوصيين أونلاين لطلاب {city}",
         intro=f"كل حصة مباشرة وفردية عبر الفيديو، فيتعلّم الطلاب في {city} من البيت مع معلّمينا المختارين بعناية. تُجدول الحصص حسب {tz}.",
@@ -253,7 +269,16 @@ def region_page(r, lang, i=None):
                  {"@type": "ListItem", "position": 2, "name": region_copy(r, lang)["label"], "item": url_of(r, lang)}]
                  + ([{"@type": "ListItem", "position": 3, "name": t["label"], "item": url}] if i is not None else [])}]
     page = between(page, "jsonld", ld({"@context": "https://schema.org", "@graph": graph}))
-    page = swap(page, EYEBROW, f"<span>{e(t['eyebrow'])}</span>")
+    # the slogan moves up to the eyebrow (two spans so translate() finds each half)
+    page = swap(page, EYEBROW, "<span><span>Master the fundamentals.</span> <span>The grades follow.</span></span>")
+    page = swap(page, H1, f"<h1>{e(t['h1'][0])} <em>{e(t['h1'][1])}</em></h1>")
+    if r["arabic"]:  # link the English and Arabic versions to each other
+        other = "ar" if lang == "en" else "en"
+        twin = url_of(r, other)[len(SITE) + 1:] + ("" if i is None else "-" + slug(r["cities"][i]))
+        page = swap(page, NAV_CTA, NAV_CTA + f'<a class="lang" href="{twin}" hreflang="{other}" lang="{other}">{"العربية" if other == "ar" else "English"}</a>')
+    tz = re.search(r"\(([^)/]+)", r["timezone"])
+    if lang == "en":
+        page = swap(page, "Physics · 4:30 PM GST", "Physics · 4:30 PM" + (" " + tz.group(1) if tz else ""))
     page = swap(page, HERO_LEAD, f'<p class="lead">{e(t["lead"])}</p>')
     names = AR_REGION[r["code"]][2] if lang == "ar" else r["cities"]
     link = lambda j: f'<a href="{r["code"]}-{lang}-{slug(r["cities"][j])}">{e(names[j])}</a>'
@@ -267,6 +292,7 @@ def region_page(r, lang, i=None):
         page = swap(page, "</head>", AR_HEAD + "</head>")
         page = translate(page)
         page = page.replace('"Book my free trial"', '"احجز حصتي المجانية"').replace('"Continue →"', '"متابعة ←"')
+        page = swap(page, "فيزياء · 4:30 مساءً بتوقيت الخليج", "فيزياء · 4:30 مساءً ب" + AR_REGION[r["code"]][3])
     return page
 
 

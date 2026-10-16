@@ -78,7 +78,7 @@ section{padding:clamp(72px,9vw,120px) 0}
 .logo{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--serif);text-decoration:none;letter-spacing:-.02em}
 .logo .mark{height:48px;width:48px;display:block}
 .nav ul{display:flex;gap:26px;list-style:none;padding:0;margin-left:auto;font-weight:500;font-size:15px}
-.nav ul a{text-decoration:none;color:var(--ink-2)}.nav ul a:hover{color:var(--ink)}
+.nav ul a,.nav .lang{text-decoration:none;color:var(--ink-2)}.nav .lang{margin-inline-start:18px;font-weight:600;font-size:15px}.nav ul a:hover{color:var(--ink)}
 .nav .btn{min-height:48px;padding:0 22px;font-size:15px}
 @media (max-width:960px){.nav ul{display:none}.nav .btn{margin-left:auto}}
 
@@ -395,7 +395,7 @@ dialog[open]{animation:pop .25s ease-out}
       <li><a href="#faq">الأسئلة الشائعة</a></li>
       <li><a href="#" data-open-apply>درّس معنا</a></li>
     </ul>
-    <button class="btn" data-open-trial data-src="nav">احجز حصة مجانية</button>
+    <button class="btn" data-open-trial data-src="nav">احجز حصة مجانية</button><a class="lang" href="eg-en-giza" hreflang="en" lang="en">English</a>
   </div>
 </header>
 
@@ -404,8 +404,8 @@ dialog[open]{animation:pop .25s ease-out}
   <section class="hero">
     <div class="wrap">
       <div>
-        <span class="eyebrow"><span class="dot"></span> <span>دروس خصوصية أونلاين في الجيزة</span></span>
-        <h1>أتقن الأساسيات. <em>والدرجات تأتي بعدها.</em></h1>
+        <span class="eyebrow"><span class="dot"></span> <span><span>أتقن الأساسيات.</span> <span>والدرجات تأتي بعدها.</span></span></span>
+        <h1>أفضل المدرسين الخصوصيين أونلاين في <em>الجيزة</em></h1>
         <p class="lead">دروس خصوصية فردية أونلاين لطلاب الجيزة. ندرّس المنهج البريطاني (IGCSE وO Level وA Level)، والدبلومة الأمريكية (مع AP وSAT)، وIB، إضافةً إلى اختبارات القبول مثل SAT وIMAT وBMAT وUCAT. معلّم مختار بعناية، وخطة مبنية حول امتحانك، وتقدّم تراه بعد كل حصة.</p>
         <form class="quick" data-quick data-src="hero">
           <div class="field"><label for="hs">المادة</label>
@@ -425,7 +425,7 @@ dialog[open]{animation:pop .25s ease-out}
       </div>
       <div class="hero-visual">
         <div class="photo"><img src="assets/img/hero.webp" alt="طالبة تحتفل أمام حاسوبها بعد حصة أونلاين" width="1800" height="1200" fetchpriority="high"></div>
-        <div class="float f1"><span class="ic" style="background:#FFF1D6">📅</span><div><small>الحصة القادمة · اليوم</small><strong>فيزياء · 4:30 مساءً بتوقيت الخليج</strong></div></div>
+        <div class="float f1"><span class="ic" style="background:#FFF1D6">📅</span><div><small>الحصة القادمة · اليوم</small><strong>فيزياء · 4:30 مساءً بتوقيت مصر</strong></div></div>
         <div class="float f2"><span class="ic" style="background:#E2F2EA">✅</span><div><small>ملاحظات الحصة جاهزة</small><strong>الواجب: الأسئلة 3–9</strong></div></div>
         <div class="float f3"><span class="ic" style="background:var(--sky)">🎓</span><div><small>حصتك الأولى</small><strong>مجانية 100%</strong></div></div>
       </div>
@@ -570,7 +570,7 @@ dialog[open]{animation:pop .25s ease-out}
     <div class="wrap faq-wrap">
       <div><span class="eyebrow">الأسئلة الشائعة</span><h2 class="rv" style="margin-top:14px">أسئلة يطرحها أولياء الأمور</h2>
         <p class="lead" style="margin:16px 0 24px">سؤال آخر؟ نحن على بُعد رسالة واحدة.</p>
-        <a class="btn wa" data-wa href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg> تواصل عبر واتساب</a></div>
+        <a class="btn wa" data-wa href="https://wa.me/923025006025"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5 0a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg> تواصل عبر واتساب</a></div>
       <div>
         <div id="faq-list"><!--seo:faq--><details><summary>هل الحصة التجريبية مجانية فعلاً؟</summary><p>نعم. حصتك الأولى مجانية، دون بيانات دفع ودون أي التزام. إن لم تكن مناسبة، يمكنك ببساطة التوقف.</p></details><details><summary>ما المواد والمناهج التي تدرّسونها؟</summary><p>الرياضيات والفيزياء والكيمياء والأحياء والإحصاء واللغة الإنجليزية والاقتصاد وعلوم الحاسوب. ندرّس المنهج الأمريكي (مع AP)، والمنهج الهندي CBSE وISC، والبريطاني IGCSE وGCSE وO Level وA Level، وIB، والمنهج الأسترالي للصفوف 4–12 (NAPLAN وHSC وVCE)، والمقررات الجامعية.</p></details><details><summary>هل تحضّرون الطلاب لاختبارات القبول؟</summary><p>نعم. نحضّر الطلاب لاختبارات SAT وIMAT وBMAT وUCAT، من دورات تحضير كاملة إلى دورات مكثّفة في اللحظات الأخيرة، مع اختبارات تدريبية محدّدة الوقت ومتابعة للدرجات. يُرجى التحقق من متطلبات الجامعة المستهدفة، فبعضها لم يعد يقبل كل الاختبارات.</p></details><details><summary>كيف تختارون معلّم طفلي؟</summary><p>لا نترك الأمر للصدفة أو لفلتر بحث. يختار فريقنا معلّماً يناسب المادة أو المنهج أو الاختبار، ومستوى طفلك وأسلوب تعلّمه، والأوقات التي تفضّلها. وإن لم يكن المعلّم مناسباً، نغيّره مجاناً.</p></details><details><summary>أين مقرّكم، ومن تدرّسون؟</summary><p>مقرّنا في الإمارات وندرّس طلاباً حول العالم. معظم طلابنا في الخليج (الإمارات والسعودية وقطر والكويت والبحرين وعُمان)، والمملكة المتحدة وأستراليا ونيوزيلندا والولايات المتحدة وكندا. تُجدول الحصص دائماً حسب منطقتك الزمنية.</p></details><details><summary>كيف تتم الحصص أونلاين؟</summary><p>الحصص مباشرة وفردية عبر مكالمة فيديو مع سبورة مشتركة. كل ما تحتاجه حاسوب أو جهاز لوحي بكاميرا واتصال إنترنت مستقر.</p></details><details><summary>هل يمكننا إلغاء حصة أو تغيير موعدها؟</summary><p>نعم. غيّر موعد أي حصة أو ألغِها قبل 24 ساعة على الأقل، وتبقى الساعة في رصيدك.</p></details><details><summary>كيف أعرف أن الدروس تؤتي ثمارها؟</summary><p>ستحصل على ملاحظات بعد كل حصة وتقرير تقدّم مكتوب كل شهر يوضّح نقاط القوة والفجوات والخطة القادمة. ولاختبارات القبول، نشاركك أيضاً درجات الاختبارات التدريبية.</p></details><details><summary>هل يمكنني التدريس مع SAS Tutors؟</summary><p>نعم. اضغط على «درّس معنا» في القائمة لتقديم طلبك. نراجع كل طلب، ثم نجري مقابلة قصيرة وحصة تجريبية.</p></details><details><summary>كم ساعة درّستم؟</summary><p>أكثر من 5,000 ساعة من الحصص الفردية حتى الآن.</p></details><details><summary>هل تدرّسون طلاباً في دبي وأبوظبي والشارقة وبقية الإمارات؟</summary><p>نعم. كل الحصص أونلاين، فلا يهم في أيّ إمارة تقيم.</p></details><details><summary>هل تدرّسون طلاباً في السعودية وقطر والكويت والبحرين وعُمان؟</summary><p>نعم. ندرّس طلاباً في كل هذه الدول، مع حصص مجدولة في أوقات تناسب يومك الدراسي.</p></details><details><summary>هل تدرّسون طلاباً في المملكة المتحدة وأستراليا ونيوزيلندا والولايات المتحدة وكندا؟</summary><p>نعم. الحصص أونلاين ومجدولة حسب منطقتك الزمنية، لتتعلّم من أي مكان في العالم.</p></details><details><summary>ما المناهج التي تدرّسونها؟</summary><p>الأمريكي، والبريطاني (IGCSE وGCSE وO Level وA Level)، وIB، والهندي (CBSE وISC)، والأسترالي. أينما يُقدَّم البرنامج الدولي لمدرستك، يمكننا تدريسه.</p></details><details><summary>كم تكلفة الحصص؟</summary><p>تكلفة الساعة 20 دولاراً في باقة 20 ساعة، و15 دولاراً في باقة 50 ساعة، و10 دولارات في باقة 100 ساعة. وحصتك الأولى مجانية.</p></details><details><summary>هل الباقة مرتبطة بمادة أو معلّم أو منهج؟</summary><p>لا. ساعاتك تصلح لأي مادة، ولأي معلّم في فريقنا، ولأي مدرسة أو جامعة أو منهج. يمكنك التنويع كما تشاء.</p></details><details><summary>هل تنتهي صلاحية ساعاتي؟</summary><p>لا. الساعات التي تشتريها لا تنتهي صلاحيتها.</p></details><details><summary>هل يمكنني مشاركة الساعات مع إخوتي أو عائلتي؟</summary><p>نعم. يمكنك تحويل الساعات إلى الإخوة أو أفراد العائلة الآخرين مجاناً.</p></details><details><summary>هل يمكنني استرداد قيمة الساعات غير المستخدمة؟</summary><p>نعم. إذا مرّ عام أو أكثر على شراء ساعاتك ولم تستخدمها، يمكنك طلب استرداد قيمة الساعات غير المستخدمة.</p></details><details><summary>هل يمكنني الدفع بالتقسيط؟</summary><p>تُدفع الباقات كاملة. إن لم تناسب الباقة الأكبر ميزانيتك، يمكنك البدء بباقة أصغر، مع سعر أعلى قليلاً للساعة.</p></details><details><summary>ما طرق الدفع والعملات التي تقبلونها؟</summary><p>نقبل المدفوعات من جميع المناطق. أسعارنا بالدولار الأمريكي وتُحوَّل إلى عملتك المحلية عند الدفع.</p></details><details><summary>ماذا لو أردت بضع حصص فقط قبل الالتزام بباقة؟</summary><p>لدينا خيارات مرنة لذلك. راسل فريقنا الإداري على واتساب وسيرتّب لك الأمر.</p></details><!--/seo:faq--></div>
       </div>
@@ -597,7 +597,7 @@ dialog[open]{animation:pop .25s ease-out}
       <div><h4>المواد</h4><ul id="foot-subjects"></ul></div>
       <div><h4>المناهج</h4><ul id="foot-curricula"></ul><h4 style="margin-top:22px">اختبارات القبول</h4><ul id="foot-tests"></ul></div>
       <div><h4>المناطق</h4><ul id="foot-regions"><!--seo:regions--><li><a href="ae-ar">الإمارات</a></li><li><a href="sa-ar">السعودية</a></li><li><a href="qa-ar">قطر</a></li><li><a href="kw-ar">الكويت</a></li><li><a href="bh-ar">البحرين</a></li><li><a href="om-ar">عُمان</a></li><li><a href="eg-ar">مصر</a></li><li><a href="gb-en">المملكة المتحدة</a></li><li><a href="au-en">أستراليا</a></li><li><a href="nz-en">نيوزيلندا</a></li><li><a href="us-en">الولايات المتحدة</a></li><li><a href="ca-en">كندا</a></li><li>حول العالم</li><!--/seo:regions--></ul></div>
-      <div><h4>الشركة</h4><ul><li><a href="#founder">قصتنا</a></li><li><a href="#" data-open-apply>انضم كمعلّم</a></li><li><a href="#faq">الأسئلة الشائعة</a></li><li><a href="#" data-wa>تواصل معنا</a></li></ul></div>
+      <div><h4>الشركة</h4><ul><li><a href="#founder">قصتنا</a></li><li><a href="#" data-open-apply>انضم كمعلّم</a></li><li><a href="#faq">الأسئلة الشائعة</a></li><li><a href="https://wa.me/923025006025" data-wa>تواصل معنا</a></li></ul></div>
     </div>
     <div class="legal"><span>© <span id="yr"></span> SAS Tutors</span></div>
   </div>
@@ -605,7 +605,7 @@ dialog[open]{animation:pop .25s ease-out}
 
 <div class="mbar" id="mbar">
   <button class="btn" data-open-trial data-src="mobile-bar">احجز حصة مجانية</button>
-  <a class="btn wa" data-wa href="#" aria-label="تواصل عبر واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
+  <a class="btn wa" data-wa href="https://wa.me/923025006025" aria-label="تواصل عبر واتساب"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg></a>
 </div>
 
 <!-- TRIAL FORM -->
@@ -651,7 +651,7 @@ dialog[open]{animation:pop .25s ease-out}
       <h3>تمّ الحجز!</h3>
       <p class="hint">سنراسلك على واتساب خلال ساعات قليلة لترتيب الحصة التجريبية المجانية.</p>
       <ol><li>نؤكّد أهدافك والأوقات المفضّلة لديك</li><li>نختار لك معلّماً مناسباً</li><li>تُعقد حصتك التجريبية المجانية أونلاين</li></ol>
-      <a class="btn wa" data-wa href="#" style="width:100%">لا تريد الانتظار؟ راسلنا الآن</a>
+      <a class="btn wa" data-wa href="https://wa.me/923025006025" style="width:100%">لا تريد الانتظار؟ راسلنا الآن</a>
     </div>
 
     <div class="dlg-actions" id="dlg-actions">
@@ -693,7 +693,7 @@ dialog[open]{animation:pop .25s ease-out}
       <div class="big">🙌</div>
       <h3>تمّ استلام الطلب</h3>
       <p class="hint">شكراً لك. يراجع فريقنا كل طلب وسيراسلك على واتساب بشأن الخطوات التالية: مقابلة قصيرة ثم حصة تجريبية.</p>
-      <a class="btn wa" data-wa id="apply-wa" href="#" style="width:100%">أرسل سيرتك الذاتية عبر واتساب</a>
+      <a class="btn wa" data-wa id="apply-wa" href="https://wa.me/923025006025" style="width:100%">أرسل سيرتك الذاتية عبر واتساب</a>
     </div>
   </form>
 </dialog>
