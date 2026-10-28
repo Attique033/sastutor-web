@@ -86,7 +86,7 @@
     return cfg;
   }
 
-  window.siteConfig = fetch(AR ? "config.ar.json" : "config.json", { cache: "no-cache" })
+  window.siteConfig = fetch(AR ? "config.ar.json" : "config.json")
     .then(r => { if (!r.ok) throw new Error(`config.json: HTTP ${r.status}`); return r.json(); })
     .then(render)
     .catch(err => {

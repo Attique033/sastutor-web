@@ -306,6 +306,7 @@ def region_page(r, lang, i=None):
     if lang == "ar":
         page = swap(page, '<html lang="en">', '<html lang="ar" dir="rtl">')
         page = swap(page, "</head>", AR_HEAD + "</head>")
+        page = swap(page, '<link rel="preload" as="fetch" href="config.json"', '<link rel="preload" as="fetch" href="config.ar.json"')
         page = translate(page)
         page = page.replace('"Book my free trial"', '"احجز حصتي المجانية"').replace('"Continue →"', '"متابعة ←"')
         page = swap(page, "فيزياء · 4:30 مساءً بتوقيت الخليج", "فيزياء · 4:30 مساءً ب" + AR_REGION[r["code"]][3])
