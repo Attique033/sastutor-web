@@ -366,7 +366,8 @@ plans_md = "\n".join(f"- {p['hours']} hours: ${p['perHour']}/hour (${p['hours'] 
 
 ## Pages
 - [Home]({SITE}/): overview, tutors, prices and FAQ
-""" + "\n".join(f"- [Online tutors in {r['label']}]({url_of(r, 'en')})" + (f" · [بالعربية]({url_of(r, 'ar')})" if r["arabic"] else "") for r in REGIONS) + """
+""" + "\n".join(f"- [Online tutors in {r['label']}]({url_of(r, 'en')})" + (f" · [بالعربية]({url_of(r, 'ar')})" if r["arabic"] else "")
+              + "\n  - Cities: " + ", ".join(f"[{c}]({url_of(r, 'en')}-{slug(c)})" for c in r["cities"]) for r in REGIONS) + """
 
 ## FAQ
 """ + "\n".join(f"### {q}\n{a}\n" for q, a in faqs))

@@ -31,17 +31,29 @@
 ## Pages
 - [Home](https://sastutors.online/): overview, tutors, prices and FAQ
 - [Online tutors in UAE](https://sastutors.online/ae-en) · [بالعربية](https://sastutors.online/ae-ar)
+  - Cities: [Dubai](https://sastutors.online/ae-en-dubai), [Abu Dhabi](https://sastutors.online/ae-en-abu-dhabi), [Sharjah](https://sastutors.online/ae-en-sharjah), [Ajman](https://sastutors.online/ae-en-ajman), [Ras Al Khaimah](https://sastutors.online/ae-en-ras-al-khaimah), [Al Ain](https://sastutors.online/ae-en-al-ain)
 - [Online tutors in Saudi Arabia](https://sastutors.online/sa-en) · [بالعربية](https://sastutors.online/sa-ar)
+  - Cities: [Riyadh](https://sastutors.online/sa-en-riyadh), [Jeddah](https://sastutors.online/sa-en-jeddah), [Dammam](https://sastutors.online/sa-en-dammam), [Khobar](https://sastutors.online/sa-en-khobar), [Mecca](https://sastutors.online/sa-en-mecca), [Medina](https://sastutors.online/sa-en-medina)
 - [Online tutors in Qatar](https://sastutors.online/qa-en) · [بالعربية](https://sastutors.online/qa-ar)
+  - Cities: [Doha](https://sastutors.online/qa-en-doha), [Al Wakrah](https://sastutors.online/qa-en-al-wakrah), [Lusail](https://sastutors.online/qa-en-lusail), [Al Rayyan](https://sastutors.online/qa-en-al-rayyan)
 - [Online tutors in Kuwait](https://sastutors.online/kw-en) · [بالعربية](https://sastutors.online/kw-ar)
+  - Cities: [Kuwait City](https://sastutors.online/kw-en-kuwait-city), [Salmiya](https://sastutors.online/kw-en-salmiya), [Hawalli](https://sastutors.online/kw-en-hawalli), [Jahra](https://sastutors.online/kw-en-jahra)
 - [Online tutors in Bahrain](https://sastutors.online/bh-en) · [بالعربية](https://sastutors.online/bh-ar)
+  - Cities: [Manama](https://sastutors.online/bh-en-manama), [Riffa](https://sastutors.online/bh-en-riffa), [Muharraq](https://sastutors.online/bh-en-muharraq), [Isa Town](https://sastutors.online/bh-en-isa-town)
 - [Online tutors in Oman](https://sastutors.online/om-en) · [بالعربية](https://sastutors.online/om-ar)
+  - Cities: [Muscat](https://sastutors.online/om-en-muscat), [Salalah](https://sastutors.online/om-en-salalah), [Sohar](https://sastutors.online/om-en-sohar), [Nizwa](https://sastutors.online/om-en-nizwa)
 - [Online tutors in Egypt](https://sastutors.online/eg-en) · [بالعربية](https://sastutors.online/eg-ar)
+  - Cities: [Cairo](https://sastutors.online/eg-en-cairo), [Giza](https://sastutors.online/eg-en-giza), [Alexandria](https://sastutors.online/eg-en-alexandria), [New Cairo](https://sastutors.online/eg-en-new-cairo), [Sheikh Zayed](https://sastutors.online/eg-en-sheikh-zayed)
 - [Online tutors in UK](https://sastutors.online/gb-en)
+  - Cities: [London](https://sastutors.online/gb-en-london), [Manchester](https://sastutors.online/gb-en-manchester), [Birmingham](https://sastutors.online/gb-en-birmingham), [Leeds](https://sastutors.online/gb-en-leeds), [Glasgow](https://sastutors.online/gb-en-glasgow)
 - [Online tutors in Australia](https://sastutors.online/au-en)
+  - Cities: [Sydney](https://sastutors.online/au-en-sydney), [Melbourne](https://sastutors.online/au-en-melbourne), [Brisbane](https://sastutors.online/au-en-brisbane), [Perth](https://sastutors.online/au-en-perth), [Adelaide](https://sastutors.online/au-en-adelaide)
 - [Online tutors in New Zealand](https://sastutors.online/nz-en)
+  - Cities: [Auckland](https://sastutors.online/nz-en-auckland), [Wellington](https://sastutors.online/nz-en-wellington), [Christchurch](https://sastutors.online/nz-en-christchurch), [Hamilton](https://sastutors.online/nz-en-hamilton)
 - [Online tutors in USA](https://sastutors.online/us-en)
+  - Cities: [New York](https://sastutors.online/us-en-new-york), [Houston](https://sastutors.online/us-en-houston), [Los Angeles](https://sastutors.online/us-en-los-angeles), [Chicago](https://sastutors.online/us-en-chicago), [Dallas](https://sastutors.online/us-en-dallas)
 - [Online tutors in Canada](https://sastutors.online/ca-en)
+  - Cities: [Toronto](https://sastutors.online/ca-en-toronto), [Vancouver](https://sastutors.online/ca-en-vancouver), [Calgary](https://sastutors.online/ca-en-calgary), [Montreal](https://sastutors.online/ca-en-montreal), [Ottawa](https://sastutors.online/ca-en-ottawa)
 
 ## FAQ
 ### Is the trial lesson really free?
