@@ -9,7 +9,7 @@ From index.html (the template) and config.json / config.ar.json it writes:
   them at /ae-en, /ae-ar and so on.
 - Redirect stubs for the old /online-tutors-<region>/ links, sitemap.xml, robots.txt, llms.txt.
 """
-import datetime, html, json, pathlib, re
+import datetime, functools, html, json, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SITE = "https://sastutors.online"
@@ -120,6 +120,20 @@ def static_blocks(page, c, lang):
     page = between(page, "regions", "".join(
         f'<li><a href="{r["code"]}-{"ar" if lang == "ar" and r["arabic"] else "en"}">{e(r["label"])}</a></li>' for r in c["regions"])
         + f'<li>{e(c.get("ui", {}).get("worldwide", "Worldwide"))}</li>')
+    # same markup config.js writes, so swapping it in after load doesn't shift the layout
+    b = c["business"]
+    page = between(page, "wall", "".join(
+        f'<div class="stat rv"><strong>{e(w["value"])}</strong><span>{e(w["label"])}</span></div>' if w["type"] == "stat" else
+        f'<a class="ig rv" href="{e(b["instagram"])}" target="_blank" rel="noopener"><p>{e(w["text"])}</p><span>{e(b["instagramHandle"])} →</span></a>' if w["type"] == "instagram" else
+        f'<figure class="review{" feature" if w.get("featured") else ""} rv"><span class="stars">★★★★★</span><blockquote>“{e(w["quote"])}”</blockquote>'
+        f'<figcaption class="who"><b>{e(w["name"][0])}</b><div><strong>{e(w["name"])}</strong><small>{e(w["role"])}</small></div></figcaption></figure>'
+        for w in c["wall"]))
+    page = between(page, "plannote", e(c["planNote"]))
+    page = between(page, "footsubjects", "".join(f'<li><a href="#" data-trial-subject="{e(x["label"])}">{e(x["label"])}</a></li>' for x in c["footer"]["subjects"]))
+    page = between(page, "footcurricula", "".join(f"<li>{e(x)}</li>" for x in c["footer"]["curricula"]))
+    page = between(page, "foottests", "".join(f"<li>{e(x)}</li>" for x in c["footer"]["tests"]))
+    get = lambda path: functools.reduce(lambda o, k: (o or {}).get(k), path.split("."), c)
+    page = re.sub(r'(data-cfg="([^"]+)"[^>]*>)[^<]*', lambda m: m.group(1) + e(get(m.group(2)) or ""), page)
     return page, faqs
 
 
@@ -145,7 +159,7 @@ def translate(page):
 
 TEMPLATE = (ROOT / "index.html").read_text()
 HERO_LEAD = re.search(r'<p class="lead">Expert 1:1 online tutoring for American.*?</p>', TEMPLATE).group(0)
-EYEBROW = '<span data-cfg="business.enrolmentBanner"></span>'
+EYEBROW = re.compile(r'<span data-cfg="business.enrolmentBanner">[^<]*</span>')
 H1 = re.search(r"<h1>.*?</h1>", TEMPLATE).group(0)
 NAV_CTA = '<button class="btn" data-open-trial data-src="nav">Book free trial</button>'
 
@@ -245,7 +259,8 @@ def city_copy(r, lang, i):
     return t
 
 
-AR_HEAD = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">'
+# fonts load without blocking the first paint (display=swap shows system text until they arrive)
+AR_HEAD = ('<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">'
            '<style>:root{--serif:"IBM Plex Sans Arabic","Bricolage Grotesque",system-ui,sans-serif;--sans:"IBM Plex Sans Arabic","Figtree",system-ui,sans-serif}'
            'html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3{letter-spacing:0}.marquee{direction:ltr}</style>')
 
@@ -270,7 +285,8 @@ def region_page(r, lang, i=None):
                  + ([{"@type": "ListItem", "position": 3, "name": t["label"], "item": url}] if i is not None else [])}]
     page = between(page, "jsonld", ld({"@context": "https://schema.org", "@graph": graph}))
     # the slogan moves up to the eyebrow (two spans so translate() finds each half)
-    page = swap(page, EYEBROW, "<span><span>Master the fundamentals.</span> <span>The grades follow.</span></span>")
+    page, n = EYEBROW.subn("<span><span>Master the fundamentals.</span> <span>The grades follow.</span></span>", page, 1)
+    assert n, "template text missing: enrolment banner"
     page = swap(page, H1, f"<h1>{e(t['h1'][0])} <em>{e(t['h1'][1])}</em></h1>")
     if r["arabic"]:  # link the English and Arabic versions to each other
         other = "ar" if lang == "en" else "en"
