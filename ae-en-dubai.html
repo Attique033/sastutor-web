@@ -24,7 +24,7 @@
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 <script>(()=>{let v=new URLSearchParams(location.search).get("v");try{v===null?v=sessionStorage.sasV:v?sessionStorage.sasV=v:sessionStorage.removeItem("sasV")}catch(e){}  // ?v=1 original palette, ?v=2 redesign preview, ?v= back to default; sticks for the session
 if(v==="1"){document.documentElement.dataset.v="1";document.getElementById("theme-color").content="#10213A"}
-if(v==="2"){document.documentElement.dataset.v="2";document.getElementById("theme-color").content="#5B3DF5";const l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";document.head.append(l)}})()
+if(v==="2"){document.documentElement.dataset.v="2";document.getElementById("theme-color").content="#1F5552";const l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";document.head.append(l)}})()
 try{if(sessionStorage.sasSplash)document.documentElement.classList.add("seen");sessionStorage.sasSplash=1}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -381,32 +381,33 @@ dialog[open]{animation:pop .25s ease-out}
 @keyframes zoom{to{transform:scale(1.12)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.splash{display:none}.io .rv{opacity:1;translate:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.pain-img,.capsules{display:none}  /* v2 only */
 
 /* v2 redesign (?v=2): white pages, one violet accent, yellow sparkles, pill shapes everywhere */
 :root[data-v="2"]{
-  --ink:#16122E; --ink-2:#5D5A74; --paper:#FFFFFF; --card:#fff; --line:#ECE9F6; --grid:transparent;
-  --accent:#5B3DF5; --accent-2:#4B2DE6; --sun:#FFC83D; --blue:#5B3DF5; --mint:#5B3DF5; --sky:#F2EFFF;
-  --on-accent:#fff; --glow:91,61,245; --ring:91,61,245; --ruled:#EEEAFB; --r:24px;
-  --shadow:0 1px 2px rgba(22,18,46,.05),0 18px 40px -18px rgba(22,18,46,.22);
+  --ink:#0F3D3E; --ink-2:#4E5F5C; --paper:#FFFDF8; --card:#fff; --line:#ECE6D6; --grid:transparent;
+  --accent:#1F5552; --accent-2:#174746; --sun:#F2C463; --blue:#5B6B32; --mint:#7E9651; --sky:#F6F3E6;
+  --on-accent:#fff; --glow:31,85,82; --ring:242,196,99; --ruled:#E6EEDF; --r:24px; --soft:#D5E4DF;
+  --shadow:0 1px 2px rgba(15,61,62,.05),0 18px 40px -18px rgba(15,61,62,.24);
   --serif:"Plus Jakarta Sans","IBM Plex Sans Arabic",system-ui,sans-serif; --sans:"Plus Jakarta Sans","IBM Plex Sans Arabic",system-ui,sans-serif;
 }
 [data-v="2"] h1,[data-v="2"] h2{font-weight:800;letter-spacing:-.035em}
-[data-v="2"] .eyebrow{padding:8px 14px;border-radius:999px;background:var(--sky);color:var(--accent);font:700 13px/1 var(--sans);letter-spacing:0;text-transform:none}
+[data-v="2"] .eyebrow{padding:8px 14px;border-radius:999px;background:#EEF1E2;color:var(--blue);font:700 13px/1 var(--sans);letter-spacing:0;text-transform:none}
 [data-v="2"] .mark,[data-v="2"] .hero h1 em{color:inherit;background:linear-gradient(transparent 74%,var(--sun) 74% 90%,transparent 90%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
 [data-v="2"] :is(.btn,a,summary,button):focus-visible,[data-v="2"] .field:focus-within{outline-color:var(--accent)}
-[data-v="2"],[data-v="2"] body{background:var(--accent)}
+[data-v="2"],[data-v="2"] body{background:var(--ink)}
 [data-v="2"] img.mark{background:#fff;border-radius:50%;padding:5px}
 [data-v="2"] .nav:not(.scrolled){background:var(--accent)}
 [data-v="2"] .nav:not(.scrolled) ul a,[data-v="2"] .nav:not(.scrolled) .lang{color:rgba(255,255,255,.85)}
 [data-v="2"] .nav:not(.scrolled) ul a:hover{color:#fff}
-[data-v="2"] .nav:not(.scrolled) .btn{--bg:#fff;color:var(--accent);box-shadow:none}
-[data-v="2"] .nav:not(.scrolled) .btn:hover{background:var(--sun);color:var(--ink)}
+[data-v="2"] .nav:not(.scrolled) .btn{--bg:var(--sun);color:var(--ink);box-shadow:none}
+[data-v="2"] .nav:not(.scrolled) .btn:hover{background:#fff}
 [data-v="2"] .hero{background:var(--accent);color:#fff;border-radius:0 0 48px 48px;padding-bottom:96px;overflow:hidden}
 [data-v="2"] .hero::before{content:"✺";inset:auto;left:46%;top:12%;z-index:0;font-size:44px;line-height:1;color:var(--sun);background:none;-webkit-mask-image:none;mask-image:none}
 @media (max-width:960px){[data-v="2"] .hero::before{display:none}}
 [data-v="2"] .hero .eyebrow{background:rgba(255,255,255,.14);color:#fff}
 [data-v="2"] .hero .dot{background:var(--sun);box-shadow:0 0 0 4px rgba(255,200,61,.25)}
-[data-v="2"] .hero .lead,[data-v="2"] .trust{color:#E4DEFF}
+[data-v="2"] .hero .lead,[data-v="2"] .trust{color:var(--soft)}
 [data-v="2"] .hero-visual::before{content:"";position:absolute;z-index:-1;left:50%;top:50%;width:130%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.13) 0 36%,rgba(255,255,255,.08) 36% 52%,rgba(255,255,255,.04) 52% 70%,transparent 70%)}
 [data-v="2"] .hero-visual::after{content:"✦";position:absolute;right:-2%;bottom:18%;font-size:46px;line-height:1;color:var(--sun)}
 [data-v="2"] .hero-visual .photo{border-radius:999px;border:8px solid rgba(255,255,255,.22);background:var(--accent-2);background-clip:padding-box}
@@ -423,20 +424,27 @@ dialog[open]{animation:pop .25s ease-out}
 [data-v="2"] .method{background:none;color:var(--ink);margin-inline:0}
 [data-v="2"] .method .lead,[data-v="2"] .step p,[data-v="2"] .method .cta-row small{color:var(--ink-2)}
 [data-v="2"] .step{background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
-[data-v="2"] .step::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;font:700 16px/1 var(--sans);letter-spacing:0}
+[data-v="2"] .step::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--mint);color:#fff;font:700 16px/1 var(--sans);letter-spacing:0}
 [data-v="2"] .step img{border-radius:999px;aspect-ratio:3/4}
 @media (min-width:861px){[data-v="2"] .steps{align-items:start}[data-v="2"] .step:nth-child(2){margin-top:48px}}
 [data-v="2"] .player{border-radius:40px}
 [data-v="2"] .player .play i::after{border-left-color:#fff}
 [data-v="2"] .tutors{background:var(--sky);border:0}
+[data-v="2"] .pain-img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:999px 999px 18px 18px;margin-bottom:20px}
+[data-v="2"] .capsules{display:flex;justify-content:center;align-items:flex-start;gap:clamp(10px,2vw,22px);margin-top:36px;position:relative}
+[data-v="2"] .capsules img{width:clamp(96px,16vw,190px);aspect-ratio:3/4;object-fit:cover;border-radius:999px;box-shadow:var(--shadow)}
+[data-v="2"] .capsules img:nth-child(2){margin-top:36px}
+[data-v="2"] .capsules::before,[data-v="2"] .capsules::after{content:"✦";position:absolute;color:var(--sun);font-size:34px;line-height:1}
+[data-v="2"] .capsules::before{left:calc(50% - 280px);top:6%}[data-v="2"] .capsules::after{right:calc(50% - 280px);bottom:4%}
 [data-v="2"] .tutors .eyebrow{background:#fff}
 [data-v="2"] .face-front img{transition:filter .5s}
 [data-v="2"] .fc:not(.top) .face-front img{filter:grayscale(1)}
 [data-v="2"] .review.feature{background:var(--accent);color:#fff}
-[data-v="2"] .review.feature .who small{color:#DCD5FF}
+[data-v="2"] .review.feature .who small{color:var(--soft)}
 [data-v="2"] .review.feature .who b{background:#fff;color:var(--accent)}
 [data-v="2"] .stars{color:var(--sun)}
 [data-v="2"] .stat{background:var(--sky)}
+[data-v="2"] .stat strong{color:var(--accent)}
 [data-v="2"] .ig{background:var(--ink)}
 [data-v="2"] .plan.pop{border-color:var(--accent)}
 [data-v="2"] .plan .badge{background:var(--sun);color:var(--ink)}
@@ -444,15 +452,15 @@ dialog[open]{animation:pop .25s ease-out}
 [data-v="2"] .final::before{width:900px;height:900px;right:-300px;top:-420px;opacity:1;background:radial-gradient(circle,rgba(255,255,255,.1) 0 30%,rgba(255,255,255,.07) 30% 48%,rgba(255,255,255,.04) 48% 66%,transparent 66%)}
 [data-v="2"] .final::after{content:"✦";position:absolute;left:46%;top:14%;font-size:40px;line-height:1;color:var(--sun)}
 [data-v="2"] main{padding-bottom:72px}
-[data-v="2"] footer{background:var(--accent);color:#DCD5FF}
+[data-v="2"] footer{background:var(--ink);color:var(--soft)}
 [data-v="2"] .foot h4,[data-v="2"] .foot a:hover{color:#fff}
 [data-v="2"] .legal{border-color:rgba(255,255,255,.2)}
 [data-v="2"] .final .quick{background:#fff;border:0}
 [data-v="2"] .final .quick .field{background:var(--sky)}
 [data-v="2"] .final .quick .field label{color:var(--ink-2)}
 [data-v="2"] .final .quick select{color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2316122E' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
-[data-v="2"] .final .quick .btn{--bg:var(--accent);color:#fff}
-[data-v="2"] .final .quick .btn:hover{background:var(--accent-2)}
+[data-v="2"] .final .quick .btn{--bg:var(--sun);color:var(--ink)}
+[data-v="2"] .final .quick .btn:hover{background:#F6D27F}
 </style>
 </head>
 <body>
@@ -521,9 +529,9 @@ dialog[open]{animation:pop .25s ease-out}
       <span class="eyebrow">Sound familiar?</span>
       <h2 class="rv" style="margin-top:14px;max-width:820px">Smart kids fall behind when the <span class="mark">basics have gaps</span>.</h2>
       <div class="pains">
-        <div class="pain rv"><p class="q">“Homework takes hours, and ends in tears.”</p><p>When one step was never fully understood, every new topic built on it feels impossible.</p></div>
-        <div class="pain rv"><p class="q">“They understand it in class, then freeze in the exam.”</p><p>Knowing something and being able to apply it under time pressure are two different skills.</p></div>
-        <div class="pain rv"><p class="q">“We tried a tutor. Nothing really changed.”</p><p>Generic homework help covers today's worksheet. It rarely fixes the reason it was hard.</p></div>
+        <div class="pain rv"><img class="pain-img" src="assets/img/writing.webp" alt="" loading="lazy" width="1400" height="1000"><p class="q">“Homework takes hours, and ends in tears.”</p><p>When one step was never fully understood, every new topic built on it feels impossible.</p></div>
+        <div class="pain rv"><img class="pain-img" src="assets/img/exam.webp" alt="" loading="lazy" width="1400" height="1000"><p class="q">“They understand it in class, then freeze in the exam.”</p><p>Knowing something and being able to apply it under time pressure are two different skills.</p></div>
+        <div class="pain rv"><img class="pain-img" src="assets/img/online-class.webp" alt="" loading="lazy" width="1400" height="1000"><p class="q">“We tried a tutor. Nothing really changed.”</p><p>Generic homework help covers today's worksheet. It rarely fixes the reason it was hard.</p></div>
       </div>
       <p class="turn rv">At SAS Tutors we start underneath the problem. Fix the fundamentals first, and the grades come as a by-product.</p>
     </div>
@@ -621,7 +629,8 @@ dialog[open]{animation:pop .25s ease-out}
   <section id="reviews" style="padding-block:clamp(64px,7vw,96px)">
     <div class="wrap">
       <div class="center"><span class="eyebrow">Parents and students</span>
-        <h2 class="rv" style="margin:14px auto 0;max-width:760px">Don't take our word for it</h2></div>
+        <h2 class="rv" style="margin:14px auto 0;max-width:760px">Don't take our word for it</h2>
+        <div class="capsules" aria-hidden="true"><img src="assets/img/student-focus.webp" alt="" loading="lazy" width="1400" height="1000"><img src="assets/img/group.webp" alt="" loading="lazy" width="1400" height="1000"><img src="assets/img/student-smile.webp" alt="" loading="lazy" width="1400" height="1000"></div></div>
       <div class="reviews" id="wall"><!--seo:wall--><figure class="review feature rv"><span class="stars">★★★★★</span><blockquote>“He utilises a wide range of useful and creative online tools to maximise teaching effectiveness, and makes sure there&#x27;s enough revision material to practise between lessons. A real find. Would highly recommend to anyone needing a maths tutor.”</blockquote><figcaption class="who"><b>A</b><div><strong>Adrian</strong><small>Parent · with SAS for 1.5 years</small></div></figcaption></figure><div class="stat rv"><strong>500+</strong><span>hours of 1:1 tutoring in a single year</span></div><figure class="review rv"><span class="stars">★★★★★</span><blockquote>“Tailored his teaching approach to suit my son&#x27;s individual learning style and needs. Whether it&#x27;s daily assignments or upcoming tests, he&#x27;s always thorough, patient, and reliable.”</blockquote><figcaption class="who"><b>K</b><div><strong>Kalpana P.</strong><small>Parent</small></div></figcaption></figure><figure class="review rv"><span class="stars">★★★★★</span><blockquote>“Informative yet engaging. Friendly, very flexible, and lessons are always well-structured and straightforward. If you&#x27;re in Year 11 or 12, I&#x27;d highly recommend.”</blockquote><figcaption class="who"><b>D</b><div><strong>Daffa</strong><small>Year 12 student</small></div></figcaption></figure><div class="stat rv"><strong>5.0★</strong><span>rated Excellent by parents and students</span></div><figure class="review rv"><span class="stars">★★★★★</span><blockquote>“A very good tutor. Definitely recommend to anyone looking for tutoring.”</blockquote><figcaption class="who"><b>R</b><div><strong>Riaz A.</strong><small>Parent</small></div></figcaption></figure><div class="stat rv"><strong>Years 4 → University</strong><span>American, British, IB, CBSE/ISC and Australian curriculums, plus SAT, IMAT, BMAT and UCAT</span></div><a class="ig rv" href="https://www.instagram.com/sas_tutors/" target="_blank" rel="noopener"><p>See study tips and student wins on Instagram</p><span>@sas_tutors →</span></a><!--/seo:wall--></div>
     </div>
   </section>
