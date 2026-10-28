@@ -22,7 +22,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32.png">
 <link rel="manifest" href="site.webmanifest">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
-<script>if(new URLSearchParams(location.search).get("v")==="1"){document.documentElement.dataset.v="1";document.getElementById("theme-color").content="#10213A"}
+<script>(()=>{let v=new URLSearchParams(location.search).get("v");try{v===null?v=sessionStorage.sasV:v?sessionStorage.sasV=v:sessionStorage.removeItem("sasV")}catch(e){}  // ?v=1 original palette, ?v=2 redesign preview, ?v= back to default; sticks for the session
+if(v==="1"){document.documentElement.dataset.v="1";document.getElementById("theme-color").content="#10213A"}
+if(v==="2"){document.documentElement.dataset.v="2";document.getElementById("theme-color").content="#FFFFFF";const l=document.createElement("link");l.rel="stylesheet";l.href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap";document.head.append(l)}})()
 try{if(sessionStorage.sasSplash)document.documentElement.classList.add("seen");sessionStorage.sasSplash=1}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -379,6 +381,59 @@ dialog[open]{animation:pop .25s ease-out}
 @keyframes zoom{to{transform:scale(1.12)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}.splash{display:none}.io .rv{opacity:1;translate:none}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* v2 redesign (?v=2): white pages, one violet accent, yellow sparkles, pill shapes everywhere */
+:root[data-v="2"]{
+  --ink:#16122E; --ink-2:#5D5A74; --paper:#FFFFFF; --card:#fff; --line:#ECE9F6; --grid:transparent;
+  --accent:#5B3DF5; --accent-2:#4B2DE6; --sun:#FFC83D; --blue:#5B3DF5; --mint:#5B3DF5; --sky:#F2EFFF;
+  --on-accent:#fff; --glow:91,61,245; --ring:91,61,245; --ruled:#EEEAFB; --r:24px;
+  --shadow:0 1px 2px rgba(22,18,46,.05),0 18px 40px -18px rgba(22,18,46,.22);
+  --serif:"Plus Jakarta Sans","IBM Plex Sans Arabic",system-ui,sans-serif; --sans:"Plus Jakarta Sans","IBM Plex Sans Arabic",system-ui,sans-serif;
+}
+[data-v="2"] h1,[data-v="2"] h2{font-weight:800;letter-spacing:-.035em}
+[data-v="2"] .eyebrow{padding:8px 14px;border-radius:999px;background:var(--sky);color:var(--accent);font:700 13px/1 var(--sans);letter-spacing:0;text-transform:none}
+[data-v="2"] .mark,[data-v="2"] .hero h1 em{color:inherit;background:linear-gradient(transparent 74%,var(--sun) 74% 90%,transparent 90%);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+[data-v="2"] :is(.btn,a,summary,button):focus-visible,[data-v="2"] .field:focus-within{outline-color:var(--accent)}
+[data-v="2"] .hero::before{background:radial-gradient(40% 50% at 85% 30%,#EDE8FF,transparent 70%),radial-gradient(30% 40% at 5% 90%,#FFF6DD,transparent 70%);-webkit-mask-image:none;mask-image:none}
+[data-v="2"] .hero-visual::before{content:"";position:absolute;z-index:-1;right:-6%;top:6%;width:64%;aspect-ratio:1;border-radius:50%;background:var(--accent)}
+[data-v="2"] .hero-visual::after{content:"✦";position:absolute;left:-2%;top:-3%;font-size:46px;line-height:1;color:var(--sun)}
+[data-v="2"] .hero-visual .photo{border-radius:999px;border:8px solid #fff;background:var(--sky)}
+[data-v="2"] .quick{border-radius:32px;padding:8px;border:1px solid var(--line)}
+[data-v="2"] .quick .field{border-radius:999px;background:var(--sky);padding-inline:22px}
+[data-v="2"] .quick .field{flex:1 1 170px}
+[data-v="2"] .quick .btn{border-radius:999px;flex:1 0 100%}
+[data-v="2"] .btn.ghost,[data-v="2"] .plan:not(.pop) .btn{color:var(--ink)}
+[data-v="2"] .btn.ghost:hover,[data-v="2"] .plan:not(.pop) .btn:hover{color:#fff}
+[data-v="2"] .float{border-radius:999px;padding:8px 22px 8px 8px;border:1px solid var(--line)}
+[data-v="2"] .float .ic{border-radius:50%;background:var(--sky)!important}
+[data-v="2"] .marquee span::after{content:"✦";color:var(--sun);font-size:18px}
+[data-v="2"] .pain,[data-v="2"] .peek-card,[data-v="2"] .review,[data-v="2"] .stat,[data-v="2"] .plan,[data-v="2"] .facts li{border-color:var(--line);box-shadow:var(--shadow)}
+[data-v="2"] .method{background:var(--accent)}
+[data-v="2"] .method .eyebrow{background:rgba(255,255,255,.14);color:#fff}
+[data-v="2"] .method .lead,[data-v="2"] .step p,[data-v="2"] .method .cta-row small{color:#DCD5FF}
+[data-v="2"] .step{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18)}
+[data-v="2"] .method .btn{--bg:#fff;color:var(--accent);box-shadow:0 10px 24px -10px rgba(0,0,0,.35)}
+[data-v="2"] .method .btn:hover{background:var(--sun);color:var(--ink)}
+[data-v="2"] .step img{border-radius:999px 999px 20px 20px}
+[data-v="2"] .player{border-radius:40px}
+[data-v="2"] .player .play i::after{border-left-color:#fff}
+[data-v="2"] .tutors{background:var(--sky);border:0}
+[data-v="2"] .review.feature{background:var(--accent);color:#fff}
+[data-v="2"] .review.feature .who small{color:#DCD5FF}
+[data-v="2"] .review.feature .who b{background:#fff;color:var(--accent)}
+[data-v="2"] .stars{color:var(--sun)}
+[data-v="2"] .stat{background:var(--sky)}
+[data-v="2"] .ig{background:var(--ink)}
+[data-v="2"] .plan.pop{border-color:var(--accent)}
+[data-v="2"] .plan .badge{background:var(--sun);color:var(--ink)}
+[data-v="2"] .final{background:var(--accent)}
+[data-v="2"] .final::before{background:#fff;opacity:.1}
+[data-v="2"] .final .quick{background:#fff;border:0}
+[data-v="2"] .final .quick .field{background:var(--sky)}
+[data-v="2"] .final .quick .field label{color:var(--ink-2)}
+[data-v="2"] .final .quick select{color:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2316122E' stroke-width='2' fill='none'/%3E%3C/svg%3E")}
+[data-v="2"] .final .quick .btn{--bg:var(--accent);color:#fff}
+[data-v="2"] .final .quick .btn:hover{background:var(--accent-2)}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'"><style>:root{--serif:"IBM Plex Sans Arabic","Bricolage Grotesque",system-ui,sans-serif;--sans:"IBM Plex Sans Arabic","Figtree",system-ui,sans-serif}html[dir=rtl] h1,html[dir=rtl] h2,html[dir=rtl] h3{letter-spacing:0}.marquee{direction:ltr}</style></head>
 <body>
