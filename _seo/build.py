@@ -372,4 +372,14 @@ plans_md = "\n".join(f"- {p['hours']} hours: ${p['perHour']}/hour (${p['hours'] 
 
 ## FAQ
 """ + "\n".join(f"### {q}\n{a}\n" for q, a in faqs))
-print(f"index.html, {len(pages)} region pages, redirects, sitemap.xml, robots.txt, llms.txt")
+# Agentic Resource Discovery catalog. We have no agent tools (API, MCP server, skills) to list, so entries stay empty and
+# the host block points agents at llms.txt; ARD's entry types are all agent tooling, so llms.txt can't be an entry itself.
+# ai-catalog.json is the path Lighthouse checks, ard.json the newer name in ARD 0.91. _config.yml publishes the dot folder.
+domain = SITE.split("//")[1]
+catalog = json.dumps({"specVersion": "1.0",
+    "host": {"displayName": B["name"], "identifier": domain, "documentationUrl": f"{SITE}/llms.txt"},
+    "entries": []}, indent=2) + "\n"
+(ROOT / ".well-known").mkdir(exist_ok=True)
+for name in ("ai-catalog.json", "ard.json"):
+    (ROOT / ".well-known" / name).write_text(catalog)
+print(f"index.html, {len(pages)} region pages, redirects, sitemap.xml, robots.txt, llms.txt, .well-known catalog")
